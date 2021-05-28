@@ -1,9 +1,4 @@
 export default {
-
-  script: [
-
-  ],
-
   ssr: false,
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -22,17 +17,13 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: "preconnect", href: "https://fonts.gstatic.com" },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap'}
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,300&display=swap'}
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '@/assets/css/index.css',
-  ],
-  styleResources: {
     scss: [
-        '~/assets/css/abstracts/_variables.scss',
         '~/assets/css/abstracts/_mixins.scss',
     ]
   },
