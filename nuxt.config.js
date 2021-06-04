@@ -17,15 +17,19 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: "preconnect", href: "https://fonts.gstatic.com" },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,300&display=swap'}
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap'}
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '@/assets/css/main.scss',
+    '@/assets/css/index.css',
   ],
-
+  styleResources: {
+    scss: [
+        '~/assets/css/abstracts/_variables.scss',
+    ]
+  },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
   ],
@@ -35,6 +39,7 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxtjs/composition-api/module'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -52,15 +57,7 @@ export default {
           measurementId: process.env.MEASUREMENT_ID
         },
         services: {
-          auth: true,
-          firestore: true,
           storage: true,
-          // functions: true,
-          // database: true,
-          // messaging: true,
-          // performance: true,
-          // analytics: true,
-          // remoteConfig: true
           // Initializes Firebase Authentication and makes it available via $fire.auth and $fireModule.auth
           auth: {
             persistence: 'local', // default
@@ -86,7 +83,8 @@ export default {
           }
         }
       }
-    ]
+    ],
+    '@nuxtjs/style-resources',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

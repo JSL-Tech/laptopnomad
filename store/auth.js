@@ -23,5 +23,9 @@ export const mutations = {
   },
 }
 
-export const actions = {}
+export const actions = {
+  // signOut() {
+  //   this.$fire.auth.sign
+  // }
+}
 
