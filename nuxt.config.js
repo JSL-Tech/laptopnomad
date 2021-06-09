@@ -1,4 +1,10 @@
 export default {
+
+  script: [
+    {src:'/bootstrap.bundle.min.js'},
+    { src: '~/assets/scss/app.scss', lang: 'scss' },
+  ],
+
   ssr: false,
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -85,6 +91,8 @@ export default {
       }
     ],
     '@nuxtjs/style-resources',
+    'bootstrap-vue/nuxt',
+
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
