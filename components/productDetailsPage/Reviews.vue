@@ -137,9 +137,18 @@ export default defineComponent({
 .stats {
   display: inline-block;
   width: 50%;
+
+  @include respond(phone) {
+    display: block;
+    width: 100%;
+  }
+
   &__box {
     width: 80%;
     margin: 0 0 0 auto;
+    @include respond(phone) {
+    margin: 0 auto;
+    }
   }  
   &__total {
     font-size: 1.5rem;
@@ -185,13 +194,10 @@ export default defineComponent({
     }
   }
 
-
   &__row-percent {
     display: inline-block;
     font-size: 1.2rem;
   }
-
-
 }
 
 .reviews {
@@ -201,6 +207,15 @@ export default defineComponent({
   border-left: 1px solid $color-grey-light;
   padding: 1rem 0;
   margin-bottom: 2rem;
+
+  @include respond(phone){
+    display: block;
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid $color-grey-light;
+    margin-top: 2rem;
+    padding-top: 2rem;
+  }
   
 }
 
