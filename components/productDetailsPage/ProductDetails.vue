@@ -245,10 +245,10 @@ export default defineComponent({
     width: 70%;
     text-align: center;
     margin: 0 auto;
-    
+    margin-bottom: 4rem;
+
     @include respond(phone){
       width: 40%;
-      margin-bottom: 4rem;
     }
   }
 
