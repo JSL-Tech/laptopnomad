@@ -28,6 +28,7 @@ export default {
   styleResources: {
     scss: [
         '~/assets/css/abstracts/_variables.scss',
+        '~/assets/css/abstracts/_mixins.scss',
     ]
   },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

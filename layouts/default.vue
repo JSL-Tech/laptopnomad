@@ -5,7 +5,22 @@
 </template>
 
 <style lang="scss" >
+html {
 
+    @include respond(tab-land) {
+        font-size: 56.25%;
+    }
+    @include respond(tab-port) {
+        font-size: 50%;
+    }
+    @include respond(big-desktop) {
+        font-size: 75%;
+    }
+    // @include respond(phone) {
+    //     font-size: 50%;
+    // }
+
+}
 
 body {
   font-family: "Montserrat", sans-serif;
@@ -16,6 +31,10 @@ body {
   background-color: $color-primary;
   padding: 2rem 6rem;
   min-height: 100vh;
+
+  @include respond(tab-port) {
+      padding: 2rem 0;
+  }
 }
 
 /* -------------------------------------------------------------------------- */

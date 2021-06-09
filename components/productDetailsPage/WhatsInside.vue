@@ -49,7 +49,6 @@ export default defineComponent({
   width: 100%;
   text-align: center;
 
-
   &__text {
     display: inline-block;
     font-size: 1.8rem;
@@ -66,6 +65,12 @@ export default defineComponent({
   display: inline-block;
   width: 33%;
   text-align: center;
+
+  @include respond(phone){
+    display: block;
+    width: 100%;
+    margin-top: 4rem;
+  }
 
   &__img {
     height: 20rem;

@@ -116,13 +116,19 @@ export default defineComponent({
   display: flex;
   min-height: 80vh;
   padding: 2rem 1rem;
-  max-width: 100%;
   margin: 0 auto;
   background-color: $color-white;
   min-width: fit-content;
 
+  @include respond(phone) {
+    display: block;
+    text-align: center;
+  }
+
   &__images {
-    width: 60%
+    width: 60%;
+
+    @include respond(phone){width: 100%;}
   }
 
   &__previewImages{
@@ -136,6 +142,9 @@ export default defineComponent({
     & img{
       display: block;
       max-width: 100%
+    }
+    @include respond(phone){
+      height: 40rem;
     }
   }
 
@@ -159,6 +168,14 @@ export default defineComponent({
 
   &__info{
     width: 25%;
+
+    @include respond(tab-port){
+      margin-left: 4rem;
+    }
+    @include respond(phone){
+      width: 90%;
+      margin: 0 auto;
+    }
   }
 
   &__title{
@@ -171,6 +188,10 @@ export default defineComponent({
   &__price{
     font-size: 1.6rem;
     margin-bottom: 4rem;
+
+    @include respond(tab-port){
+      font-size: 2rem;
+    }
 
     &--normal{
       color: $color-black;
@@ -199,7 +220,7 @@ export default defineComponent({
   }
 
   &__description{
-    margin: 2.5rem 0 5rem ;
+    margin: 2.5rem 0 5rem;
     font-size: 1.5rem;
     font-weight: 300;
     width: 100%;
@@ -216,7 +237,7 @@ export default defineComponent({
   }
 
   &__count-box {
-    margin: 0 1rem;
+    margin: 0 1.5rem;
     text-align: center;
   }
 
@@ -224,6 +245,11 @@ export default defineComponent({
     width: 70%;
     text-align: center;
     margin: 0 auto;
+    
+    @include respond(phone){
+      width: 40%;
+      margin-bottom: 4rem;
+    }
   }
 
   &__cta-button{
@@ -231,17 +257,21 @@ export default defineComponent({
     color: $color-white;
     font-weight: 700;
     letter-spacing: 0.15rem;
+
+    @include respond(phone){
+      padding: 2rem 0;
+    }
   }
 
 }
 
 .plus{
-  width: 1.6rem;
-  height: 100%;
+  width: 100%;
+  fill: $color-secondary-dark;
 }
 .minus{
-  width: 1.6rem;
-  height: 100%;
+  width: 100%;
+  fill: $color-secondary-dark;
 }
 .button{
   position: relative;
@@ -251,8 +281,8 @@ export default defineComponent({
 
   &--circle {
     border-radius: 100px;
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 2.6rem;
+    height: 2.6rem;
     border: 1px solid $color-black;
     background-color: $color-white;
     text-align: center;
@@ -272,14 +302,14 @@ export default defineComponent({
 
   &--square {
     border-radius: 0.5rem;
-    width: 4rem;
+    width: 6rem;
     height: 4rem;
     border: 1px solid $color-black;
     background-color: $color-white;
   }
 
   &--rectangle {
-    height: 4.5rem;
+    min-height: 4.5rem;
     border-radius: .5rem;
     background-color: $color-secondary-dark;
     border: none;
