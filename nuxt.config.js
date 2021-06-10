@@ -1,8 +1,7 @@
 export default {
 
   script: [
-    {src:'/bootstrap.bundle.min.js'},
-    { src: '~/assets/scss/app.scss', lang: 'scss' },
+
   ],
 
   ssr: false,
@@ -51,6 +50,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     [
+      'bootstrap-vue/nuxt',
       '@nuxtjs/firebase',
       {
         config: {
@@ -91,8 +91,6 @@ export default {
       }
     ],
     '@nuxtjs/style-resources',
-    'bootstrap-vue/nuxt',
-
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
