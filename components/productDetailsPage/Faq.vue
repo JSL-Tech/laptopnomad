@@ -5,7 +5,7 @@
       FAQ
       </h4>
     </div>
-    <section class="faq">
+    <section class="faq hideScrollbar">
       <h5 class="faq__header">Buyer Questions & Answers ({{faqObjs.length}})</h5>
       <div class="faq__box" v-for="faq in faqObjs" :key="faq.question">
         <p class="faq__text faq__text--dark"> 
@@ -47,6 +47,30 @@ export default defineComponent({
         question: 'Does it come with free gifts',
         reply: 'It comes with a pouch and a cable management. Both are free!'
       },
+      {
+        question: 'Does it come with free gifts',
+        reply: 'It comes with a pouch and a cable management. Both are free!'
+      },
+      {
+        question: 'Does it come with free gifts',
+        reply: 'It comes with a pouch and a cable management. Both are free!'
+      },
+      {
+        question: 'Does it come with free gifts',
+        reply: 'It comes with a pouch and a cable management. Both are free!'
+      },
+      {
+        question: 'Does it come with free gifts',
+        reply: 'It comes with a pouch and a cable management. Both are free!'
+      },
+      {
+        question: 'Does it come with free gifts',
+        reply: 'It comes with a pouch and a cable management. Both are free!'
+      },
+      {
+        question: 'Does it come with free gifts',
+        reply: 'It comes with a pouch and a cable management. Both are free!'
+      },
     ]
   return {faqObjs}
   },
@@ -60,6 +84,7 @@ export default defineComponent({
   background: $color-white;
   padding: 2rem 4rem;
   min-width: fit-content;
+  @include respond(phone) {}
 
 }
 .title{
@@ -80,6 +105,11 @@ export default defineComponent({
 .faq{
   width: 70%;
   margin: 0 auto;
+  max-height: 40vh;
+  overflow-y: scroll;
+  @include respond(phone) {
+    width: 90%;
+  }
 
   &__header {
     font-size: 1.7rem;

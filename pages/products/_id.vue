@@ -1,6 +1,6 @@
 <template>
   <div v-if="product != null">
-    <ProductDetails :product="product" />
+    <ProductDetails :product="product" @handle-add-to-cart="handleAddToCart" />
     <WhatsInside :product="product" /> 
     <Reviews :product="product" /> 
     <FAQ :product="product" /> 
@@ -22,7 +22,11 @@ export default defineComponent({
     const store = useStore()
     const product = computed(() => store.getters['products/product'](route.value.params.id))
 
-    return {product}
+    const handleAddToCart = (payload, isLoading) => {
+      store.dispatch('cart/addToCart', payload).then(() => isLoading.value = false)
+    }
+
+    return {product, handleAddToCart}
   },
 })
 </script>

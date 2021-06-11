@@ -23,24 +23,48 @@ export const mutations = {
   addItem: (state, payload) => {
     state.cart.push(payload)
   },
+  // Replaces an item with a new item
   updateItem: (state, payload) => {
     const itemIndex = state.cart.findIndex(cartItem => cartItem.id === payload.id)
-    state.cart[itemIndex] = payload
+    if(itemIndex != -1){
+      state.cart[itemIndex] = payload
+    } 
   },
+  // Adds to the count of an item
+  varyItemCount: (state, payload) => {
+    const itemIndex = state.cart.findIndex(cartItem => cartItem.id === payload.id)
+    if(itemIndex != -1){
+      state.cart[itemIndex].count += payload.count
+    }
+  },
+  updateItemCount: (state, payload) => {
+    const itemIndex = state.cart.findIndex(cartItem => cartItem.id === payload.id)
+    if(itemIndex != -1){
+      state.cart[itemIndex].count = payload.count
+    }
+  },
+  // Removes an item from the Cart
   deleteItem: (state, payload) => {
-    state.cart.filter(cartItem => cartItem.id != payload.id)
+    state.cart = state.cart.filter(cartItem => cartItem.id != payload.id)
   }
 }
 
 export const actions = {
+  // Add an item to the cart
+  // Must be the whole product including the count
   addToCart({commit, getters}, payload){
+    if(!payload.hasOwnProperty('count')){
+      throw "addToCart payload does not contain 'count' property "
+    }
     let item = getters.cartItem(payload.id)
     // If item is already in cart
     if(item){
-      commit('updateItem', payload)
+      commit('updateItemCount', payload)
     }else{
       // Item not in cart
       commit('addItem', payload)
     }
   },
+
+  
 }

@@ -3,18 +3,18 @@
     <section class="summary">
       <h3 class="summary__title">ORDER SUMMARY:</h3>
       <div class="summary__info">
-        <p class="summary__count">1 product</p>
+        <p class="summary__count">{{totalCount}} product{{totalCount > 1 ? 's' : ''}}</p>
         <p class="summary__cost">
           <span>Product Total</span>
-          <span>$35.00</span>
+          <span>${{totalPrice}}</span>
         </p>
         <p class="summary__cost">
           <span>Delivery</span>
-          <span class="summary__delivery--right">FREE</span>
+          <span class="summary__delivery--right">{{deliveryCost > 0 ? `$${deliveryCost}` : 'FREE'}}</span>
         </p>
         <p class="summary__cost summary__cost--total">
           <span>Total</span>
-          <span>$35.00</span>
+          <span>${{totalPrice + deliveryCost}}</span>
         </p>
       </div>
       <button class="summary__checkout summary__checkout--dark">
@@ -41,13 +41,29 @@
 </template>
 
 <script>
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, computed } from '@nuxtjs/composition-api'
 import PaymentIcons from './PaymentIcons.vue'
 
 export default defineComponent({
   components: {PaymentIcons},
-  setup() {
+  props: ['cart'],
+  setup(props) {
+    const deliveryCost = 0
+    const countReducer = (accumulator, currentVal) => accumulator + currentVal.count
+    // Total number of products in cart
+    const totalCount = computed(() => props.cart.reduce(countReducer, 0))
     
+    const priceReducer = (accumulator, currentVal) => {
+      if(currentVal.hasOwnProperty('salePrice') && currentVal.salePrice > 0){
+        return currentVal.salePrice * currentVal.count + accumulator
+      }else{
+        return currentVal.price * currentVal.count + accumulator
+      }
+    }
+    // Total price of all product in cart
+    const totalPrice = computed(() => props.cart.reduce(priceReducer, 0))
+
+    return {totalCount, totalPrice, deliveryCost}
   },
 })
 </script>
@@ -58,6 +74,10 @@ export default defineComponent({
   margin: 0 auto;
   background-color: $color-primary-light;
   padding: 1rem 2rem;
+  @include respond(phone) {
+    width: 100%;
+  }
+
   &__title {
     font-size: 1.8rem;
     letter-spacing: 1px;
@@ -103,7 +123,7 @@ export default defineComponent({
     display: flex;
     justify-content: space-between;
     width: 100%;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 300;
     letter-spacing: 0.4rem;
     text-transform: uppercase;
