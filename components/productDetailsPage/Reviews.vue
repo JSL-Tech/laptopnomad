@@ -12,41 +12,44 @@
     <section class="stats">
       <div class="stats__box">
         <h3 class="stats__total">Customer Reviews ({{testReview.totalReviews}})</h3>  
-        <div class="stats__row">
+        <div class="stats__row" @click="handleFilterChange(5)">
           <span class="stats__row-leading">5 Stars</span>
           <div class="stats__row-bar" :style="{'--width' : percentage(testReview.reviewCount.five, testReview.totalReviews)}"></div>
           <div class="stats__row-percent">{{percentage(testReview.reviewCount.five, testReview.totalReviews )}}</div>
         </div>
-        <div class="stats__row">
+        <div class="stats__row" @click="handleFilterChange(4)">
           <span class="stats__row-leading">4 Stars</span>
           <div class="stats__row-bar" :style="{'--width' : percentage(testReview.reviewCount.four, testReview.totalReviews)}"></div>
           <div class="stats__row-percent">{{percentage(testReview.reviewCount.four, testReview.totalReviews )}}</div>
         </div>
-        <div class="stats__row">
+        <div class="stats__row" @click="handleFilterChange(3)">
           <span class="stats__row-leading">3 Stars</span>
           <div class="stats__row-bar" :style="{'--width' : percentage(testReview.reviewCount.three, testReview.totalReviews)}"></div>
           <div class="stats__row-percent">{{percentage(testReview.reviewCount.three, testReview.totalReviews )}}</div>
         </div>
-        <div class="stats__row">
+        <div class="stats__row" @click="handleFilterChange(2)">
           <span class="stats__row-leading">2 Stars</span>
           <div class="stats__row-bar" :style="{'--width' : percentage(testReview.reviewCount.two, testReview.totalReviews)}"></div>
           <div class="stats__row-percent">{{percentage(testReview.reviewCount.two, testReview.totalReviews )}}</div>
         </div>
-        <div class="stats__row">
+        <div class="stats__row" @click="handleFilterChange(1)">
           <span class="stats__row-leading">1 Stars</span>
           <div class="stats__row-bar" :style="{'--width' : percentage(testReview.reviewCount.one, testReview.totalReviews)}"></div>
           <div class="stats__row-percent">{{percentage(testReview.reviewCount.one, testReview.totalReviews )}}</div>
         </div>
+        <button class="stats__row-button button button--rectangle" @click="filter = 0">View All</button>
       </div>
     </section> 
-    <section class="reviews">
-      <div class="review" v-for="review in testReview.reviews" :key="review.name">
-        <div class="review__name">{{review.name}}</div>
-        <div class="review__info">
-          <StarsRating class="review__rating" :value="review.stars" size="small"></StarsRating>
-          <div class="review__date" >{{review.dateCreated}}</div>
-          <div class="review__review">{{review.review}}</div>
-          <!-- <div class="reviews__single-media" :style="'background-image: url(' + review.media[0] + ')'"></div> -->
+    <section class="reviews hideScrollbar">
+      <div v-for="review in testReview.reviews" :key="review.name">
+        <div class="review" v-if="filter == 0 || filter == review.stars">
+          <div class="review__name">{{review.name}}</div>
+          <div class="review__info">
+            <StarsRating class="review__rating" :value="review.stars" size="small"></StarsRating>
+            <div class="review__date" >{{review.dateCreated}}</div>
+            <div class="review__review">{{review.review}}</div>
+            <img class="review__img" v-if="review.media.length > 0" src="~/assets/images/review_pic.jpg" alt="review image">
+          </div>
         </div>
       </div>
     </section>
@@ -54,7 +57,7 @@
 </template>
 
 <script>
-import { defineComponent, computed } from '@nuxtjs/composition-api'
+import { defineComponent, computed, ref } from '@nuxtjs/composition-api'
 import StarsRating from '../StarsRating.vue'
 
 export default defineComponent({
@@ -75,8 +78,57 @@ export default defineComponent({
         {
           name: 'L****L',
           review: 'I love this sleeve! Does the job well',
-          media: ['~assets/images/reviewPic.jpg'],
+          media: ['~/assets/images/review_pic.jpg'],
           stars: 5,
+          dateCreated: new Date().toLocaleDateString('en-SG'),
+        },
+        {
+          name: 'L****e',
+          review: 'I love this sleeve! Does the job well',
+          media: [],
+          stars: 4,
+          dateCreated: new Date().toLocaleDateString('en-SG'),
+        },
+        {
+          name: 'L****e',
+          review: 'I love this sleeve! Does the job well',
+          media: [],
+          stars: 4,
+          dateCreated: new Date().toLocaleDateString('en-SG'),
+        },
+        {
+          name: 'L****e',
+          review: 'I love this sleeve! Does the job well',
+          media: [],
+          stars: 4,
+          dateCreated: new Date().toLocaleDateString('en-SG'),
+        },
+        {
+          name: 'L****e',
+          review: 'I love this sleeve! Does the job well',
+          media: [],
+          stars: 4,
+          dateCreated: new Date().toLocaleDateString('en-SG'),
+        },
+        {
+          name: 'L****e',
+          review: 'I love this sleeve! Does the job well',
+          media: [],
+          stars: 4,
+          dateCreated: new Date().toLocaleDateString('en-SG'),
+        },
+        {
+          name: 'L****e',
+          review: 'I love this sleeve! Does the job well',
+          media: [],
+          stars: 4,
+          dateCreated: new Date().toLocaleDateString('en-SG'),
+        },
+        {
+          name: 'L****e',
+          review: 'I love this sleeve! Does the job well',
+          media: [],
+          stars: 4,
           dateCreated: new Date().toLocaleDateString('en-SG'),
         },
         {
@@ -88,10 +140,15 @@ export default defineComponent({
         },
       ]
     }
+    const noReviews = ref(false);
+    const filter = ref(0)
 
     const percentage = (current, total) => Math.round(current / total * 100) + '%'
 
-    return {testReview, percentage}
+    const handleFilterChange = (filterInt) => {
+      filter.value = filterInt
+    }
+    return {testReview, filter, percentage, handleFilterChange}
   },
 })
 </script>
@@ -136,6 +193,7 @@ export default defineComponent({
 
 .stats {
   display: inline-block;
+  vertical-align: top;
   width: 50%;
 
   @include respond(phone) {
@@ -145,12 +203,15 @@ export default defineComponent({
 
   &__box {
     width: 80%;
-    margin: 0 0 0 auto;
+    margin: 0 auto;
+    text-align: center;
+
     @include respond(phone) {
     margin: 0 auto;
     }
   }  
   &__total {
+    text-align: left;
     font-size: 1.5rem;
     margin-bottom: 1rem;
   }
@@ -159,9 +220,24 @@ export default defineComponent({
     display: inline-block;
     width: 100% ;
     white-space: nowrap;
+    border-bottom: 1px solid transparent;
+    user-select: none;
 
     &:not(:last-child){
       margin-bottom: 0.7rem;
+    }
+
+    &:hover {
+      box-shadow: 0 0.5rem 1rem rgba($color-primary, 0.5);
+      background-color: $color-white;
+      border-bottom: 1px solid rgba($color-primary, 0.15);
+      transform: scale(1.05);
+    }
+    &:active {
+      box-shadow: 0 0.5rem 1rem rgba($color-primary, 0.7);
+      background-color: $color-white;
+      border-bottom: 1px solid rgba($color-primary, 0.15);
+      transform: scale(1.02);
     }
   }
 
@@ -169,7 +245,7 @@ export default defineComponent({
     display: inline-block;
     font-size: 1.2rem;
     width: 4.2rem;
-    width: 7%;
+    width: 10%;
     min-width: fit-content;
   }
 
@@ -177,7 +253,7 @@ export default defineComponent({
     display: inline-block;
     background-color: $color-grey-light;
     height: 0.3rem;
-    width: 70%;
+    width: 80%;
     margin: 0 1rem;
     position: relative;
 
@@ -195,18 +271,30 @@ export default defineComponent({
   }
 
   &__row-percent {
+    width: 10%;
     display: inline-block;
     font-size: 1.2rem;
+  }
+
+  &__row-button {
+    display: inline-block;
+    width: 30%;
+
+    @include respond(phone) {
+      font-size: 1.4rem;
+    }
   }
 }
 
 .reviews {
   display: inline-block;
+  height: 25rem;
   width: 49%;
   text-align: center;
   border-left: 1px solid $color-grey-light;
   padding: 1rem 0;
   margin-bottom: 2rem;
+  overflow-y: scroll;
 
   @include respond(phone){
     display: block;
@@ -217,15 +305,18 @@ export default defineComponent({
     padding-top: 2rem;
   }
   
+  
 }
 
 .review {
   margin: 0 auto;
   width: 80%;
-  &:not(:last-child){
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid $color-grey-light;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid $color-grey-light;
+  @include respond(phone) {
+    width: 95%;
   }
+  
 
   &__name {
     display: inline-block;
@@ -240,6 +331,7 @@ export default defineComponent({
     display: inline-block;
     width: 80%;
     text-align: left;
+    
   }
 
   &__rating {
@@ -256,6 +348,35 @@ export default defineComponent({
   &__review {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    // @include respond(phone) {
+    // font-size: 1.3rem;
+    // }
+  }
+
+  &__img {
+    height: 6rem;
+  }
+}
+.button {
+  transition: all 0.15s;
+  color: $color-white;
+
+  &--rectangle {
+    min-height: 3rem;
+    border-radius: .5rem;
+    background-color: $color-secondary-dark;
+    border: none;
+    box-shadow: 0 1rem 2rem rgba($color-black, .15);
+
+    &:hover {
+      box-shadow: 0 1.5rem 3rem rgba($color-black, .2);
+      transform: translateY(-0.5rem);
+    }
+
+    &:active{
+      box-shadow: 0 1rem 1.5rem rgba($color-black, .15);
+      transform: translateY(-0.2rem);
+    }
   }
 }
 </style>

@@ -1,45 +1,50 @@
 <template>
   <div>
     <section class="items">
-      <div class="item">
-        <img class="item__img" src="~/assets/images/pouch.png" alt="product image">
+      <div class="items__empty" v-if="cart.length == 0">
+        Your shopping cart is empty
+      </div>
+      <div class="item" v-for="item in cart" :key="item.id">
+        <img class="item__img" :src="item.imageUrls[0]" alt="product image">
         <div class="item__info">
           <p class="item__name">
-            nomad sleeve
+            {{item.name}}
           </p>
-          <p class="item__option">Color: Natural Oak</p>
+          <p class="item__option">Color: {{item.colorName}}</p>
           <p class="item__option">Size: Macbook Pro 13'</p>
           <!-- Product Price -->
           <!-- <p v-if="item.salePrice" class="details__price"> -->
-          <p class="item__price">
-            <span class="item__price--normal">$35.00</span>
-            <span class="item__price--strike">$45.00</span>
+          <p class="item__price" v-if="item.salePrice">
+            <span class="item__price--normal">${{item.salePrice}}</span>
+            <span class="item__price--strike">${{item.price}}</span>
           </p>
-          <!-- <p v-else>
-            <span class="details__price--normal">${{product.price}}</span>
-          </p> -->
+          <p v-else>
+            <span class="item__price--normal">${{item.price}}</span>
+          </p>
           <!-- Product count box -->
         </div>
         <div class="item__actions">
           <div class="item__button-box">
-            <button class="button button--circle" @click.prevent="{}">
-              <svg xmlns="http://www.w3.org/2000/svg" class="minus" viewBox="0 0 20 20" fill="currentColor">
+            <button class="button button--circle" @click.prevent="varyCountChange(item, -1)">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
               </svg>
             </button>
-            <input type="number" class="item__count-box button--square " @change="(e) => {}"/>
-            <button class="button button--circle" @click.prevent="{}">
-              <svg xmlns="http://www.w3.org/2000/svg" class="plus" viewBox="0 0 20 20" fill="currentColor">
+            <input type="number" :value="item.count" class="item__count-box button--square" @change="(e) => handleCountChange(item, e.target.value)"/>
+            <button class="button button--circle" @click.prevent="varyCountChange(item, 1)">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
               </svg>
             </button>
           </div>
-          <button class="item__remove button button--text">remove</button> 
+          <button class="item__remove button button--text" @click="handleRemove(item)">remove</button> 
         </div>
       </div>
       <!-- Call to action button -->
       <div class="cart__cta u-mb-2">
-        <button class="button button--rectangle cart__cta-button">Continue Shopping</button>
+        <nuxt-link to="/">
+          <button class="button button--rectangle cart__cta-button">Shop More</button>
+        </nuxt-link>
       </div>
     </section>
   </div>
@@ -49,7 +54,45 @@
 import { defineComponent} from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  setup() {
+  props: ['cart'],
+  setup(props, {emit}) {
+    const varyCountChange = (item, payload) => {
+      var count = item.count + payload
+      if(count < 1 ){
+        if(count === 0){
+          return
+        }else{
+          count = 1
+        }
+      }else if(count > 100){
+        if(count === 101){
+          return
+        }else{
+          count = 100
+        }
+      }
+      emit('handle-count-change', item.id, count)
+    }
+
+    const handleCountChange = (item, payload) => {
+      var count = parseInt(payload)
+      console.log(count)
+      if(count > 100){
+        count = 100
+      }else if(count < 1){
+        count = 1
+      }
+      console.log(count)
+
+      emit('handle-count-change', item.id, count)
+    }
+
+    const handleRemove = (item) => {
+      // TODO: Some form of confirmation
+      emit('handle-remove', item.id)
+    }
+
+    return {handleCountChange, varyCountChange, handleRemove}
   },
 })
 </script>
@@ -63,28 +106,47 @@ export default defineComponent({
   height: auto;
   padding: 1rem 0;
   min-width: fit-content;
+  text-align: center;
+  @include respond(phone) {
+    min-width: 0;
+    width: 100%;
+  }
+
+  &__empty{
+    font-size: 3rem;
+  }
 }
 .item{
   width: 80%;
   margin: 0 auto;
-  margin-bottom: 4rem;
+  margin-bottom: 0.5rem;
   text-align: center;
-  padding: 3rem 0;
+  padding: 3rem ;
   border-bottom: 1px solid $color-primary;
   white-space: nowrap;
   min-width: fit-content;
+  @include respond(phone) {
+    min-width: 0;
+    text-align: center;
+  }
+
 
   &__img {
     display: inline-block;
-    width: 14rem;
-    vertical-align: top;
+    width: 12rem;
+    vertical-align: middle;
   }
 
   &__info {
     display: inline-block;
+    vertical-align: middle;
     margin: 0 2rem;
     text-align: left;
-    height: auto;
+    @include respond(phone) {
+      display: block;
+      text-align: center;
+      margin: 1rem 0;
+    }
   }
 
   &__name {
@@ -101,8 +163,8 @@ export default defineComponent({
   &__price {
     font-size: 1.4rem;
 
-    @include respond(tab-port){
-      font-size: 2rem;
+    @include respond(phone) {
+      margin-top: 0.5rem;
     }
 
     &--normal{
@@ -116,7 +178,12 @@ export default defineComponent({
 
   &__actions {
     display: inline-block;
+    vertical-align: middle;
     margin-left: 4rem;
+    @include respond(phone) {
+      display: block;
+      margin-left: 0;
+    }
   }
   &__button-box {
     display: flex;
@@ -133,7 +200,16 @@ export default defineComponent({
 
   &__remove {
     width: 100%;
+    font-size: 1.2rem;
+    font-weight: 300;
     color: red;
+
+    &:hover {
+      color: darkred;
+    }
+    &:active {
+      color: red;
+    }
   }
 }
 
@@ -142,6 +218,7 @@ export default defineComponent({
     width: 40%;
     text-align: center;
     margin: 0 auto;
+    margin-top: 2rem;
     
     @include respond(phone){
       width: 40%;
@@ -205,7 +282,7 @@ export default defineComponent({
 
     &:hover {
       box-shadow: 0 1.5rem 3rem rgba($color-black, .2);
-      transform: translateY(-0.5rem);
+      transform: translateY(-0.4rem);
     }
 
     &:active{
@@ -223,5 +300,9 @@ export default defineComponent({
   &--animated {
     animation: moveInBottom 1s ease-out .3s backwards;
   }
+}
+
+.icon {
+  fill: $color-black;
 }
 </style>

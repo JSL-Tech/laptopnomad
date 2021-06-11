@@ -50,7 +50,8 @@
       </div>
       <!-- Call to action button -->
       <div class="details__cta">
-        <button class="button button--rectangle details__cta-button">Add to Card</button>
+        <button v-if="!isLoading" class="button button--rectangle details__cta-button" @click.prevent="handleAddToCart">Add to Card</button>
+        <button v-else class="button button--rectangle details__cta-button" disabled><p class="loader"></p></button>
       </div>
     </section>
     
@@ -62,27 +63,14 @@ import { defineComponent, ref, computed, watch } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: ['product'],
-  setup(props) {
+  setup(props, { emit }) {
     const previewImageIndex = ref(0)
-    // const previewImage = ref(null)
     const count = ref(1);
-    const selected = ref({})
-    
-
-    // onMounted(() => {
-    //   if(product.value == null){
-    //     store.dispatch('products/loadProduct', props.id)
-    //   }
-    // })
-
+    const isLoading = ref(false)
 
     const previewImage = computed(() => 
-     props.product.imageUrls[previewImageIndex.value])
-    // watch([props.product, previewImageIndex], (index, prevIndex) => {
-    //   if(props.product && index != prevIndex){
-    //     previewImage.value = props.product.imageUrls[index]
-    //   }
-    // })
+      props.product.imageUrls[previewImageIndex.value]
+    )
 
     const handlePreviewImage = (index) => {
       console.log(index)
@@ -99,11 +87,12 @@ export default defineComponent({
       count.value = val
     }
 
-    // const handleAddToCart = () = {
+    const handleAddToCart = () => {
+      isLoading.value = true
+      emit('handle-add-to-cart', {...props.product, count: count.value}, isLoading)
+    }
 
-    // }
-
-    return {previewImage, count, selected, handlePreviewImage, handleCountChange}
+    return {previewImage, count, isLoading, handlePreviewImage, handleCountChange, handleAddToCart}
   },
 })
 </script>
@@ -246,6 +235,7 @@ export default defineComponent({
     text-align: center;
     margin: 0 auto;
     margin-bottom: 4rem;
+    text-align: center;
 
     @include respond(phone){
       width: 40%;
