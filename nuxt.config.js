@@ -1,4 +1,9 @@
 export default {
+
+  script: [
+
+  ],
+
   ssr: false,
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -46,6 +51,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    'bootstrap-vue/nuxt',
     [
       '@nuxtjs/firebase',
       {

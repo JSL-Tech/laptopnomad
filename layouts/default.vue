@@ -1,8 +1,21 @@
 <template>
   <div>
+    <Navbar />
     <Nuxt />
   </div>
 </template>
+
+<script>
+import Navbar from '@/components/Navigation/Navbar'
+import { defineComponent } from '@nuxtjs/composition-api'
+
+export default defineComponent({
+    components: {Navbar},
+    setup() {
+        
+    },
+})
+</script>
 
 <style lang="scss" >
 html {
@@ -21,7 +34,6 @@ html {
     // }
 
 }
-
 body {
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
@@ -60,7 +72,6 @@ body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
-
 
 /* -------------------------------------------------------------------------- */
 /*                                  Animation                                 */
