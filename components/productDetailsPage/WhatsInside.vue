@@ -65,6 +65,7 @@ export default defineComponent({
   display: inline-block;
   width: 33%;
   text-align: center;
+  border: none;
 
   @include respond(phone){
     display: block;

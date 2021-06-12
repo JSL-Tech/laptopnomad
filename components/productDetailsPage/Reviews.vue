@@ -41,7 +41,7 @@
       </div>
     </section> 
     <section class="reviews hideScrollbar">
-      <div v-for="review in testReview.reviews" :key="review.name">
+      <div v-for="(review, index) in testReview.reviews" :key="index">
         <div class="review" v-if="filter == 0 || filter == review.stars">
           <div class="review__name">{{review.name}}</div>
           <div class="review__info">
@@ -156,7 +156,7 @@ export default defineComponent({
 
 <style lang="scss" scooped>
 .container {
-  margin: 2rem 0;
+  margin: 2rem auto;
   background: $color-white;
   padding: 2rem 4rem;
   min-width: fit-content;
