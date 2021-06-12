@@ -5,8 +5,8 @@
         <div class="row">
             <div class="about__box col-md-4 col-lg-4 d-sm-none d-md-block">
                  <div class="card__front">
-                    <b-img src="../../assets/images/AddOn2.png" fluid alt="Responsive image" class=" card__image--2"></b-img>
-                    <b-img src="../../assets/images/5.jpg" fluid alt="Responsive image" class=" card__image--3"></b-img>
+                    <b-img src="~/assets/images/AddOn2.png" fluid alt="Responsive image" class=" card__image--2"></b-img>
+                    <b-img src="~/assets/images/5.jpg" fluid alt="Responsive image" class=" card__image--3"></b-img>
                     </div>
                 <div class="image__heading-left">
                     <h1 class="image__heading--1"> BONUS </h1>
@@ -15,7 +15,7 @@
             </div>
             <div class="about__box col-sm-12 col-md-4 col-lg-4">
                     <div class="card__front">
-                    <b-img src="../../assets/images/Advert.png" fluid alt="Responsive image" class="card__image card__image--1"></b-img>
+                    <b-img src="~/assets/images/Advert.png" fluid alt="Responsive image" class="card__image card__image--1"></b-img>
                     </div>
                     <div class="card__heading">
                     <h1 class="card__heading--1"> Nomad Sleeve </h1>
@@ -28,8 +28,8 @@
             </div>
             <div class="about__box col-md-4 col-lg-4 d-sm-none d-md-block">
                     <div class="card__front">
-                    <b-img src="../../assets/images/Main_edited.jpg" fluid alt="Responsive image" class=" card__image--4"></b-img>
-                    <b-img src="../../assets/images/pouch.png" fluid alt="Responsive image" class=" card__image--5"></b-img>
+                    <b-img src="~/assets/images/Main_edited.jpg" fluid alt="Responsive image" class=" card__image--4"></b-img>
+                    <b-img src="~/assets/images/pouch.png" fluid alt="Responsive image" class=" card__image--5"></b-img>
                     </div>
                     <div class="image__heading-right">
                     <h1 class="image__heading--1"> BONUS </h1>
