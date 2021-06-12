@@ -41,7 +41,7 @@
         </div>
       </div>
       <!-- Call to action button -->
-      <div class="cart__cta u-mb-2">
+      <div class="cart__cta u-mb-1">
         <nuxt-link to="/">
           <button class="button button--rectangle cart__cta-button">Shop More</button>
         </nuxt-link>
@@ -231,6 +231,7 @@ export default defineComponent({
     color: $color-white;
     font-weight: 700;
     letter-spacing: 0.15rem;
+    font-size: 1.2rem;
   
     @include respond(phone){
       padding: 2rem 0;

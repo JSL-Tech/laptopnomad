@@ -14,6 +14,7 @@
         <nuxt-link :to="{path: '/', hash:'#about'}"  @click.native="scroll('about')">About Us</nuxt-link>
         <nuxt-link :to="'/products/1rBHJM0XvnEFeYDxso9t'">first product</nuxt-link>
         <nuxt-link :to="'/products/rXvql9MfAnrW8OPu1fEn'">second product</nuxt-link>
+        <nuxt-link :to="'/cart'">Cart</nuxt-link>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -49,15 +50,12 @@ export default defineComponent({
 })
 </script>
 
-<style>
-
-
-
-a,
-a:link,
-a:visited{
-  text-decoration: none;
-  color: white;
-  margin-right: 5px;
-}
+<style scoped>
+  a,
+  a:link,
+  a:visited{
+    text-decoration: none;
+    color: white;
+    margin-right: 5px;
+  }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="sect">
     <div class="title">
       <h4 class="title__text">
       Reviews
@@ -153,13 +153,13 @@ export default defineComponent({
 })
 </script>
 
-
-<style lang="scss" scooped>
-.container {
+<style lang="scss" scoped>
+.sect {
   margin: 2rem auto;
   background: $color-white;
   padding: 2rem 4rem;
   min-width: fit-content;
+  width: 100%;
 
 }
 .title{
