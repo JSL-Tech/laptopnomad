@@ -4,23 +4,32 @@
   </div>
 </template>
 
+
 <script>
-import { defineComponent, useStore, useRoute, computed} from '@nuxtjs/composition-api'
-
+import aboutPage from "@/components/frontPageDetails/aboutPage"
+import { defineComponent} from "@nuxtjs/composition-api"
 export default defineComponent({
-  middleware: [],
-  components: {},
+  components: {aboutPage},
   setup() {
-    const route = useRoute()
-    const store = useStore()
-    const product = computed(() => store.getters['products/product'](route.value.params.id))
 
-    return {product}
-  },
+  }
+
 })
 </script>
 
+<style lang="scss">
 
-<style>
+.home {
+  font-size: 50px;
+  color: black;
+
+
+  & a,
+  & a:visited,
+  & a:link{
+    text-decoration: none;
+    color: $color-black;
+  }
+}
 
 </style>

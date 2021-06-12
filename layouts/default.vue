@@ -28,9 +28,7 @@ body {
   font-weight: 400;
   /* font-size: 16px; */
   line-height: 1.7;
-  color: $color-black;
   background-color: $color-primary;
-  padding: 2rem 6rem;
   min-height: 100vh;
 }
 

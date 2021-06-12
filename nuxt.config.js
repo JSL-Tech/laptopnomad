@@ -33,10 +33,12 @@ export default {
   styleResources: {
     scss: [
         '~/assets/css/abstracts/_variables.scss',
+        '~/assets/css/abstracts/_mixins.scss',
     ]
   },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/vue-scroll-indicator', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -49,8 +51,8 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    'bootstrap-vue/nuxt',
     [
-      'bootstrap-vue/nuxt',
       '@nuxtjs/firebase',
       {
         config: {
