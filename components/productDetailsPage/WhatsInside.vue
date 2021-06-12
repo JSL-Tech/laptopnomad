@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="sect">
     <div class="title">
       <h4 class="title__text">
       What's Inside
@@ -37,12 +37,13 @@ export default defineComponent({
 </script>
 
 
-<style lang="scss" scooped>
-.container {
-  margin: 2rem 0;
+<style lang="scss" scoped>
+.sect {
+  margin-top: 2rem;
   background: $color-white;
   padding: 2rem 4rem;
   min-width: fit-content;
+  width: 100%;
 
 }
 .title{

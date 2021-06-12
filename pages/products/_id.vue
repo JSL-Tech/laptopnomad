@@ -1,5 +1,5 @@
 <template>
-  <div v-if="product != null">
+  <div class="product-details" v-if="product != null">
     <ProductDetails :product="product" @handle-add-to-cart="handleAddToCart" />
     <WhatsInside :product="product" /> 
     <Reviews :product="product" /> 
@@ -31,7 +31,13 @@ export default defineComponent({
 })
 </script>
 
+<style lang="scss" scoped>
+.product-details {
+  padding: 0 4rem;
 
-<style>
-
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
 </style>
+

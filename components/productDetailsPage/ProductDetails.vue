@@ -58,8 +58,7 @@
   </div>
 </template>
 <script>
-import { defineComponent, ref, computed, watch } from '@nuxtjs/composition-api'
-
+import { defineComponent, ref, computed } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: ['product'],
@@ -97,9 +96,6 @@ export default defineComponent({
 })
 </script>
 
-
-
-
 <style lang="scss" scoped>
 .details {
   display: flex;
@@ -107,6 +103,7 @@ export default defineComponent({
   padding: 2rem 1rem;
   margin: 0 auto;
   background-color: $color-white;
+  width: 100%;
   min-width: fit-content;
 
   @include respond(phone) {
