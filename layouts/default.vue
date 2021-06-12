@@ -17,21 +17,50 @@ export default defineComponent({
 })
 </script>
 
-
-
-
 <style lang="scss" >
-
+html {
+    @include respond(tab-land) {
+        font-size: 56.25%;
+    }
+    @include respond(tab-port) {
+        font-size: 50%;
+    }
+    @include respond(big-desktop) {
+        font-size: 75%;
+    }
+}
 
 body {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  /* font-size: 16px; */
   line-height: 1.7;
   color: $color-black;
   background-color: $color-primary;
   min-height: 100vh;
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                Global Class                                */
+/* -------------------------------------------------------------------------- */
+.loader {
+    display: inline-block;
+    border: 4px solid #f3f3f3; /* Light grey */
+    border-top: 4px solid $color-secondary-dark; /* Blue */
+    border-radius: 50%;
+    width: 2.2rem;
+    height: 2.2rem;
+    animation: spin 2s linear infinite;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hideScrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.hideScrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 
 /* -------------------------------------------------------------------------- */
 /*                                  Animation                                 */
@@ -81,7 +110,7 @@ body {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                   Layout                                   */
+/*                                   Utility                                  */
 /* -------------------------------------------------------------------------- */
 .u-mb-2{
     margin-bottom: 2rem;
