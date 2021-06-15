@@ -3,20 +3,23 @@
         <div class="card__header">
             <h1 class="card__heading"> Why Choose Us </h1>
         </div>
+        <div class="card__bottom">
+            <button class="card__button">Shop Now</button>
+        </div>
             <div class="card card--1">
-                <b-img src="~/assets/images/transformbackless.png" fluid alt="Responsive image" class="card__image card__image--large"></b-img>
-                <figcaption class="card__caption">From the sleeve to the stand to the wrist support our comprehensive design aims to meet all your needs</figcaption>
+                <b-img src="~/assets/images/puzzle.png" fluid alt="Responsive image" class="card__image card__image--medium"></b-img>
+                <figcaption class="card__caption">From the sleeve to the stand to the wrist support our design aims to meet all your needs</figcaption>
                 <h1 class="card__heading"> DESIGN </h1>
                 <h2 class="card__text"> From the sleeve to the stand to the wrist support our comprehensive design aims to meet all your needs </h2>
             </div>
             <div class="card card--2">
-                <b-img src="~/assets/images/timebackless.png" fluid alt="Responsive image" class="card__image card__image--large"></b-img>
+                <b-img src="~/assets/images/Speed.png" fluid alt="Responsive image" class="card__image card__image--medium"></b-img>
                 <figcaption class="card__caption">Get your product within 2 - 4 days anywhere worldwide</figcaption>
                 <h1 class="card__heading"> SPEED </h1>
                 <h2 class="card__text"> Get your product within 2 - 4 days anywhere worldwide</h2>
             </div>
             <div class="card card--3">
-                <b-img src="~/assets/images/posturebackless.png" fluid alt="Responsive image" class="card__image card__image--large"></b-img>
+                <b-img src="~/assets/images/posturebackless.png" fluid alt="Responsive image" class="card__image card__image--medium"></b-img>
                 <figcaption class="card__caption">Better posture means less pain</figcaption>
                 <h1 class="card__heading"> HEALTH </h1>
                 <h2 class="card__text"> Better posture means less pain </h2>           
@@ -55,8 +58,10 @@ export default defineComponent ({
     background-position: right;
     background-size: cover;
     background-image: none;
-    padding-bottom: 3rem;
+    padding-bottom: 8rem;
     position: relative;
+    padding-top: 5rem;
+    margin-bottom: 5rem;
 
 
     @include respond(phone) {
@@ -135,6 +140,18 @@ export default defineComponent ({
         transform: translate(-50%,-50%);
         }
 
+    &__bottom{
+        position: absolute;
+        top: 95%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        
+
+        @include respond(phone) {
+            top: 85%;
+        }
+    }
+
     &__caption{
         position: absolute;
         top: 50%;
@@ -153,6 +170,10 @@ export default defineComponent ({
 
         &--small {
             width: 30%;
+        }
+
+        &--medium {
+            width: 50%;
         }
 
         &--large {
@@ -177,6 +198,11 @@ export default defineComponent ({
         @include respond(tab-port) {
             font-size: 2.4rem;
         }
+
+        @include respond(phone) {
+            font-size: 2rem;
+        }
+        
     }
 
     &__subheading {
@@ -205,7 +231,6 @@ export default defineComponent ({
     }
 
     &__button {
-        margin-top: 2rem;
         background-color: $color-dark;
         color: white;
         text-transform: uppercase;

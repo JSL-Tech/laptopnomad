@@ -13,6 +13,7 @@
         <nuxt-link :to="{path: '/', hash:'#header'}"  @click.native="scroll('header')">Header</nuxt-link>
         <nuxt-link :to="{path: '/', hash:'#about'}"  @click.native="scroll('about')">About Us</nuxt-link>
         <nuxt-link :to="{path: '/', hash:'#why'}"  @click.native="scroll('why')">Why Us</nuxt-link>
+        <nuxt-link :to="{path: '/', hash:'#feature'}"  @click.native="scroll('why')">Featured Products</nuxt-link>
         <nuxt-link :to="'/products/1rBHJM0XvnEFeYDxso9t'">first product</nuxt-link>
         <nuxt-link :to="'/products/rXvql9MfAnrW8OPu1fEn'">second product</nuxt-link>
         <nuxt-link :to="'/cart'">Cart</nuxt-link>
