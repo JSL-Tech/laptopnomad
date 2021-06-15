@@ -1,7 +1,7 @@
 <template>
     <div class="header" id="header">
-        <div class="header__box col-lg-8 col-8">
-            <h1 class="header__box-main"> LAPTOPNOMADCO </h1>
+        <div class="header__box">
+            <h1 class="header__box-main">LAPTOPNOMADCO</h1>
             <button class="header__box-button">Shop Now</button>
             <span class="header__box-button--sub">The case you have been looking for </span>
         </div>
@@ -26,14 +26,19 @@ export default defineComponent ({
     background-image: url(assets/images/Header_CafeWork.jpg);
     background-size: cover;
     background-position: bottom;
-
-    @include respond(tab-port) {
-            height: 80vh;
-        }
+    position: relative;
 
     @include respond(tab-land) {
-            height: 90vh;
-        }
+        height: 90vh;
+    }
+
+    @include respond(tab-port) {
+        height: 80vh;
+    }
+
+    @include respond(phone) {
+        height: 60vh;
+    }
 
     &__box{
         position: absolute;
@@ -43,26 +48,28 @@ export default defineComponent ({
         text-align: center;
 
         @include respond(tab-port) {
-            top: 60%;
-            left: 50%;
+            top: 65%;
         }
     
 
     &-main {
         color: white;
-        font-size: 80px;
+        font-size: 8rem;
         font-weight: 400;
-        letter-spacing: 1px;     
-        margin-bottom: 100px;
-        
-        
-        @include respond(tab-port) {
-            font-size: 40px;
-            margin-left: -20px;
-        }
+        letter-spacing: .1rem;     
+        margin-bottom: 10rem;
 
         @include respond(tab-land) {
-            font-size: 70px;
+            font-size: 7rem;
+        }
+        
+        @include respond(tab-port) {
+            font-size: 6rem;
+            margin-left: -.2rem;
+        }
+        
+        @include respond(phone) {
+            font-size: 4rem;
         }
     }    
 
@@ -71,38 +78,39 @@ export default defineComponent ({
         text-transform: uppercase;
         text-decoration: none;
         padding: 1.5rem 4rem;
-        border-radius: 100px;
+        border-radius: 10rem;
         border: none;
-        font-size: 40px;
+        font-size: 3rem;
         font-weight:700;
 
-        @include respond(tab-port) {
-            font-size: 20px;
-            font-weight:700;
-        }
-
         @include respond(tab-land) {
-            font-size: 20px;
+            font-size: 2.4rem;
+            padding: 1.3rem 3.6rem;
         }
 
-        &--sub{
-            display: block;
-            color: white;
-            font-size: 30px;
-
-            @include respond(tab-port) {
-            font-size: 15px;
+        @include respond(tab-port) {
+            font-size: 2rem;
         }
 
-            @include respond(tab-land) {
-            font-size: 20px;
-        }
+            &--sub{
+                display: block;
+                color: white;
+                font-size: 3rem;
 
+                @include respond(tab-land) {
+                    font-size: 2.4rem;
+                }
+                
+                @include respond(tab-port) {
+                    font-size: 2rem;
+                }
+
+                @include respond(phone) {
+                    font-size: 1.6rem;
+                }
+            }
         }
     }
-
-    }
-    
 }
-  
+
 </style>

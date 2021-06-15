@@ -1,6 +1,8 @@
 <template>
   <div>
     <nuxt-link :to="'/cart'">Cart</nuxt-link>
+    <topPage />
+    <aboutPage />
   </div>
 </template>
 
