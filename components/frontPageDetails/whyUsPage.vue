@@ -1,19 +1,25 @@
 <template>
     <div class="why" ref="why" id="why" >
+        <div class="card__header">
+            <h1 class="card__heading"> Why Choose Us </h1>
+        </div>
             <div class="card card--1">
                 <b-img src="~/assets/images/transformbackless.png" fluid alt="Responsive image" class="card__image card__image--large"></b-img>
+                <figcaption class="card__caption">From the sleeve to the stand to the wrist support our comprehensive design aims to meet all your needs</figcaption>
                 <h1 class="card__heading"> DESIGN </h1>
-                <h2 class="card__subheading"> From the sleeve to the stand to the wrist support our comprehensive design aims to meet all your needs </h2>
+                <h2 class="card__text"> From the sleeve to the stand to the wrist support our comprehensive design aims to meet all your needs </h2>
             </div>
             <div class="card card--2">
                 <b-img src="~/assets/images/timebackless.png" fluid alt="Responsive image" class="card__image card__image--large"></b-img>
+                <figcaption class="card__caption">Get your product within 2 - 4 days anywhere worldwide</figcaption>
                 <h1 class="card__heading"> SPEED </h1>
-                <h2 class="card__subheading"> Get your product within 2 - 4 days anywhere worldwide</h2>
+                <h2 class="card__text"> Get your product within 2 - 4 days anywhere worldwide</h2>
             </div>
             <div class="card card--3">
                 <b-img src="~/assets/images/posturebackless.png" fluid alt="Responsive image" class="card__image card__image--large"></b-img>
+                <figcaption class="card__caption">Better posture means less pain</figcaption>
                 <h1 class="card__heading"> HEALTH </h1>
-                <h2 class="card__subheading"> Better posture means less pain </h2>           
+                <h2 class="card__text"> Better posture means less pain </h2>           
             </div>
 
             <!-- <div class="card card--main">
@@ -50,6 +56,7 @@ export default defineComponent ({
     background-size: cover;
     background-image: none;
     padding-bottom: 3rem;
+    position: relative;
 
 
     @include respond(phone) {
@@ -74,17 +81,21 @@ export default defineComponent ({
     align-items: center;
     text-align: center;
     background-color: transparent;
-    transition: all .5s;
-    transform: scale(1);
-    filter: none;
 
     @include respond(phone) {
         justify-content: flex-end;
 
-        :hover &__image{
+            
+        &:hover &__image {
         transform: scale(.7);
         filter: blur(.3rem) brightness(80%);
-    }
+        opacity: .4;
+        }
+
+        &:hover &__caption {
+        opacity: 1;
+        transform: translate(-50%,-50%);
+        }  
     }
 
     &--1 {
@@ -117,9 +128,28 @@ export default defineComponent ({
     //     grid-area: card--main;
     //     justify-content: flex-end;
     // }
+    &__header{
+        position: absolute;
+        top: 8%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        }
+
+    &__caption{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 20%);
+        color: black;
+        font-weight: 600;
+        opacity: 0;
+        transition: all .5s;
+
+    }
 
     &__image {
-        margin: 2rem 0;
+        margin: 2rem 0; 
+        transition: transform .5s;
 
         &--small {
             width: 30%;
@@ -127,6 +157,7 @@ export default defineComponent ({
 
         &--large {
             width: 80%;
+    
         }
 
         &--circle {
@@ -155,10 +186,6 @@ export default defineComponent ({
             font-size: 2rem;
         }
 
-        @include respond(phone) {
-            display: none;
-        }
-
     }
 
     &__text {
@@ -171,6 +198,9 @@ export default defineComponent ({
         @include respond(phone) {
             font-size: 1.2rem;
             padding: 0 6rem;
+        }
+        @include respond(phone) {
+            display: none;
         }
     }
 
