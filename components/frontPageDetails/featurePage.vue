@@ -4,24 +4,18 @@
             <h1 class="card__heading"> Featured Cases </h1>
         </div>
             <div class="card card--1">
-                <b-img src="~/assets/images/Puzzle.png" fluid alt="Responsive image" class="card__image card__image--large"></b-img>
-                <figcaption class="card__caption">From the sleeve to the stand to the wrist support our design aims to meet all your needs</figcaption>
-                <h1 class="card__heading"> DESIGN </h1>
-                <h2 class="card__text"> From the sleeve to the stand to the wrist support our comprehensive design aims to meet all your needs </h2>
-            </div>
-            <div class="card card--2">
-                <div>
-    <b-carousel
-      id="carousel-1"
-      v-model="slide"
-      :interval="10000"
-      controls
-      indicators
-      img-width="480"
-      img-height="480"
-      @sliding-start="onSlideStart"
-      @sliding-end="onSlideEnd"
-    >
+               <div>
+                     <b-carousel
+                        id="carousel-1"
+                        v-model="slide"
+                        :interval="10000"
+                        controls
+                        indicators
+                        img-width="480"
+                        img-height="480"
+                        @sliding-start="onSlideStart"
+                        @sliding-end="onSlideEnd"
+                    >
       <!-- Slides with img slot -->
       <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
       <b-carousel-slide>
@@ -30,7 +24,53 @@
             class="d-block img-fluid w-100"
             width="480"
             height="480"
-            src="~/assets/images/Puzzle.png"
+            src="~/assets/images/BacklessDetail_Leather.png"
+            alt="image slot"
+          >
+        </template>
+      </b-carousel-slide>
+      <b-carousel-slide>
+        <template #img>
+          <img
+            class="d-block img-fluid w-100"
+            width="480"
+            height="480"
+            src="~/assets/images/Backless_Leather.png"
+            alt="image slot"
+          >
+        </template>
+      </b-carousel-slide>
+                     </b-carousel>
+                     <h1 class="card__subheading"> Classic Leather </h1>
+                     <div class="details__price">
+                        <span class="details__price--normal">S$35.00</span>
+                        <span class="details__price--strike">S$45.00</span>
+                     </div>
+                     <nuxt-link class="card__button" :to="'/products/1rBHJM0XvnEFeYDxso9t'">Shop Now</nuxt-link>     
+                 </div>
+            </div>
+            <div class="card card--2">
+                <div>
+                     <b-carousel
+                        id="carousel-1"
+                        v-model="slide"
+                        :interval="10000"
+                        controls
+                        indicators
+                        img-width="480"
+                        img-height="480"
+                        @sliding-start="onSlideStart"
+                        @sliding-end="onSlideEnd"
+                    >
+      <!-- Slides with img slot -->
+      <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
+      <b-carousel-slide>
+        <template #img>
+          <img
+            class="d-block img-fluid w-100"
+            width="480"
+            height="480"
+            src="~/assets/images/BacklessPink_Detail.png"
             alt="image slot"
           >
         </template>
@@ -46,8 +86,14 @@
           >
         </template>
       </b-carousel-slide>
-    </b-carousel>
-  </div>
+                     </b-carousel>
+                     <h1 class="card__subheading"> Novel Pink </h1>
+                     <div class="details__price">
+                        <span class="details__price--normal">S$35.00</span>
+                        <span class="details__price--strike">S$45.00</span>
+                     </div>
+                     <nuxt-link class="card__button" :to="'/products/rXvql9MfAnrW8OPu1fEn'">Shop Now</nuxt-link>
+                 </div>
             </div>
 
             <!-- <div class="card card--main">
@@ -71,6 +117,26 @@ export default defineComponent ({
 </script>
 
 <style lang="scss" scoped>
+
+
+.details{
+    &__price{
+    font-size: 1.6rem;
+    margin-bottom: 0rem;
+
+    @include respond(tab-port){
+      font-size: 2rem;
+    }
+
+    &--normal{
+      color: $color-black;
+    }
+    &--strike{
+      color: red;
+      text-decoration: line-through;
+    }
+  }
+}
 .feature {
     display: grid;
     padding: 5rem 15rem 0 15rem;
@@ -87,7 +153,6 @@ export default defineComponent ({
     position: relative;
     margin-bottom: 5rem;
 
-
     @include respond(phone) {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto;
@@ -96,6 +161,7 @@ export default defineComponent ({
             "card--1"
             "card--2";
         place-items: stretch;
+        padding: 5rem 3rem 0rem 3rem;
         
     }
 }
@@ -158,9 +224,13 @@ export default defineComponent ({
     // }
     &__header{
         position: absolute;
-        top: 8%;
+        top: 5%;
         left: 50%;
         transform: translate(-50%,-50%);
+
+        @include respond(phone) {
+            top: 3%;
+        }
         }
 
     &__bottom{
@@ -250,20 +320,17 @@ export default defineComponent ({
     }
 
     &__button {
-        background-color: $color-dark;
-        color: white;
-        text-transform: uppercase;
-        padding: 1.5rem 4rem;
-        border-radius: 10rem;
+        background-color: transparent;
+        color: black;
         display: inline-block;
-        font-size: 3rem;
+        font-size: 2rem;
         font-weight: 600;
         border: none;
         transition: all .1s;
 
         &:hover, &:active {
             transform: translateY(-.2rem);
-            filter: drop-shadow(0 .2rem 0.4rem rgba(0, 0, 0, 0.5))
+            filter: drop-shadow(0 .2rem 0.4rem rgba(0, 0, 0, 0.1))
         }
         
         @include respond(tab-land) {
