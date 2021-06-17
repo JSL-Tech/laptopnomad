@@ -17,7 +17,7 @@ export const getters = {
 export const mutations = {
   // Reset the Cart
   resetCart: (state) => {
-    state.products = []
+    state.cart = []
   },
   // Add a product to products in state 
   addItem: (state, payload) => {

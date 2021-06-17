@@ -3,12 +3,19 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
+  env: {
+    STRIPE_PK: process.env.STRIPE_PK,
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'base',
     htmlAttrs: {
       lang: 'en'
     },
+    script: [
+      { src: "https://js.stripe.com/v3/"}
+    ],
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -34,6 +41,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/persistedState.client.js' },
+    { src: '~/plugins/vue-stripe.js', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

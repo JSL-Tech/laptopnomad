@@ -11,7 +11,7 @@ import CartItems from '@/components/cart/CartItems.vue'
 import CartSummary from '@/components/cart/CartSummary.vue'
 
 export default defineComponent({
-  components: {CartItems, CartSummary},
+  components: {CartItems, CartSummary,},
   setup() {
     const store = useStore(); 
     const cart = computed(() => store.getters['cart/cart'])
