@@ -3,9 +3,8 @@
         <div class="card__header">
             <h1 class="card__heading"> Why Choose Us </h1>
         </div>
-        <div class="card__bottom">
-            <button class="card__button">Shop Now</button>
-        </div>
+
+        <div class="card__area">
             <div class="card card--1">
                 <b-img src="~/assets/images/puzzle.png" fluid alt="Responsive image" class="card__image card__image--medium"></b-img>
                 <figcaption class="card__caption">From the sleeve to the stand to the wrist support our design aims to meet all your needs</figcaption>
@@ -24,6 +23,11 @@
                 <h1 class="card__heading"> HEALTH </h1>
                 <h2 class="card__text"> Better posture means less pain </h2>           
             </div>
+        </div>
+
+        <div class="card__bottom">
+            <button class="card__button">Shop Now</button>
+        </div>
 
             <!-- <div class="card card--main">
                 <h1 class="card__heading"> Nomad Sleeve </h1>
@@ -47,7 +51,9 @@ export default defineComponent ({
 
 <style lang="scss" scoped>
 .why {
-    display: grid;
+
+    .card__area {
+        display: grid;
     grid-template-columns: 1fr 1fr 1fr; 
     grid-template-rows: 1fr ;
     gap: 1rem; 
@@ -60,8 +66,7 @@ export default defineComponent ({
     background-image: none;
     padding-bottom: 8rem;
     position: relative;
-    padding-top: 5rem;
-    margin-bottom: 5rem;
+    }
 
 
     @include respond(phone) {
@@ -72,8 +77,7 @@ export default defineComponent ({
         //     "card--1"
         //     "card--2"
         //     "card--3";
-        // place-items: stretch;
-        
+        // place-items: stretch;     
     }
 }
 
@@ -89,7 +93,6 @@ export default defineComponent ({
 
     @include respond(phone) {
         justify-content: flex-end;
-
             
         &:hover &__image {
         transform: scale(.7);
@@ -134,22 +137,26 @@ export default defineComponent ({
     //     justify-content: flex-end;
     // }
     &__header{
-        position: absolute;
-        top: 8%;
-        left: 50%;
-        transform: translate(-50%,-50%);
+        // position: absolute;
+        // top: 8%;
+        // left: 50%;
+        // transform: translate(-50%,-50%);
+        margin-top: 2%;
+        text-align: center;
         }
 
     &__bottom{
-        position: absolute;
-        top: 95%;
-        left: 50%;
-        transform: translate(-50%,-50%);
+        // position: absolute;
+        // top: 95%;
+        // left: 50%;
+        // transform: translate(-50%,-50%);
         
 
-        @include respond(phone) {
-            top: 85%;
-        }
+        // @include respond(phone) {
+        //     top: 85%;
+        // }
+        text-align: center;
+        margin-bottom: 2%;
     }
 
     &__caption{
