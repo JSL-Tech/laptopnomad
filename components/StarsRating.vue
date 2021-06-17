@@ -76,7 +76,7 @@ $rating-icons-paths: (
 @function rating-values() {
   $rating-values: ();
 
-  @for $i from $rating-min-value through ($rating-max-value / $rating-steps-value) {
+  @for $i from $rating-min-value through math.div($rating-max-value, $rating-steps-value) {
     $rating-value: abs($i * $rating-steps-value);
     $rating-values: append($rating-values, $rating-value, 'comma');
   }
@@ -188,7 +188,7 @@ $rating-icons-paths: (
     @return 0
   }
 
-  @return $target / $context+0em;
+  @return math.div($target, $context);
 }
 
 
