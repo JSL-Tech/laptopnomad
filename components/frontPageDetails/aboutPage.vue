@@ -1,7 +1,7 @@
 <template>
     <div class="about" ref="about" id="about" >
             <div class="card card--1">
-                <b-img src="~/assets/images/advert.png" fluid alt="Responsive image" class="card__image card__image--large"></b-img>
+                <b-img src="~/assets/images/main_1.png" fluid alt="Responsive image" class="card__image card__image--large"></b-img>
             </div>
             <div class="card card--2">
                 <b-img src="~/assets/images/Main_edited.jpg" fluid alt="Responsive image" class="card__image card__image--circle"></b-img>
