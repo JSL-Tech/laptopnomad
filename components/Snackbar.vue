@@ -1,24 +1,24 @@
 <template>
   <div :class="'snackbar ' +( show ? 'show' : '')" :style="'width: ' + width">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 
 <script>
-import { defineComponent} from '@nuxtjs/composition-api'
+import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: {
     show: {
-      type: Boolean, 
-      required: true,
+      type: Boolean,
+      required: true
     },
     width: {
       type: String,
-      default: '',
+      default: ''
     }
   },
-  setup() {
+  setup () {
     /* -------------------------------------------------------------------------- */
     /*                                 How to use                                 */
     /* -------------------------------------------------------------------------- */
@@ -32,17 +32,17 @@ export default defineComponent({
     // In parent component template
     // <Snackbar :show="show">Success!</Snackbar>
 
-    // In parent component setup 
+    // In parent component setup
     // const show = ref(false)
     // const handleShowSnackbar = () => {
-    //   if(show.value == false) { 
+    //   if(show.value == false) {
     //     show.value = true
     //     setTimeout(() => {
     //         show.value = false
     //     }, 3000);
     //   }
     // }
-  },
+  }
 })
 </script>
 
@@ -74,14 +74,14 @@ export default defineComponent({
         opacity: 0;
     }
     100% {
-        transform: translate(-50%, 0);  
+        transform: translate(-50%, 0);
         opacity: 1;
     }
 }
 
 @keyframes fadeOutBottom {
    0% {
-        transform: translate(-50%, 0); 
+        transform: translate(-50%, 0);
         opacity: 1;
     }
     100% {

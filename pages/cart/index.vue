@@ -1,34 +1,33 @@
 <template>
   <div class="cart">
-    <CartItems class="cart__item" :cart="cart" @handle-count-change="handleCountChange" @handle-remove="handleRemove"/>
+    <CartItems class="cart__item" :cart="cart" @handle-count-change="handleCountChange" @handle-remove="handleRemove" />
     <CartSummary class="cart__summary" :cart="cart" />
   </div>
 </template>
 
 <script>
-import { defineComponent, useStore, computed} from '@nuxtjs/composition-api'
+import { defineComponent, useStore, computed } from '@nuxtjs/composition-api'
 import CartItems from '@/components/cart/CartItems.vue'
 import CartSummary from '@/components/cart/CartSummary.vue'
 
 export default defineComponent({
-  components: {CartItems, CartSummary},
-  setup() {
-    const store = useStore(); 
+  components: { CartItems, CartSummary },
+  setup () {
+    const store = useStore()
     const cart = computed(() => store.getters['cart/cart'])
 
     const handleCountChange = (id, payload) => {
-      store.commit('cart/updateItemCount', {id: id, count: payload})
+      store.commit('cart/updateItemCount', { id, count: payload })
     }
 
     const handleRemove = (id) => {
-      store.commit('cart/deleteItem', {id: id})
+      store.commit('cart/deleteItem', { id })
     }
 
-    return {cart, handleCountChange, handleRemove}
-  },
+    return { cart, handleCountChange, handleRemove }
+  }
 })
 </script>
-
 
 <style lang="scss" scoped>
 .cart {

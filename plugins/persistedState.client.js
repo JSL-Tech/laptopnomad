@@ -1,8 +1,8 @@
 // https://github.com/robinvdvleuten/vuex-persistedstate#readme
 import createPersistedState from 'vuex-persistedstate'
 
-export default ({store}) => {
+export default ({ store }) => {
   createPersistedState({
-    key: 'testkey',
+    key: 'testkey'
   })(store)
 }

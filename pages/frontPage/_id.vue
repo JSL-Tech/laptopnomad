@@ -1,16 +1,13 @@
 <template>
-  <div>
-    
-  </div>
+  <div />
 </template>
 
-
 <script>
-import aboutPage from "@/components/frontPageDetails/aboutPage"
-import { defineComponent} from "@nuxtjs/composition-api"
+import aboutPage from '@/components/frontPageDetails/aboutPage'
+import { defineComponent } from '@nuxtjs/composition-api'
 export default defineComponent({
-  components: {aboutPage},
-  setup() {
+  components: { aboutPage },
+  setup () {
 
   }
 
@@ -22,7 +19,6 @@ export default defineComponent({
 .home {
   font-size: 50px;
   color: black;
-
 
   & a,
   & a:visited,

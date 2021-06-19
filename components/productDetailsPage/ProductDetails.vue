@@ -3,37 +3,43 @@
     <!-- Images Section -->
     <section class="details__images ">
       <!-- Large Preview Image -->
-      <div class="details__previewImages" :style="'background-image: url(' + previewImage + ')'" >
-          <!-- <img :src="previewImage" alt="product preview image" > -->
+      <div class="details__previewImages" :style="'background-image: url(' + previewImage + ')'">
+        <!-- <img :src="previewImage" alt="product preview image" > -->
       </div>
       <!-- Small Images -->
-      <div class="details__smallImages" >
+      <div class="details__smallImages">
         <div v-for="(imageUrl, index) in product.imageUrls" :key="imageUrl" class="details__smallImage" @click="handlePreviewImage(index)">
-          <img :src="imageUrl" alt="product image" >
+          <img :src="imageUrl" alt="product image">
         </div>
       </div>
     </section>
     <!-- Information Section -->
     <section class="details__info">
       <!-- Product Name -->
-      <h2 class="details__title">{{product.name}}</h2>
+      <h2 class="details__title">
+        {{ product.name }}
+      </h2>
       <!-- Product Price -->
       <div v-if="product.salePrice" class="details__price">
-        <span class="details__price--normal">${{product.salePrice}}</span>
-        <span class="details__price--strike">${{product.price}}</span>
+        <span class="details__price--normal">${{ product.salePrice }}</span>
+        <span class="details__price--strike">${{ product.price }}</span>
       </div>
       <div v-else>
-        <span class="details__price--normal">${{product.price}}</span>
+        <span class="details__price--normal">${{ product.price }}</span>
       </div>
       <!-- Product Color -->
       <div class="details__color">
-        <div >
-          <span>Color:</span><span class="details__color--name"> {{product.colorName}}</span>
+        <div>
+          <span>Color:</span><span class="details__color--name"> {{ product.colorName }}</span>
         </div>
-        <div class="details__color-circle" :style="'background-color:' + product.colorVal">&nbsp;</div>        
+        <div class="details__color-circle" :style="'background-color:' + product.colorVal">
+&nbsp;
+        </div>
       </div>
       <!-- Product Description -->
-      <div class="details__description">{{product.description}}</div>
+      <div class="details__description">
+        {{ product.description }}
+      </div>
       <!-- Product count box -->
       <div class="details__button-box">
         <button class="button button--circle" @click.prevent="handleCountChange(count - 1)">
@@ -41,7 +47,7 @@
             <path fill-rule="evenodd" d="M3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
           </svg>
         </button>
-        <input type="number" v-model="count" class="button--square details__count-box" @change="(e) => handleCountChange(e.target.value)"/>
+        <input v-model="count" type="number" class="button--square details__count-box" @change="(e) => handleCountChange(e.target.value)">
         <button class="button button--circle" @click.prevent="handleCountChange(count + 1)">
           <svg xmlns="http://www.w3.org/2000/svg" class="plus" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
@@ -50,37 +56,44 @@
       </div>
       <!-- Call to action button -->
       <div class="details__cta">
-        <button v-if="!isLoading" class="button button--rectangle details__cta-button" @click.prevent="handleAddToCart">Add to Card</button>
-        <button v-else class="button button--rectangle details__cta-button" disabled><p class="loader"></p></button>
+        <button v-if="!isLoading" class="button button--rectangle details__cta-button" @click.prevent="handleAddToCart">
+          Add to Card
+        </button>
+        <button v-else class="button button--rectangle details__cta-button" disabled>
+          <p class="loader" />
+        </button>
       </div>
     </section>
-    
   </div>
 </template>
 <script>
 import { defineComponent, ref, computed } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  props: ['product'],
-  setup(props, { emit }) {
+  props: {
+    product: {
+      type: Object,
+      default: () => {}
+    }
+  },
+  setup (props, { emit }) {
     const previewImageIndex = ref(0)
-    const count = ref(1);
+    const count = ref(1)
     const isLoading = ref(false)
 
-    const previewImage = computed(() => 
+    const previewImage = computed(() =>
       props.product.imageUrls[previewImageIndex.value]
     )
 
     const handlePreviewImage = (index) => {
-      console.log(index)
       previewImageIndex.value = index
     }
 
     const handleCountChange = (val) => {
-      if(val < 1) {
+      if (val < 1) {
         val = 1
       }
-      if(val > 100) {
+      if (val > 100) {
         val = 100
       }
       count.value = val
@@ -88,11 +101,11 @@ export default defineComponent({
 
     const handleAddToCart = () => {
       isLoading.value = true
-      emit('handle-add-to-cart', {...props.product, count: count.value}, isLoading)
+      emit('handle-add-to-cart', { ...props.product, count: count.value }, isLoading)
     }
 
-    return {previewImage, count, isLoading, handlePreviewImage, handleCountChange, handleAddToCart}
-  },
+    return { previewImage, count, isLoading, handlePreviewImage, handleCountChange, handleAddToCart }
+  }
 })
 </script>
 
@@ -212,7 +225,6 @@ export default defineComponent({
     width: 100%;
   }
 
-
   &__button-box {
     width: 100%;
     display: flex;
@@ -265,7 +277,6 @@ export default defineComponent({
   transition: all 0.15s;
   display: inline-block;
 
-
   &--circle {
     border-radius: 100px;
     width: 2.6rem;
@@ -273,7 +284,7 @@ export default defineComponent({
     border: 1px solid $color-black;
     background-color: $color-white;
     text-align: center;
-    
+
     &:hover {
       box-shadow: 0 0.7rem 1.5rem rgba($color-black, 0.2);
       transform: translateY(-0.1rem);
@@ -313,12 +324,9 @@ export default defineComponent({
     }
   }
 
-  
   &--animated {
     animation: moveInBottom 1s ease-out .3s backwards;
   }
 }
-  
-
 
 </style>

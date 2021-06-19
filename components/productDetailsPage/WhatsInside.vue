@@ -2,24 +2,42 @@
   <div class="sect">
     <div class="title">
       <h4 class="title__text">
-      What's Inside
+        What's Inside
       </h4>
     </div>
     <div class="u-mb-2">
       <div class="card">
-        <div class="card__img" :style="'background-image: url(' + product.imageUrls[0] + ')'">&nbsp;</div>
-        <p class="card__text card__text--large">1 Premium</p>
-        <p class="card__text card__text--small">Nomad Sleeve</p>
+        <div class="card__img" :style="'background-image: url(' + product.imageUrls[0] + ')'">
+&nbsp;
+        </div>
+        <p class="card__text card__text--large">
+          1 Premium
+        </p>
+        <p class="card__text card__text--small">
+          Nomad Sleeve
+        </p>
       </div>
       <div class="card">
-        <div class="card__img card__img--2">&nbsp;</div>
-        <p class="card__text card__text--large">1 FREE</p>
-        <p class="card__text card__text--small">Accessory Pouch</p>
+        <div class="card__img card__img--2">
+&nbsp;
+        </div>
+        <p class="card__text card__text--large">
+          1 FREE
+        </p>
+        <p class="card__text card__text--small">
+          Accessory Pouch
+        </p>
       </div>
       <div class="card">
-        <div class="card__img card__img--3">&nbsp;</div>
-        <p class="card__text card__text--large">1 BONUS</p>
-        <p class="card__text card__text--small">Cable Organiser</p>
+        <div class="card__img card__img--3">
+&nbsp;
+        </div>
+        <p class="card__text card__text--large">
+          1 BONUS
+        </p>
+        <p class="card__text card__text--small">
+          Cable Organiser
+        </p>
       </div>
     </div>
   </div>
@@ -29,13 +47,17 @@
 import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  props: ['product'],
-  setup() {
-    
+  props: {
+    product: {
+      type: Object,
+      default: () => {}
+    }
   },
+  setup () {
+
+  }
 })
 </script>
-
 
 <style lang="scss" scoped>
 .sect {
@@ -105,6 +127,5 @@ export default defineComponent({
     }
   }
 }
-
 
 </style>

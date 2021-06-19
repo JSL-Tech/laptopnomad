@@ -1,38 +1,44 @@
 <template>
   <div>
     <section class="summary">
-      <h3 class="summary__title">ORDER SUMMARY:</h3>
+      <h3 class="summary__title">
+        ORDER SUMMARY:
+      </h3>
       <div class="summary__info">
-        <p class="summary__count">{{totalCount}} product{{totalCount > 1 ? 's' : ''}}</p>
+        <p class="summary__count">
+          {{ totalCount }} product{{ totalCount > 1 ? 's' : '' }}
+        </p>
         <p class="summary__cost">
           <span>Product Total</span>
-          <span>${{totalPrice}}</span>
+          <span>${{ totalPrice }}</span>
         </p>
         <p class="summary__cost">
           <span>Delivery</span>
-          <span class="summary__delivery--right">{{deliveryCost > 0 ? `$${deliveryCost}` : 'FREE'}}</span>
+          <span class="summary__delivery--right">{{ deliveryCost > 0 ? `$${deliveryCost}` : 'FREE' }}</span>
         </p>
         <p class="summary__cost summary__cost--total">
           <span>Total</span>
-          <span>${{totalPrice + deliveryCost}}</span>
+          <span>${{ totalPrice + deliveryCost }}</span>
         </p>
       </div>
       <button class="summary__checkout summary__checkout--dark">
         <span>CHECKOUT</span>
-        <svg class="summary__icon summary__icon--right-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        <svg class="summary__icon summary__icon--right-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
       </button>
       <button class="summary__checkout summary__checkout--light">
         <span>PROMO CODE
-        <svg class="summary__icon summary__icon--quesiton" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <svg class="summary__icon summary__icon--quesiton" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
         </span>
-        <svg class="summary__icon summary__icon--chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        <svg class="summary__icon summary__icon--chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
       </button>
     </section>
     <div class="payment-type">
       <PaymentIcons />
     </div>
     <div class="help">
-      <h4 class="help__title">Need Help?</h4>
+      <h4 class="help__title">
+        Need Help?
+      </h4>
       <a class="help__links" href="#">Shipping</a>
       <a class="help__links" href="#">Returns & Exchange</a>
       <a class="help__links" href="#">Contact Us</a>
@@ -45,26 +51,31 @@ import { defineComponent, computed } from '@nuxtjs/composition-api'
 import PaymentIcons from './PaymentIcons.vue'
 
 export default defineComponent({
-  components: {PaymentIcons},
-  props: ['cart'],
-  setup(props) {
+  components: { PaymentIcons },
+  props: {
+    cart: {
+      type: Array,
+      default: () => []
+    }
+  },
+  setup (props) {
     const deliveryCost = 0
     const countReducer = (accumulator, currentVal) => accumulator + currentVal.count
     // Total number of products in cart
     const totalCount = computed(() => props.cart.reduce(countReducer, 0))
-    
+
     const priceReducer = (accumulator, currentVal) => {
-      if(currentVal.hasOwnProperty('salePrice') && currentVal.salePrice > 0){
+      if (Object.prototype.hasOwnProperty.call(currentVal, 'salePrice') && currentVal.salePrice > 0) {
         return currentVal.salePrice * currentVal.count + accumulator
-      }else{
+      } else {
         return currentVal.price * currentVal.count + accumulator
       }
     }
     // Total price of all product in cart
     const totalPrice = computed(() => props.cart.reduce(priceReducer, 0))
 
-    return {totalCount, totalPrice, deliveryCost}
-  },
+    return { totalCount, totalPrice, deliveryCost }
+  }
 })
 </script>
 
@@ -106,8 +117,7 @@ export default defineComponent({
     font-size: 1.3rem;
     font-weight: 400;
     justify-content: space-between;
-    
-    
+
     &:not(:last-child){
       border-bottom: 1px solid $color-primary;
     }
@@ -171,12 +181,11 @@ export default defineComponent({
 .help {
   width: 75%;
   margin: 0 auto;
-  
 
   &__title {
     font-size: 1.8rem;
     margin-bottom: 0.7rem;
-  
+
   }
 
   &__links,

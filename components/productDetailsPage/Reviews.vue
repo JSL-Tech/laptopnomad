@@ -2,53 +2,73 @@
   <div class="sect">
     <div class="title">
       <h4 class="title__text">
-      Reviews
+        Reviews
       </h4>
     </div>
     <div class="average">
-      <span class="average__num">{{testReview.avgReview}}</span>  
-      <StarsRating class="average__stars" :value="testReview.avgReview" size="large"/>      
+      <span class="average__num">{{ testReview.avgReview }}</span>
+      <StarsRating class="average__stars" :value="testReview.avgReview" size="large" />
     </div>
     <section class="stats">
       <div class="stats__box">
-        <h3 class="stats__total">Customer Reviews ({{testReview.totalReviews}})</h3>  
+        <h3 class="stats__total">
+          Customer Reviews ({{ testReview.totalReviews }})
+        </h3>
         <div class="stats__row" @click="handleFilterChange(5)">
           <span class="stats__row-leading">5 Stars</span>
-          <div class="stats__row-bar" :style="{'--width' : percentage(testReview.reviewCount.five, testReview.totalReviews)}"></div>
-          <div class="stats__row-percent">{{percentage(testReview.reviewCount.five, testReview.totalReviews )}}</div>
+          <div class="stats__row-bar" :style="{'--width' : percentage(testReview.reviewCount.five, testReview.totalReviews)}" />
+          <div class="stats__row-percent">
+            {{ percentage(testReview.reviewCount.five, testReview.totalReviews ) }}
+          </div>
         </div>
         <div class="stats__row" @click="handleFilterChange(4)">
           <span class="stats__row-leading">4 Stars</span>
-          <div class="stats__row-bar" :style="{'--width' : percentage(testReview.reviewCount.four, testReview.totalReviews)}"></div>
-          <div class="stats__row-percent">{{percentage(testReview.reviewCount.four, testReview.totalReviews )}}</div>
+          <div class="stats__row-bar" :style="{'--width' : percentage(testReview.reviewCount.four, testReview.totalReviews)}" />
+          <div class="stats__row-percent">
+            {{ percentage(testReview.reviewCount.four, testReview.totalReviews ) }}
+          </div>
         </div>
         <div class="stats__row" @click="handleFilterChange(3)">
           <span class="stats__row-leading">3 Stars</span>
-          <div class="stats__row-bar" :style="{'--width' : percentage(testReview.reviewCount.three, testReview.totalReviews)}"></div>
-          <div class="stats__row-percent">{{percentage(testReview.reviewCount.three, testReview.totalReviews )}}</div>
+          <div class="stats__row-bar" :style="{'--width' : percentage(testReview.reviewCount.three, testReview.totalReviews)}" />
+          <div class="stats__row-percent">
+            {{ percentage(testReview.reviewCount.three, testReview.totalReviews ) }}
+          </div>
         </div>
         <div class="stats__row" @click="handleFilterChange(2)">
           <span class="stats__row-leading">2 Stars</span>
-          <div class="stats__row-bar" :style="{'--width' : percentage(testReview.reviewCount.two, testReview.totalReviews)}"></div>
-          <div class="stats__row-percent">{{percentage(testReview.reviewCount.two, testReview.totalReviews )}}</div>
+          <div class="stats__row-bar" :style="{'--width' : percentage(testReview.reviewCount.two, testReview.totalReviews)}" />
+          <div class="stats__row-percent">
+            {{ percentage(testReview.reviewCount.two, testReview.totalReviews ) }}
+          </div>
         </div>
         <div class="stats__row" @click="handleFilterChange(1)">
           <span class="stats__row-leading">1 Stars</span>
-          <div class="stats__row-bar" :style="{'--width' : percentage(testReview.reviewCount.one, testReview.totalReviews)}"></div>
-          <div class="stats__row-percent">{{percentage(testReview.reviewCount.one, testReview.totalReviews )}}</div>
+          <div class="stats__row-bar" :style="{'--width' : percentage(testReview.reviewCount.one, testReview.totalReviews)}" />
+          <div class="stats__row-percent">
+            {{ percentage(testReview.reviewCount.one, testReview.totalReviews ) }}
+          </div>
         </div>
-        <button class="stats__row-button button button--rectangle" @click="filter = 0">View All</button>
+        <button class="stats__row-button button button--rectangle" @click="filter = 0">
+          View All
+        </button>
       </div>
-    </section> 
+    </section>
     <section class="reviews hideScrollbar">
       <div v-for="(review, index) in testReview.reviews" :key="index">
-        <div class="review" v-if="filter == 0 || filter == review.stars">
-          <div class="review__name">{{review.name}}</div>
+        <div v-if="filter == 0 || filter == review.stars" class="review">
+          <div class="review__name">
+            {{ review.name }}
+          </div>
           <div class="review__info">
-            <StarsRating class="review__rating" :value="review.stars" size="small"></StarsRating>
-            <div class="review__date" >{{review.dateCreated}}</div>
-            <div class="review__review">{{review.review}}</div>
-            <img class="review__img" v-if="review.media.length > 0" src="~/assets/images/review_pic.jpg" alt="review image">
+            <StarsRating class="review__rating" :value="review.stars" size="small" />
+            <div class="review__date">
+              {{ review.dateCreated }}
+            </div>
+            <div class="review__review">
+              {{ review.review }}
+            </div>
+            <img v-if="review.media.length > 0" class="review__img" src="~/assets/images/review_pic.jpg" alt="review image">
           </div>
         </div>
       </div>
@@ -57,13 +77,18 @@
 </template>
 
 <script>
-import { defineComponent, computed, ref } from '@nuxtjs/composition-api'
+import { defineComponent, ref } from '@nuxtjs/composition-api'
 import StarsRating from '../StarsRating.vue'
 
 export default defineComponent({
-  props: ['product'],
-  components: {StarsRating},
-  setup() {
+  components: { StarsRating },
+  props: {
+    product: {
+      type: Object,
+      default: () => {}
+    }
+  },
+  setup () {
     const testReview = {
       totalReviews: 100,
       avgReview: 4.75,
@@ -72,7 +97,7 @@ export default defineComponent({
         four: 25,
         three: 0,
         two: 0,
-        one: 0,
+        one: 0
       },
       reviews: [
         {
@@ -80,67 +105,67 @@ export default defineComponent({
           review: 'I love this sleeve! Does the job well',
           media: ['~/assets/images/review_pic.jpg'],
           stars: 5,
-          dateCreated: new Date().toLocaleDateString('en-SG'),
+          dateCreated: new Date().toLocaleDateString('en-SG')
         },
         {
           name: 'L****e',
           review: 'I love this sleeve! Does the job well',
           media: [],
           stars: 4,
-          dateCreated: new Date().toLocaleDateString('en-SG'),
+          dateCreated: new Date().toLocaleDateString('en-SG')
         },
         {
           name: 'L****e',
           review: 'I love this sleeve! Does the job well',
           media: [],
           stars: 4,
-          dateCreated: new Date().toLocaleDateString('en-SG'),
+          dateCreated: new Date().toLocaleDateString('en-SG')
         },
         {
           name: 'L****e',
           review: 'I love this sleeve! Does the job well',
           media: [],
           stars: 4,
-          dateCreated: new Date().toLocaleDateString('en-SG'),
+          dateCreated: new Date().toLocaleDateString('en-SG')
         },
         {
           name: 'L****e',
           review: 'I love this sleeve! Does the job well',
           media: [],
           stars: 4,
-          dateCreated: new Date().toLocaleDateString('en-SG'),
+          dateCreated: new Date().toLocaleDateString('en-SG')
         },
         {
           name: 'L****e',
           review: 'I love this sleeve! Does the job well',
           media: [],
           stars: 4,
-          dateCreated: new Date().toLocaleDateString('en-SG'),
+          dateCreated: new Date().toLocaleDateString('en-SG')
         },
         {
           name: 'L****e',
           review: 'I love this sleeve! Does the job well',
           media: [],
           stars: 4,
-          dateCreated: new Date().toLocaleDateString('en-SG'),
+          dateCreated: new Date().toLocaleDateString('en-SG')
         },
         {
           name: 'L****e',
           review: 'I love this sleeve! Does the job well',
           media: [],
           stars: 4,
-          dateCreated: new Date().toLocaleDateString('en-SG'),
+          dateCreated: new Date().toLocaleDateString('en-SG')
         },
         {
           name: 'L****e',
           review: 'I love this sleeve! Does the job well',
           media: [],
           stars: 4,
-          dateCreated: new Date().toLocaleDateString('en-SG'),
-        },
+          dateCreated: new Date().toLocaleDateString('en-SG')
+        }
       ]
     }
-    const noReviews = ref(false);
+    // const noReviews = ref(false)
     const filter = ref(0)
 
     const percentage = (current, total) => Math.round(current / total * 100) + '%'
@@ -148,8 +173,8 @@ export default defineComponent({
     const handleFilterChange = (filterInt) => {
       filter.value = filterInt
     }
-    return {testReview, filter, percentage, handleFilterChange}
-  },
+    return { testReview, filter, percentage, handleFilterChange }
+  }
 })
 </script>
 
@@ -181,7 +206,7 @@ export default defineComponent({
 .average {
   text-align: center;
   margin-bottom: 4rem;
-  
+
   &__num {
     font-size: 1.5rem;
   }
@@ -209,7 +234,7 @@ export default defineComponent({
     @include respond(phone) {
     margin: 0 auto;
     }
-  }  
+  }
   &__total {
     text-align: left;
     font-size: 1.5rem;
@@ -304,8 +329,7 @@ export default defineComponent({
     margin-top: 2rem;
     padding-top: 2rem;
   }
-  
-  
+
 }
 
 .review {
@@ -316,7 +340,6 @@ export default defineComponent({
   @include respond(phone) {
     width: 95%;
   }
-  
 
   &__name {
     display: inline-block;
@@ -331,7 +354,7 @@ export default defineComponent({
     display: inline-block;
     width: 80%;
     text-align: left;
-    
+
   }
 
   &__rating {

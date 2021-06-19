@@ -1,51 +1,58 @@
 <template>
   <div>
-  <b-navbar fixed="top" toggleable="lg" type="dark" variant="dark">
-    <b-navbar-brand href="#">NavBar</b-navbar-brand>
+    <b-navbar fixed="top" toggleable="lg" type="dark" variant="dark">
+      <b-navbar-brand href="#">
+        NavBar
+      </b-navbar-brand>
 
-    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <b-navbar-toggle target="nav-collapse" />
 
-    <b-collapse id="nav-collapse" is-nav>
-
-      <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto">
-        <!-- <b-nav-item><button @click="scrollToAbout">About Us</button></b-nav-item> -->
-        <nuxt-link :to="{path: '/', hash:'#header'}"  @click.native="scroll('header')">Header</nuxt-link>
-        <nuxt-link :to="{path: '/', hash:'#about'}"  @click.native="scroll('about')">About Us</nuxt-link>
-        <nuxt-link :to="'/products/1rBHJM0XvnEFeYDxso9t'">first product</nuxt-link>
-        <nuxt-link :to="'/products/rXvql9MfAnrW8OPu1fEn'">second product</nuxt-link>
-        <nuxt-link :to="'/cart'">Cart</nuxt-link>
-      </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>
-</div>
-
+      <b-collapse id="nav-collapse" is-nav>
+        <!-- Right aligned nav items -->
+        <b-navbar-nav class="ml-auto">
+          <!-- <b-nav-item><button @click="scrollToAbout">About Us</button></b-nav-item> -->
+          <nuxt-link :to="{path: '/', hash:'#header'}" @click.native="scroll('header')">
+            Header
+          </nuxt-link>
+          <nuxt-link :to="{path: '/', hash:'#about'}" @click.native="scroll('about')">
+            About Us
+          </nuxt-link>
+          <nuxt-link :to="'/products/1rBHJM0XvnEFeYDxso9t'">
+            first product
+          </nuxt-link>
+          <nuxt-link :to="'/products/rXvql9MfAnrW8OPu1fEn'">
+            second product
+          </nuxt-link>
+          <nuxt-link :to="'/cart'">
+            Cart
+          </nuxt-link>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
+  </div>
 </template>
 
 <script>
-import { defineComponent, ref } from "@nuxtjs/composition-api";
+import { defineComponent } from '@nuxtjs/composition-api'
 
-  
 export default defineComponent({
-  methods:{
-    scroll(anchorId) {
-      console.log(`scrolled! ${anchorId}`)
-      if (this.$route.hash) {
-      const anchor = document.querySelector(`#${anchorId}`)
+  setup () {
 
-      // Check if the anchor has been found
-      if (anchor) {
-        window.scrollTo({
+  },
+  methods: {
+    scroll (anchorId) {
+      if (this.$route.hash) {
+        const anchor = document.querySelector(`#${anchorId}`)
+
+        // Check if the anchor has been found
+        if (anchor) {
+          window.scrollTo({
           // Scroll so that the anchor is at the top of the view
-          top: anchor.getBoundingClientRect().top + window.pageYOffset
-        })
+            top: anchor.getBoundingClientRect().top + window.pageYOffset
+          })
+        }
       }
     }
-    }
-  },
-  setup() {
-    
-      
   }
 })
 </script>

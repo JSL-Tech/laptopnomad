@@ -1,6 +1,6 @@
 <template>
   <div>
-      <Navbar />
+    <Navbar />
     <Nuxt />
   </div>
 </template>
@@ -10,10 +10,10 @@ import Navbar from '@/components/Navigation/Navbar'
 import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-    components: {Navbar},
-    setup() {
-        
-    },
+  components: { Navbar },
+  setup () {
+
+  }
 })
 </script>
 
@@ -39,7 +39,6 @@ body {
   min-height: 100vh;
 }
 
-
 /* -------------------------------------------------------------------------- */
 /*                                Global Class                                */
 /* -------------------------------------------------------------------------- */
@@ -62,7 +61,6 @@ body {
   scrollbar-width: none;  /* Firefox */
 }
 
-
 /* -------------------------------------------------------------------------- */
 /*                                Global Class                                */
 /* -------------------------------------------------------------------------- */
@@ -84,7 +82,6 @@ body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
-
 
 /* -------------------------------------------------------------------------- */
 /*                                  Animation                                 */
