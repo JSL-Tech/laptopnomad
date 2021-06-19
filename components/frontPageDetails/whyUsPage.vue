@@ -64,20 +64,20 @@ export default defineComponent ({
     background-position: right;
     background-size: cover;
     background-image: none;
-    padding-bottom: 8rem;
     position: relative;
+    
+
+
+    @include respond(tab-land) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 1;
+        grid-template-areas: 
+            "card--1 card--1"
+            "card--2 card--3";
+        place-items: stretch;     
     }
-
-
-    @include respond(phone) {
-        // grid-template-columns: 1fr;
-        // grid-template-rows: auto auto auto;
-        // gap: 1;
-        // grid-template-areas: 
-        //     "card--1"
-        //     "card--2"
-        //     "card--3";
-        // place-items: stretch;     
+    
     }
 }
 
@@ -223,6 +223,7 @@ export default defineComponent ({
 
     &__text {
         font-size: 1.6rem;
+        padding: 0 20% 0 20%;
         
         @include respond(tab-land) {
             font-size: 1.4rem;
