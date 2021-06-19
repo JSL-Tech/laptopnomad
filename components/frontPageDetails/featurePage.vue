@@ -321,16 +321,17 @@ export default defineComponent ({
 
     &__button {
         background-color: transparent;
-        color: black;
+        color: red;
         display: inline-block;
         font-size: 2rem;
-        font-weight: 600;
+        font-weight: 500;
         border: none;
         transition: all .1s;
+        text-decoration: none;
 
         &:hover, &:active {
             transform: translateY(-.2rem);
-            filter: drop-shadow(0 .2rem 0.4rem rgba(0, 0, 0, 0.1))
+            filter: drop-shadow(0 .2rem 0.4rem rgba(0, 0, 0, 0.7))
         }
         
         @include respond(tab-land) {

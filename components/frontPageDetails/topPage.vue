@@ -30,6 +30,7 @@ export default defineComponent({
     background-size: cover;
     background-position: bottom;
     position: relative;
+    
 
     @include respond(tab-land) {
         height: 90vh;
@@ -56,22 +57,22 @@ export default defineComponent({
 
     &-main {
         color: white;
-        font-size: 8rem;
+        font-size: 6rem;
         font-weight: 400;
         letter-spacing: .1rem;
         margin-bottom: 10rem;
 
         @include respond(tab-land) {
-            font-size: 7rem;
+            font-size: 4rem;
         }
 
         @include respond(tab-port) {
-            font-size: 6rem;
+            font-size: 3rem;
             margin-left: -.2rem;
         }
 
         @include respond(phone) {
-            font-size: 4rem;
+            font-size: 3rem;
         }
     }
 
@@ -79,28 +80,28 @@ export default defineComponent({
         display: inline-block;
         text-transform: uppercase;
         text-decoration: none;
-        padding: 1.5rem 4rem;
+        padding: 1rem 3rem;
         border-radius: 10rem;
         border: none;
-        font-size: 3rem;
+        font-size: 2rem;
         font-weight:700;
 
         @include respond(tab-land) {
             font-size: 2.4rem;
-            padding: 1.3rem 3.6rem;
+            padding: 1rem 3rem;
         }
 
         @include respond(tab-port) {
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
 
             &--sub{
                 display: block;
                 color: white;
-                font-size: 3rem;
+                font-size: 2.5rem;
 
                 @include respond(tab-land) {
-                    font-size: 2.4rem;
+                    font-size: 2rem;
                 }
 
                 @include respond(tab-port) {
