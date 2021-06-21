@@ -1,12 +1,12 @@
 <template>
-  <div class="about" ref="about" id="about">
+  <div id="about" ref="about" class="about">
     <div class="card card--1">
       <b-img
         src="~/assets/images/main.png"
         fluid
         alt="Responsive image"
         class="card__image card__image--large"
-      ></b-img>
+      />
     </div>
     <div class="card card--2">
       <b-img
@@ -14,7 +14,7 @@
         fluid
         alt="Responsive image"
         class="card__image card__image--circle"
-      ></b-img>
+      />
     </div>
     <div class="card card--3">
       <b-img
@@ -22,7 +22,7 @@
         fluid
         alt="Responsive image"
         class="card__image card__image--circle"
-      ></b-img>
+      />
     </div>
     <div class="card card--4">
       <b-img
@@ -30,9 +30,13 @@
         fluid
         alt="Responsive image"
         class="card__image card__image--large"
-      ></b-img>
-      <h1 class="card__heading">BONUS</h1>
-      <h2 class="card__subheading">Accesory Pouch</h2>
+      />
+      <h1 class="card__heading">
+        BONUS
+      </h1>
+      <h2 class="card__subheading">
+        Accesory Pouch
+      </h2>
     </div>
     <div class="card card--5">
       <b-img
@@ -40,29 +44,40 @@
         fluid
         alt="Responsive image"
         class="card__image card__image--small"
-      ></b-img>
-      <h1 class="card__heading">BONUS</h1>
-      <h2 class="card__subheading">Cable Organiser</h2>
+      />
+      <h1 class="card__heading">
+        BONUS
+      </h1>
+      <h2 class="card__subheading">
+        Cable Organiser
+      </h2>
     </div>
     <div class="card card--main">
-      <h1 class="card__heading">Nomad Sleeve</h1>
-      <h2 class="card__subheading">Laptop cases</h2>
-      <span class="card__text"
-        >Ergonomic structure designed to improve posture and alleviate wrist
+      <h1 class="card__heading">
+        Nomad Sleeve
+      </h1>
+      <h2 class="card__subheading">
+        Laptop cases
+      </h2>
+      <span
+        class="card__text"
+      >Ergonomic structure designed to improve posture and alleviate wrist
         pain. Empowering the way you work.
       </span>
-      <button class="card__button">Shop Sleeves</button>
+      <button class="card__button">
+        Shop Sleeves
+      </button>
     </div>
     <!-- </div> -->
   </div>
 </template>
 
 <script>
-import { defineComponent } from "@nuxtjs/composition-api";
+import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  setup() {},
-});
+  setup () {}
+})
 </script>
 
 <style lang="scss" scoped>
@@ -192,6 +207,10 @@ export default defineComponent({
     @include respond(tab-land) {
       font-size: 2rem;
     }
+    @include respond(phone) {
+      font-size: 2rem;
+      padding: 0 20%;
+    }
   }
 
   &__text {
@@ -202,8 +221,8 @@ export default defineComponent({
     }
 
     @include respond(phone) {
-      font-size: 1.2rem;
-      padding: 0 6rem;
+      font-size: 1.5rem;
+      padding: 0 20%;
     }
   }
 

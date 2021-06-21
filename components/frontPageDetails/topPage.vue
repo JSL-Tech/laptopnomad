@@ -1,21 +1,24 @@
 <template>
-    <div class="header" id="header">
-        <div class="header__box">
-            <h1 class="header__box-main">LAPTOPNOMADCO</h1>
-            <button class="header__box-button">Shop Now</button>
-            <span class="header__box-button--sub">The case you have been looking for </span>
-        </div>
+  <div id="header" class="header">
+    <div class="header__box">
+      <h1 class="header__box-main">
+        LAPTOPNOMADCO
+      </h1>
+      <button class="header__box-button">
+        Shop Now
+      </button>
+      <span class="header__box-button--sub">The case you have been looking for </span>
     </div>
-  
+  </div>
 </template>
 
 <script>
-import { defineComponent } from "@nuxtjs/composition-api";
+import { defineComponent } from '@nuxtjs/composition-api'
 
-export default defineComponent ({
-    setup () {
+export default defineComponent({
+  setup () {
 
-    }, 
+  }
 })
 </script>
 
@@ -27,7 +30,6 @@ export default defineComponent ({
     background-size: cover;
     background-position: bottom;
     position: relative;
-    
 
     @include respond(tab-land) {
         height: 90vh;
@@ -51,28 +53,27 @@ export default defineComponent ({
         @include respond(tab-port) {
             top: 65%;
         }
-    
 
     &-main {
         color: white;
         font-size: 6rem;
         font-weight: 400;
-        letter-spacing: .1rem;     
+        letter-spacing: .1rem;
         margin-bottom: 10rem;
 
         @include respond(tab-land) {
             font-size: 4rem;
         }
-        
+
         @include respond(tab-port) {
             font-size: 3rem;
             margin-left: -.2rem;
         }
-        
+
         @include respond(phone) {
             font-size: 3rem;
         }
-    }    
+    }
 
     &-button{
         display: inline-block;
@@ -101,7 +102,7 @@ export default defineComponent ({
                 @include respond(tab-land) {
                     font-size: 2rem;
                 }
-                
+
                 @include respond(tab-port) {
                     font-size: 2rem;
                 }

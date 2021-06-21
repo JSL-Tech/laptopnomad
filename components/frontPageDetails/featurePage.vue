@@ -1,123 +1,131 @@
 <template>
-    <div class="feature" ref="feature" id="feature" >
-        <div class="card__header">
-            <h1 class="card__heading"> Featured Cases </h1>
+  <div id="feature" ref="feature" class="feature">
+    <div class="card__header">
+      <h1 class="card__heading">
+        Featured Cases
+      </h1>
+    </div>
+    <div class="card card--1">
+      <div>
+        <b-carousel
+          id="carousel-1"
+          v-model="slide"
+          :interval="10000"
+          controls
+          indicators
+          img-width="480"
+          img-height="480"
+          @sliding-start="onSlideStart"
+          @sliding-end="onSlideEnd"
+        >
+          <!-- Slides with img slot -->
+          <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
+          <b-carousel-slide>
+            <template #img>
+              <img
+                class="d-block img-fluid w-100"
+                width="480"
+                height="480"
+                src="~/assets/images/BacklessDetail_Leather.png"
+                alt="image slot"
+              >
+            </template>
+          </b-carousel-slide>
+          <b-carousel-slide>
+            <template #img>
+              <img
+                class="d-block img-fluid w-100"
+                width="480"
+                height="480"
+                src="~/assets/images/Backless_Leather.png"
+                alt="image slot"
+              >
+            </template>
+          </b-carousel-slide>
+        </b-carousel>
+        <h1 class="card__subheading">
+          Classic Leather
+        </h1>
+        <div class="details__price">
+          <span class="details__price--normal">S$35.00</span>
+          <span class="details__price--strike">S$45.00</span>
         </div>
-            <div class="card card--1">
-               <div>
-                     <b-carousel
-                        id="carousel-1"
-                        v-model="slide"
-                        :interval="10000"
-                        controls
-                        indicators
-                        img-width="480"
-                        img-height="480"
-                        @sliding-start="onSlideStart"
-                        @sliding-end="onSlideEnd"
-                    >
-      <!-- Slides with img slot -->
-      <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
-      <b-carousel-slide>
-        <template #img>
-          <img
-            class="d-block img-fluid w-100"
-            width="480"
-            height="480"
-            src="~/assets/images/BacklessDetail_Leather.png"
-            alt="image slot"
-          >
-        </template>
-      </b-carousel-slide>
-      <b-carousel-slide>
-        <template #img>
-          <img
-            class="d-block img-fluid w-100"
-            width="480"
-            height="480"
-            src="~/assets/images/Backless_Leather.png"
-            alt="image slot"
-          >
-        </template>
-      </b-carousel-slide>
-                     </b-carousel>
-                     <h1 class="card__subheading"> Classic Leather </h1>
-                     <div class="details__price">
-                        <span class="details__price--normal">S$35.00</span>
-                        <span class="details__price--strike">S$45.00</span>
-                     </div>
-                     <nuxt-link class="card__button" :to="'/products/1rBHJM0XvnEFeYDxso9t'">Shop Now</nuxt-link>     
-                 </div>
-            </div>
-            <div class="card card--2">
-                <div>
-                     <b-carousel
-                        id="carousel-1"
-                        v-model="slide"
-                        :interval="10000"
-                        controls
-                        indicators
-                        img-width="480"
-                        img-height="480"
-                        @sliding-start="onSlideStart"
-                        @sliding-end="onSlideEnd"
-                    >
-      <!-- Slides with img slot -->
-      <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
-      <b-carousel-slide>
-        <template #img>
-          <img
-            class="d-block img-fluid w-100"
-            width="480"
-            height="480"
-            src="~/assets/images/BacklessPink_Detail.png"
-            alt="image slot"
-          >
-        </template>
-      </b-carousel-slide>
-      <b-carousel-slide>
-        <template #img>
-          <img
-            class="d-block img-fluid w-100"
-            width="480"
-            height="480"
-            src="~/assets/images/Backless_pink.png"
-            alt="image slot"
-          >
-        </template>
-      </b-carousel-slide>
-                     </b-carousel>
-                     <h1 class="card__subheading"> Novel Pink </h1>
-                     <div class="details__price">
-                        <span class="details__price--normal">S$35.00</span>
-                        <span class="details__price--strike">S$45.00</span>
-                     </div>
-                     <nuxt-link class="card__button" :to="'/products/rXvql9MfAnrW8OPu1fEn'">Shop Now</nuxt-link>
-                 </div>
-            </div>
+        <nuxt-link class="card__button" :to="'/products/1rBHJM0XvnEFeYDxso9t'">
+          Shop Now
+        </nuxt-link>
+      </div>
+    </div>
+    <div class="card card--2">
+      <div>
+        <b-carousel
+          id="carousel-1"
+          v-model="slide"
+          :interval="10000"
+          controls
+          indicators
+          img-width="480"
+          img-height="480"
+          @sliding-start="onSlideStart"
+          @sliding-end="onSlideEnd"
+        >
+          <!-- Slides with img slot -->
+          <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
+          <b-carousel-slide>
+            <template #img>
+              <img
+                class="d-block img-fluid w-100"
+                width="480"
+                height="480"
+                src="~/assets/images/BacklessPink_Detail.png"
+                alt="image slot"
+              >
+            </template>
+          </b-carousel-slide>
+          <b-carousel-slide>
+            <template #img>
+              <img
+                class="d-block img-fluid w-100"
+                width="480"
+                height="480"
+                src="~/assets/images/Backless_pink.png"
+                alt="image slot"
+              >
+            </template>
+          </b-carousel-slide>
+        </b-carousel>
+        <h1 class="card__subheading">
+          Novel Pink
+        </h1>
+        <div class="details__price">
+          <span class="details__price--normal">S$35.00</span>
+          <span class="details__price--strike">S$45.00</span>
+        </div>
+        <nuxt-link class="card__button" :to="'/products/rXvql9MfAnrW8OPu1fEn'">
+          Shop Now
+        </nuxt-link>
+      </div>
+    </div>
 
-            <!-- <div class="card card--main">
+    <!-- <div class="card card--main">
                 <h1 class="card__heading"> Nomad Sleeve </h1>
                 <h2 class="card__subheading"> Laptop cases </h2>
                 <span class="card__text">Ergonomic structure designed to improve posture and alleviate wrist pain. Empowering the way you work. </span>
                 <button class="card__button">Shop Sleeves</button>
             </div> -->
-         
-    </div>
+  </div>
 </template>
 
 <script>
-import { defineComponent } from "@nuxtjs/composition-api";
+import { defineComponent } from '@nuxtjs/composition-api'
 
-export default defineComponent ({
-    setup () {
-        
-    }, 
+export default defineComponent({
+  setup () {
+
+  }
 })
 </script>
 
 <style lang="scss" scoped>
-
 
 .details{
     &__price{
@@ -140,10 +148,10 @@ export default defineComponent ({
 .feature {
     display: grid;
     padding: 5rem 15rem 0 15rem;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr ;
-    gap: 1rem; 
-    grid-template-areas: 
+    gap: 1rem;
+    grid-template-areas:
         "card--1 card--2";
     place-items: center;
     background-color: none;
@@ -157,15 +165,14 @@ export default defineComponent ({
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto;
         gap: 1;
-        grid-template-areas: 
+        grid-template-areas:
             "card--1"
             "card--2";
         place-items: stretch;
         padding: 5rem 3rem 0rem 3rem;
-        
+
     }
 }
-
 
 .card {
     border: none;
@@ -179,7 +186,6 @@ export default defineComponent ({
     @include respond(phone) {
         justify-content: flex-end;
 
-            
         &:hover &__image {
         transform: scale(.7);
         filter: blur(.3rem) brightness(80%);
@@ -189,7 +195,7 @@ export default defineComponent ({
         &:hover &__caption {
         opacity: 1;
         transform: translate(-50%,-50%);
-        }  
+        }
     }
 
     &--1 {
@@ -210,7 +216,7 @@ export default defineComponent ({
 
     // &--5 {
     //     grid-area: card--5;
-        
+
     //     @include respond(phone) {
     //         img {
     //             padding-bottom: 3rem;
@@ -238,7 +244,6 @@ export default defineComponent ({
         top: 95%;
         left: 50%;
         transform: translate(-50%,-50%);
-        
 
         @include respond(phone) {
             top: 85%;
@@ -258,7 +263,7 @@ export default defineComponent ({
     }
 
     &__image {
-        margin: 2rem 0; 
+        margin: 2rem 0;
         transition: transform .5s;
 
         &--small {
@@ -267,7 +272,7 @@ export default defineComponent ({
 
         &--large {
             width: 80%;
-    
+
         }
 
         &--circle {
@@ -291,7 +296,7 @@ export default defineComponent ({
         @include respond(phone) {
             font-size: 2rem;
         }
-        
+
     }
 
     &__subheading {
@@ -305,7 +310,7 @@ export default defineComponent ({
 
     &__text {
         font-size: 1.6rem;
-        
+
         @include respond(tab-land) {
             font-size: 1.4rem;
         }
@@ -333,7 +338,7 @@ export default defineComponent ({
             transform: translateY(-.2rem);
             filter: drop-shadow(0 .2rem 0.4rem rgba(0, 0, 0, 0.7))
         }
-        
+
         @include respond(tab-land) {
             font-size: 2.4rem;
             padding: 1.3rem 3.6rem;
@@ -344,5 +349,5 @@ export default defineComponent ({
         }
     }
 }
-  
+
 </style>

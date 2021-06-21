@@ -1,7 +1,9 @@
 <template>
-  <div class="why" ref="why" id="why">
+  <div id="why" ref="why" class="why">
     <div class="card__header">
-      <h1 class="card__heading">Why Choose Us</h1>
+      <h1 class="card__heading">
+        Why Choose Us
+      </h1>
     </div>
 
     <div class="card__area">
@@ -11,12 +13,14 @@
           fluid
           alt="Responsive image"
           class="card__image card__image--medium"
-        ></b-img>
+        />
         <figcaption class="card__caption">
           From the sleeve to the stand to the wrist support our design aims to
           meet all your needs
         </figcaption>
-        <h1 class="card__heading">DESIGN</h1>
+        <h1 class="card__subheading">
+          DESIGN
+        </h1>
         <h2 class="card__text">
           From the sleeve to the stand to the wrist support our comprehensive
           design aims to meet all your needs
@@ -28,11 +32,13 @@
           fluid
           alt="Responsive image"
           class="card__image card__image--medium"
-        ></b-img>
+        />
         <figcaption class="card__caption">
           Get your product within 2 - 4 days anywhere worldwide
         </figcaption>
-        <h1 class="card__heading">SPEED</h1>
+        <h1 class="card__subheading">
+          SPEED
+        </h1>
         <h2 class="card__text">
           Get your product within 2 - 4 days anywhere worldwide
         </h2>
@@ -42,18 +48,24 @@
           src="~/assets/images/posturebackless.png"
           fluid
           alt="Responsive image"
-          class="card__image card__image--medium"
-        ></b-img>
+          class="card__image card__image--mediumLarge"
+        />
         <figcaption class="card__caption">
           Better posture means less pain
         </figcaption>
-        <h1 class="card__heading">HEALTH</h1>
-        <h2 class="card__text">Better posture means less pain</h2>
+        <h1 class="card__subheading">
+          HEALTH
+        </h1>
+        <h2 class="card__text">
+          Better posture means less pain
+        </h2>
       </div>
     </div>
 
     <div class="card__bottom">
-      <button class="card__button">Shop Now</button>
+      <button class="card__button">
+        Shop Now
+      </button>
     </div>
 
     <!-- <div class="card card--main">
@@ -66,15 +78,28 @@
 </template>
 
 <script>
-import { defineComponent } from "@nuxtjs/composition-api";
+import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  setup() {},
-});
+  setup () {}
+})
 </script>
 
 <style lang="scss" scoped>
 .why {
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(200, 194, 188, 0.8),
+      rgba(200, 194, 188, 0.8)
+    ),
+    url(assets/images/whyUsBackground.jpg);
+
+    @include respond(phone) {
+      background-position: center;
+    }
+
   .card__area {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -136,30 +161,45 @@ export default defineComponent({
 
   &--1 {
     grid-area: card--1;
+
   }
 
   &--1 img{
-      @include respond(phone) {
-      width: 30%;
-      }
 
       @include respond(tab-land) {
       width: 30%;
     }
+    @include respond(phone) {
+      width: 40%;
+      }
   }
 
   &--2 {
     grid-area: card--2;
   }
 
-  &--3 {
-    grid-area: card--3;
+  &--2 img{
 
-    &--3 img{
-      @include respond(phone) {
+    @include respond(phone) {
       width: 40%;
       }
+  }
+
+  &--3 {
+    grid-area: card--3;
+  }
+
+  &--3 img{
+
+      @include respond(big-desktop) {
+      width: 90%;
     }
+      @include respond(tab-land) {
+      width: 50%;
+    }
+    @include respond(phone) {
+      width: 40%;
+      }
   }
 
   // &--4 {
@@ -185,7 +225,7 @@ export default defineComponent({
     // top: 8%;
     // left: 50%;
     // transform: translate(-50%,-50%);
-    margin-top: 2%;
+    padding-top: 2%;
     text-align: center;
   }
 
@@ -199,7 +239,7 @@ export default defineComponent({
     //     top: 85%;
     // }
     text-align: center;
-    margin-bottom: 2%;
+    padding-bottom: 2%;
   }
 
   &__caption {
@@ -225,6 +265,10 @@ export default defineComponent({
       width: 50%;
     }
 
+    &--mediumLarge {
+      width: 60%;
+    }
+
     &--large {
       width: 80%;
     }
@@ -248,32 +292,36 @@ export default defineComponent({
     }
 
     @include respond(phone) {
-      font-size: 2rem;
+      font-size: 4rem;
     }
   }
 
   &__subheading {
     font-size: 2.4rem;
+    font-weight: 600;
 
     @include respond(tab-land) {
-      font-size: 2rem;
+      font-size: 2.5rem;
+    }
+
+    @include respond(phone) {
+      font-size: 3rem;
+      padding: 0 30%;
     }
   }
 
   &__text {
     font-size: 1.6rem;
-    padding: 0 20% 0 20%;
+    padding: 0 5% 0 5%;
 
     @include respond(tab-land) {
-      font-size: 1.4rem;
+      font-size: 2rem;
+      padding: 0 20% 0 20%;
     }
 
     @include respond(phone) {
-      font-size: 1.2rem;
-      padding: 0 6rem;
-    }
-    @include respond(phone) {
-    //   display: none;
+      font-size: 2rem;
+      padding: 0 30%;
     }
   }
 
