@@ -27,24 +27,26 @@ export default defineComponent({
       default: false
     }
   },
-  setup (props) {
+  setup(props) {
     // Converting value to nearest quater eg. 1.15 -> 1.25
     const ratingVal = computed(() => {
-      const temp = (Math.round(props.value * 4) / 4).toFixed(2)
-      if (temp.slice(-1) === '0') {
-        if (temp.slice(-2, -1) === '0') {
-          return temp.slice(0, -3)
-        } else {
+      var temp = (Math.round(props.value * 4) / 4).toFixed(2)
+      if(temp.slice(-1) === '0'){
+        if(temp.slice(-2,-1) === '0'){
+          return temp.slice(0,-3)
+        }else{
           return temp.slice(0, -1)
         }
-      } else {
+      }else{
         return temp
       }
-    })
+      
+        
+      })
     const interactivity = props.isInteractive ? '--clickable' : ' '
 
-    return { ratingVal, interactivity }
-  }
+    return {ratingVal, interactivity}
+  },
 })
 </script>
 
@@ -70,7 +72,7 @@ $rating-icons-paths: (
 );
 
 /// Creates a dynamic list of values that increment each .25 from 0 to 5
-/// @return {list}
+/// @return {list} 
 @function rating-values() {
   $rating-values: ();
 
@@ -90,7 +92,7 @@ $rating-icons-paths: (
   @if not index(quarter half three-quarters full, $icon) {
     @error "Interaction type must be either `quarter`, `half`, `three-quarters` or `full`.";
   }
-
+  
   @return url('data:image/svg+xml;utf8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%22512%22%20height%3D%22512%22%20viewBox%3D%220%200%20512%20512%22%3E%3Cpath%20fill%3D%22' + $color + '%22%20d%3D%22' + map-get($rating-icons-paths, $icon) + '%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E') center / cover no-repeat;
 }
 
@@ -115,7 +117,7 @@ $rating-icons-paths: (
   @if not index(clickable representative, $interaction-type) {
     @error "Interaction type must be either `clickable` or `representative`.";
   }
-
+  
   #{$star-element} {
     display: inline-block;
     width: $star-size;
@@ -129,7 +131,7 @@ $rating-icons-paths: (
     @if $interaction-type == clickable {
       cursor: pointer;
       transition: background 0.25s ease;
-
+      
       // Override background images on hover state
       &:hover,
       &:hover ~ #{$star-element} {
@@ -137,7 +139,7 @@ $rating-icons-paths: (
       }
     }
   }
-
+  
   // Override background images on hover state
   @if $interaction-type == clickable {
     &:hover {
@@ -189,6 +191,7 @@ $rating-icons-paths: (
   @return math.div($target, $context) + 0em;
 }
 
+
 .rating-holder {
   display: inline-block;
 
@@ -199,11 +202,11 @@ $rating-icons-paths: (
   &--clickable {
     @include c-rating(toem(20px), button, clickable);
   }
-
+  
   &--small > * {
     font-size: 100%;
   }
-
+  
   &--large > * {
     font-size: 200%;
   }
@@ -213,3 +216,4 @@ $rating-icons-paths: (
   }
 }
 </style>
+
