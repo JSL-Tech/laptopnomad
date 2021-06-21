@@ -65,7 +65,7 @@ export default defineComponent({
   props: {
     cart: {
       type: Array,
-      default: () => []
+      required: true
     }
   },
   setup (props, { emit }) {

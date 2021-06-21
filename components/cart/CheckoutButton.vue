@@ -1,57 +1,60 @@
-<template >
+<template>
   <div>
     <StripeCheckout
       ref="checkoutRef"
       mode="payment"
       :pk="pk"
       :session-id="session.id"
-    ></StripeCheckout>
+    />
     <button v-if="isCartEmpty" class="checkout checkout--dark checkout--disabled" disabled>
       <span>CHECKOUT</span>
-      <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+      <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
     </button>
-    <button v-else @click="handleCheckout()" class="checkout checkout--dark">
+    <button v-else class="checkout checkout--dark" @click="handleCheckout()">
       <span>CHECKOUT</span>
-      <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+      <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
     </button>
   </div>
 </template>
 
 <script>
-import { computed, defineComponent,ref } from '@nuxtjs/composition-api'
+import { computed, defineComponent, ref, useStore } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  props:  {
+  props: {
     cart: {
       type: Array,
-      required: true,
+      required: true
     }
   },
-  setup(props) {
+  setup (props) {
+    const store = useStore()
     const pk = process.env.STRIPE_PK
     const checkoutRef = ref(null)
     const session = ref('')
-    const isCartEmpty = computed(() => props.cart.length > 0 ? false : true)
-    const createCheckoutSessionEndpoint = "http://localhost:5001/learning-38322/us-central1/stripe/create-checkout-session"
+    const isCartEmpty = computed(() => !(props.cart.length > 0))
+    const createCheckoutSessionEndpoint = 'https://asia-east2-learning-38322.cloudfunctions.net/stripe/create-checkout-session'
 
     const handleCheckout = async () => {
-      if(isCartEmpty.value){
+      if (isCartEmpty.value) {
         // Alert cart is empty
         return
       }
-      const bodyData = formatCartData(props.cart) 
+      store.commit('toggleIsLoading')
+      const bodyData = formatCartData(props.cart)
       const response = await fetch(
-        createCheckoutSessionEndpoint, 
+        createCheckoutSessionEndpoint,
         {
-          method: "POST",
-          headers: {'Content-Type': 'application/json'},
-          body: bodyData,
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: bodyData
         })
-      session.value = await response.json();
-      console.log('session value', session.id)
-      const result = await checkoutRef.value.redirectToCheckout();
-
-      if(result && result.error) {
+      session.value = await response.json()
+      const result = await checkoutRef.value.redirectToCheckout()
+      setTimeout(() => {
+        store.commit('toggleIsLoading')
+      }, 1000)
+      if (result && result.error) {
       // If `redirectToCheckout` fails due to a browser or network
       // error, display the localized error message to your customer
       // using `result.error.message`.
@@ -63,15 +66,13 @@ export default defineComponent({
       const simplifiedCart = cart.map((item) => {
         return {
           productId: item.id,
-          quantity:  item.count
+          quantity: item.count
         }
       })
-      console.log('simplifiedCart', simplifiedCart)
       return JSON.stringify(simplifiedCart)
     }
 
-    return{pk, checkoutRef, session, isCartEmpty, handleCheckout}
-
+    return { pk, checkoutRef, session, isCartEmpty, handleCheckout }
   }
 })
 </script>
@@ -122,4 +123,3 @@ export default defineComponent({
 }
 
 </style>
-

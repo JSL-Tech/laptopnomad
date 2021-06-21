@@ -49,11 +49,11 @@ import PaymentButton from '@/components/cart/CheckoutButton.vue'
 import PaymentIcons from './PaymentIcons.vue'
 
 export default defineComponent({
-  components: { PaymentIcons },
+  components: { PaymentIcons, PaymentButton },
   props: {
     cart: {
       type: Array,
-      default: () => []
+      required: true
     }
   },
   setup (props) {
