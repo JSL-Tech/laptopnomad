@@ -1,6 +1,34 @@
 <template>
-  <div>
-    <b-navbar fixed="top" toggleable="lg" type="dark" variant="dark">
+  <div class="nav">
+    <ul>
+      <li style="float:left">
+        <nuxt-link :to="{path: '/', hash:'#header'}" @click.native="scroll('header')">
+          LAPTOPNOMADCO
+        </nuxt-link>
+      </li>
+      <li style="float:right">
+        <nuxt-link :to="'/cart'">
+          Cart
+        </nuxt-link>
+      </li>
+      <li style="float:right">
+        <nuxt-link :to="{path: '/', hash:'#about'}" @click.native="scroll('about')">
+          Whats Inside
+        </nuxt-link>
+      </li>
+      <li style="float:right">
+        <nuxt-link :to="{path: '/', hash:'#why'}" @click.native="scroll('why')">
+          Why Nomad Case
+        </nuxt-link>
+      </li>
+      <li style="float:right">
+        <nuxt-link :to="{path: '/', hash:'#feature'}" @click.native="scroll('why')">
+          Our Product
+        </nuxt-link>
+      </li>
+    </ul>
+
+    <!-- <b-navbar fixed="top" toggleable="lg" type="dark" variant="dark">
       <b-navbar-brand href="#">
         <nuxt-link :to="{path: '/', hash:'#header'}" @click.native="scroll('header')">
           LAPTOPNOMADCO
@@ -9,11 +37,11 @@
 
       <b-navbar-toggle target="nav-collapse" />
 
-      <b-collapse id="nav-collapse" is-nav>
-        <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto">
-          <!-- <b-nav-item><button @click="scrollToAbout">About Us</button></b-nav-item> -->
-          <nuxt-link :to="{path: '/', hash:'#about'}" @click.native="scroll('about')">
+      <b-collapse id="nav-collapse" is-nav> -->
+    <!-- Right aligned nav items -->
+    <!-- <b-navbar-nav class="ml-auto"> -->
+    <!-- <b-nav-item><button @click="scrollToAbout">About Us</button></b-nav-item> -->
+    <!-- <nuxt-link :to="{path: '/', hash:'#about'}" @click.native="scroll('about')">
             About Us
           </nuxt-link>
           <nuxt-link :to="{path: '/', hash:'#why'}" @click.native="scroll('why')">
@@ -33,12 +61,12 @@
           </nuxt-link>
         </b-navbar-nav>
       </b-collapse>
-    </b-navbar>
+    </b-navbar> -->
   </div>
 </template>
 
 <script>
-import { defineComponent, ref } from '@nuxtjs/composition-api'
+import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup () {
@@ -64,11 +92,24 @@ export default defineComponent({
 </script>
 
 <style scoped>
-  a,
-  a:link,
-  a:visited{
-    text-decoration: none;
-    color: white;
-    margin-right: 5px;
-  }
+
+ ul {
+   position: fixed;
+   top: 0;
+   width: 100%;
+   z-index: 1;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+ }
+
+  li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
 </style>

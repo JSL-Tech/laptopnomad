@@ -36,7 +36,6 @@ html {
 }
 
 body {
-  padding-top: 3.7rem;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   line-height: 1.7;
