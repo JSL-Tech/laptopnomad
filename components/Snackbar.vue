@@ -33,6 +33,8 @@ export default defineComponent({
     // <Snackbar :show="show">Success!</Snackbar>
 
     // In parent component setup
+    // import Snackbar from '@/components/Snackbar.vue'
+    // components: { Snackbar },
     // const show = ref(false)
     // const handleShowSnackbar = () => {
     //   if(show.value == false) {
