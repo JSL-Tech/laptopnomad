@@ -1,117 +1,105 @@
 <template>
   <div id="feature" ref="feature" class="feature">
-    <div class="card__header">
-      <h1 class="card__heading">
+    <div class="feature__header">
+      <h1 class="feature__heading">
         Featured Cases
       </h1>
     </div>
-    <div class="card card--1">
-      <div>
-        <b-carousel
-          id="carousel-1"
-          v-model="slide"
-          :interval="10000"
-          controls
-          indicators
-          img-width="480"
-          img-height="480"
-          @sliding-start="onSlideStart"
-          @sliding-end="onSlideEnd"
-        >
-          <!-- Slides with img slot -->
-          <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
-          <b-carousel-slide>
-            <template #img>
-              <img
-                class="d-block img-fluid w-100"
-                width="480"
-                height="480"
-                src="~/assets/images/BacklessDetail_Leather1.png"
-                alt="image slot"
-              >
-            </template>
-          </b-carousel-slide>
-          <b-carousel-slide>
-            <template #img>
-              <img
-                class="d-block img-fluid w-100"
-                width="480"
-                height="480"
-                src="~/assets/images/Backless_Leather1.png"
-                alt="image slot"
-              >
-            </template>
-          </b-carousel-slide>
-        </b-carousel>
-        <h1 class="card__subheading">
-          Classic Leather
-        </h1>
-        <div class="details__price">
-          <span class="details__price--normal">S$35.00</span>
-          <span class="details__price--strike">S$45.00</span>
+    <div class="carousels">
+      <div class="card card--1">
+        <div>
+          <b-carousel
+            id="carousel-1"
+            v-model="slide"
+            :interval="10000"
+            controls
+            indicators
+            img-width="300"
+            img-height="300"
+            class="carousel"
+            @sliding-start="onSlideStart"
+            @sliding-end="onSlideEnd"
+          >
+            <!-- Slides with img slot -->
+            <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
+            <b-carousel-slide>
+              <template #img>
+                <img
+                  class="d-block img-fluid w-90"
+                  src="~/assets/images/BacklessDetail_Leather2.png"
+                  alt="image slot"
+                >
+              </template>
+            </b-carousel-slide>
+            <b-carousel-slide>
+              <template #img>
+                <img
+                  class="d-block img-fluid w-90"
+                  src="~/assets/images/Backless_Leather2.png"
+                  alt="image slot"
+                >
+              </template>
+            </b-carousel-slide>
+          </b-carousel>
+          <nuxt-link class="card__subheading" :to="'/products/rXvql9MfAnrW8OPu1fEn'">
+            Classic Leather
+          </nuxt-link>
+          <div class="details__price">
+            <span class="details__price--normal">S$35.00</span>
+            <span class="details__price--strike">S$45.00</span>
+          </div>
+          <nuxt-link class="card__button" :to="'/products/1rBHJM0XvnEFeYDxso9t'">
+            Shop Now
+          </nuxt-link>
         </div>
-        <nuxt-link class="card__button" :to="'/products/1rBHJM0XvnEFeYDxso9t'">
-          Shop Now
-        </nuxt-link>
+      </div>
+      <div class="card card--2">
+        <div>
+          <b-carousel
+            id="carousel-1"
+            v-model="slide"
+            :interval="10000"
+            controls
+            indicators
+            img-width="300"
+            img-height="300"
+            @sliding-start="onSlideStart"
+            @sliding-end="onSlideEnd"
+          >
+            <!-- Slides with img slot -->
+            <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
+            <b-carousel-slide>
+              <template #img>
+                <img
+                  class="d-block img-fluid w-90"
+                  src="~/assets/images/BacklessPink_Detail2.png"
+                  alt="image slot"
+                >
+              </template>
+            </b-carousel-slide>
+            <b-carousel-slide>
+              <template #img>
+                <img
+                  class="d-block img-fluid w-90"
+                  src="~/assets/images/Backless_pink2.png"
+                  alt="image slot"
+                >
+              </template>
+            </b-carousel-slide>
+          </b-carousel>
+          <nuxt-link class="card__subheading" :to="'/products/rXvql9MfAnrW8OPu1fEn'">
+            Novel Pink
+          </nuxt-link>
+          <div class="details__price">
+            <span class="details__price--normal">S$35.00</span>
+            <span class="details__price--strike">S$45.00</span>
+          </div>
+          <nuxt-link class="card__button" :to="'/products/rXvql9MfAnrW8OPu1fEn'">
+            Shop Now
+          </nuxt-link>
+        </div>
       </div>
     </div>
-    <div class="card card--2">
-      <div>
-        <b-carousel
-          id="carousel-1"
-          v-model="slide"
-          :interval="10000"
-          controls
-          indicators
-          img-width="480"
-          img-height="480"
-          @sliding-start="onSlideStart"
-          @sliding-end="onSlideEnd"
-        >
-          <!-- Slides with img slot -->
-          <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
-          <b-carousel-slide>
-            <template #img>
-              <img
-                class="d-block img-fluid w-100"
-                width="480"
-                height="480"
-                src="~/assets/images/BacklessPink_Detail1.png"
-                alt="image slot"
-              >
-            </template>
-          </b-carousel-slide>
-          <b-carousel-slide>
-            <template #img>
-              <img
-                class="d-block img-fluid w-100"
-                width="480"
-                height="480"
-                src="~/assets/images/Backless_pink1.png"
-                alt="image slot"
-              >
-            </template>
-          </b-carousel-slide>
-        </b-carousel>
-        <h1 class="card__subheading">
-          Novel Pink
-        </h1>
-        <div class="details__price">
-          <span class="details__price--normal">S$35.00</span>
-          <span class="details__price--strike">S$45.00</span>
-        </div>
-        <nuxt-link class="card__button" :to="'/products/rXvql9MfAnrW8OPu1fEn'">
-          Shop Now
-        </nuxt-link>
-      </div>
-    </div>
-
-    <!-- <div class="card card--main">
-                <h1 class="card__heading"> Nomad Sleeve </h1>
-                <h2 class="card__subheading"> Laptop cases </h2>
-                <span class="card__text">Ergonomic structure designed to improve posture and alleviate wrist pain. Empowering the way you work. </span>
-                <button class="card__button">Shop Sleeves</button>
-            </div> -->
   </div>
 </template>
 
@@ -126,6 +114,31 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.feature {
+  background: $color-white;
+  padding: 5rem 8rem;
+  margin-bottom: 8rem;
+  &__header{
+    text-align: center;
+  }
+
+  &__heading {
+    font-size: 3.6rem;
+    font-weight: 600;
+
+    @include respond(tab-land) {
+      font-size: 3rem;
+    }
+
+    @include respond(tab-port) {
+      font-size: 2.4rem;
+    }
+
+    @include respond(phone) {
+      font-size: 2rem;
+    }
+  }
+}
 
 .details{
     &__price{
@@ -145,9 +158,8 @@ export default defineComponent({
     }
   }
 }
-.feature {
+.carousels {
     display: grid;
-    padding: 5rem 15rem 0 15rem;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr ;
     gap: 1rem;
@@ -157,20 +169,16 @@ export default defineComponent({
     background-color: none;
     background-position: right;
     background-size: cover;
-    background-color: rgba(172, 167, 163, 1);
     position: relative;
-    margin-bottom: 5rem;
 
     @include respond(phone) {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
-        gap: 1;
-        grid-template-areas:
-            "card--1"
-            "card--2";
-        place-items: stretch;
-        padding: 5rem 3rem 0rem 3rem;
-
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 1;
+      grid-template-areas:
+        "card--1"
+        "card--2";
+      place-items: stretch;
     }
 }
 
@@ -184,86 +192,29 @@ export default defineComponent({
     background-color: transparent;
 
     @include respond(phone) {
-        justify-content: flex-end;
+      justify-content: flex-end;
 
-        &:hover &__image {
-        transform: scale(.7);
-        filter: blur(.3rem) brightness(80%);
-        opacity: .4;
-        }
+      &:hover &__image {
+      transform: scale(.7);
+      filter: blur(.3rem) brightness(80%);
+      opacity: .4;
+      }
 
-        &:hover &__caption {
-        opacity: 1;
-        transform: translate(-50%,-50%);
-        }
+      &:hover &__caption {
+      opacity: 1;
+      transform: translate(-50%,-50%);
+      }
     }
 
     &--1 {
-        grid-area: card--1;
+      grid-area: card--1;
     }
 
     &--2 {
-        grid-area: card--2;
-    }
-
-    &--3 {
-        grid-area: card--3;
-    }
-
-    // &--4 {
-    //     grid-area: card--4;
-    // }
-
-    // &--5 {
-    //     grid-area: card--5;
-
-    //     @include respond(phone) {
-    //         img {
-    //             padding-bottom: 3rem;
-    //         }
-    //     }
-    // }
-
-    // &--main {
-    //     grid-area: card--main;
-    //     justify-content: flex-end;
-    // }
-    &__header{
-        position: absolute;
-        top: 5%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-
-        @include respond(phone) {
-            top: 3%;
-        }
-        }
-
-    &__bottom{
-        position: absolute;
-        top: 95%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-
-        @include respond(phone) {
-            top: 85%;
-        }
-    }
-
-    &__caption{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, 20%);
-        color: black;
-        font-weight: 600;
-        opacity: 0;
-        transition: all .5s;
-
+      grid-area: card--2;
     }
 
     &__image {
-        margin: 2rem 0;
         transition: transform .5s;
 
         &--small {
@@ -281,30 +232,13 @@ export default defineComponent({
         }
     }
 
-    &__heading {
-        font-size: 3.6rem;
-        font-weight: 600;
-
-        @include respond(tab-land) {
-            font-size: 3rem;
-        }
-
-        @include respond(tab-port) {
-            font-size: 2.4rem;
-        }
-
-        @include respond(phone) {
-            font-size: 2rem;
-        }
-
-    }
-
     &__subheading {
-        font-size: 2.4rem;
+      font-size: 2.4rem;
+      color: black;
 
-        @include respond(tab-land) {
-            font-size: 2rem;
-        }
+      @include respond(tab-land) {
+        font-size: 2rem;
+      }
 
     }
 
@@ -326,28 +260,37 @@ export default defineComponent({
 
     &__button {
         background-color: transparent;
-        color: red;
+        color: $color-black;
         display: inline-block;
-        font-size: 2rem;
+        font-size: 1.8rem;
         font-weight: 500;
-        border: none;
         transition: all .1s;
         text-decoration: none;
-
-        &:hover, &:active {
-            transform: translateY(-.2rem);
-            filter: drop-shadow(0 .2rem 0.4rem rgba(0, 0, 0, 0.7))
-        }
+        border: 1px solid $color-black;
+        padding: .5rem 1.5rem;
+        margin-top: 1rem;
 
         @include respond(tab-land) {
-            font-size: 2.4rem;
-            padding: 1.3rem 3.6rem;
+          padding: 1rem 2rem;
         }
 
-        @include respond(tab-port) {
-            font-size: 2rem;
+        &:hover, &:active {
+          transform: translateY(-.3rem);
+          background: $color-secondary-dark;
+          color: white;
+          border: 1px solid transparent;
         }
     }
 }
 
+</style>
+
+<style lang="scss">
+.carousel-control-prev-icon {
+ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
 </style>

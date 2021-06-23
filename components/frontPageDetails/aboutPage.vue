@@ -29,7 +29,7 @@
         src="~/assets/images/pouch.png"
         fluid
         alt="Responsive image"
-        class="card__image card__image--large"
+        class="card__image card__image--medium"
       />
       <h1 class="card__heading">
         BONUS
@@ -99,7 +99,7 @@ export default defineComponent({
       rgba(255, 255, 255, 0.8)
     ),
     url(assets/images/Suitcase.jpg);
-  padding-bottom: 3rem;
+  padding: 3rem;
 
   @include respond(phone) {
     grid-template-columns: 1fr 1fr;
@@ -158,17 +158,12 @@ export default defineComponent({
 
   &--5 {
     grid-area: card--5;
-
-    @include respond(phone) {
-      img {
-        padding-bottom: 3rem;
-      }
-    }
   }
 
   &--main {
     grid-area: card--main;
-    justify-content: flex-end;
+    align-self: start;
+    margin-top: 1.5rem;
   }
 
   &__image {
@@ -176,6 +171,10 @@ export default defineComponent({
 
     &--small {
       width: 30%;
+    }
+
+    &--medium {
+      width: 55%
     }
 
     &--large {
@@ -215,6 +214,7 @@ export default defineComponent({
 
   &__text {
     font-size: 1.6rem;
+    margin: 1.5rem 0;
 
     @include respond(tab-land) {
       font-size: 1.4rem;
@@ -227,36 +227,30 @@ export default defineComponent({
   }
 
   &__button {
+    display: inline-block;
     margin-top: 2rem;
     background-color: $color-dark;
     color: white;
     text-transform: uppercase;
     padding: 1rem 3rem;
     border-radius: 10rem;
-    display: inline-block;
     font-size: 2rem;
     font-weight: 700;
     border: none;
     transition: all 0.1s;
 
+    @include respond(tab-land){
+      margin-top: 1rem;
+    }
+    @include respond(phone) {
+      font-size: 1.6rem;
+    }
     &:hover,
     &:active {
       transform: translateY(-0.2rem);
       filter: drop-shadow(0 0.2rem 0.4rem rgba(0, 0, 0, 0.5));
     }
 
-    @include respond(tab-land) {
-      font-size: 2.4rem;
-      padding: 1rem 3rem;
-    }
-
-    @include respond(tab-port) {
-      font-size: 2rem;
-    }
-
-    @include respond(phone) {
-      font-size: 1.6rem;
-    }
   }
 }
 </style>

@@ -9,7 +9,7 @@
     <div class="card__area">
       <div class="card card--1">
         <b-img
-          src="~/assets/images/puzzle.png"
+          src="~/assets/images/design.png"
           fluid
           alt="Responsive image"
           class="card__image card__image--medium"
@@ -45,7 +45,7 @@
       </div>
       <div class="card card--3">
         <b-img
-          src="~/assets/images/posturebackless.png"
+          src="~/assets/images/posturebackless1.png"
           fluid
           alt="Responsive image"
           class="card__image card__image--mediumLarge"
@@ -64,16 +64,9 @@
 
     <div class="card__bottom">
       <button class="card__button">
-        Shop Now
+        SHOP NOW
       </button>
     </div>
-
-    <!-- <div class="card card--main">
-                <h1 class="card__heading"> Nomad Sleeve </h1>
-                <h2 class="card__subheading"> Laptop cases </h2>
-                <span class="card__text">Ergonomic structure designed to improve posture and alleviate wrist pain. Empowering the way you work. </span>
-                <button class="card__button">Shop Sleeves</button>
-            </div> -->
   </div>
 </template>
 
@@ -91,10 +84,11 @@ export default defineComponent({
   background-position: center;
   background-image: linear-gradient(
       to right bottom,
-      rgba(200, 194, 188, 0.8),
-      rgba(200, 194, 188, 0.8)
+      rgba(200, 194, 188, 0.9),
+      rgba(200, 194, 188, 0.9)
     ),
     url(assets/images/whyUsBackground.jpg);
+  padding: 3rem;
 
     @include respond(phone) {
       background-position: center;
@@ -106,7 +100,7 @@ export default defineComponent({
     grid-template-rows: 1fr;
     gap: 1rem;
     grid-template-areas: "card--3 card--1 card--2";
-    place-items: center;
+    place-items: start;
     background-color: none;
     background-position: right;
     background-size: cover;
@@ -146,100 +140,33 @@ export default defineComponent({
 
   @include respond(phone) {
     justify-content: flex-end;
-
-    // &:hover &__image {
-    //   transform: scale(0.7);
-    //   filter: blur(0.3rem) brightness(80%);
-    //   opacity: 0.4;
-    // }
-
-    // &:hover &__caption {
-    //   opacity: 1;
-    //   transform: translate(-50%, -50%);
-    // }
+  }
+  & img {
+    width: 25%;
   }
 
   &--1 {
     grid-area: card--1;
-
-  }
-
-  &--1 img{
-
-      @include respond(tab-land) {
-      width: 30%;
-    }
-    @include respond(phone) {
-      width: 40%;
-      }
   }
 
   &--2 {
     grid-area: card--2;
   }
 
-  &--2 img{
-
-    @include respond(phone) {
-      width: 40%;
-      }
-  }
-
   &--3 {
     grid-area: card--3;
   }
 
-  &--3 img{
-
-      @include respond(big-desktop) {
-      width: 90%;
-    }
-      @include respond(tab-land) {
-      width: 50%;
-    }
-    @include respond(phone) {
-      width: 40%;
-      }
-  }
-
-  // &--4 {
-  //     grid-area: card--4;
-  // }
-
-  // &--5 {
-  //     grid-area: card--5;
-
-  //     @include respond(phone) {
-  //         img {
-  //             padding-bottom: 3rem;
-  //         }
-  //     }
-  // }
-
-  // &--main {
-  //     grid-area: card--main;
-  //     justify-content: flex-end;
-  // }
   &__header {
-    // position: absolute;
-    // top: 8%;
-    // left: 50%;
-    // transform: translate(-50%,-50%);
-    padding-top: 2%;
+    padding-top: 2rem;
     text-align: center;
+    margin-bottom: 2rem;
   }
 
   &__bottom {
-    // position: absolute;
-    // top: 95%;
-    // left: 50%;
-    // transform: translate(-50%,-50%);
-
-    // @include respond(phone) {
-    //     top: 85%;
-    // }
     text-align: center;
     padding-bottom: 2%;
+    margin-top: 4rem;
   }
 
   &__caption {
@@ -311,7 +238,7 @@ export default defineComponent({
   }
 
   &__text {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     padding: 0 5% 0 5%;
 
     @include respond(tab-land) {
