@@ -25,7 +25,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 
 .header {
-    height: 90vh;
+    height: 80vh;
     background-image: linear-gradient(to right top,rgba($color-secondary-dark, 0.6), rgba($color-primary, 0.3)), url(assets/images/Header_CafeWork.jpg);
     background-size: cover;
     background-position: bottom;

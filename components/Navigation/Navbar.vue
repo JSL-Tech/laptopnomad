@@ -10,16 +10,16 @@
     </label>
     <!-- Link List -->
     <div id="myLinks">
-      <nuxt-link :to="'/cart'">
+      <nuxt-link class="nav__link" :to="'/cart'">
         Cart
       </nuxt-link>
-      <nuxt-link :to="{path: '/', hash:'#about'}" @click.native="scroll('about')">
+      <nuxt-link class="nav__link" :to="{path: '/', hash:'#about'}" @click.native="scroll('about')">
         Whats Inside
       </nuxt-link>
-      <nuxt-link :to="{path: '/', hash:'#why'}" @click.native="scroll('why')">
+      <nuxt-link class="nav__link" :to="{path: '/', hash:'#why'}" @click.native="scroll('why')">
         Why Nomad Case
       </nuxt-link>
-      <nuxt-link :to="{path: '/', hash:'#feature'}" @click.native="scroll('why')">
+      <nuxt-link class="nav__link" :to="{path: '/', hash:'#feature'}" @click.native="scroll('why')">
         Our Product
       </nuxt-link>
     </div>
@@ -51,6 +51,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+
   .nav{
     overflow: hidden;
     background-color: $color-white;
@@ -58,13 +59,53 @@ export default defineComponent({
     width: 100%;
     z-index: 2;
     white-space: nowrap;
-
-    &__home{
-      font-size: 1.7rem;
-      font-weight: 600;
-      @include respond(phone){
-      font-size: 2rem;
+    height: $navbar-height;
+    padding: 0 2rem;
+    box-shadow: 0 0.2rem 0.5rem rgba($color-black, 0.2);
+    & a {
+      text-decoration: none;
+      color: $color-black;
+      line-height: $navbar-height;
     }
+    &__home {
+      font-size: 2rem;
+      font-weight: 500;
+      @include respond(phone){
+        font-size: 2rem;
+      }
+    }
+    &__link{
+      position: relative;
+      display: inline-block;
+      font-size: 1.5rem;
+      height: $navbar-height;
+      padding: 0 1.5rem;
+      overflow: hidden;
+      transition: color .5s ease-in-out .1s;
+      &:not(:last-child) {
+        margin-right: -0.4rem;
+      }
+
+      &::after {
+        z-index: -1;
+        content: '';
+        position: absolute;
+        height: $navbar-height;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: $color-secondary-dark;
+        transform: translateX(-101%);
+        transition: transform .4s ease-in-out;
+      }
+
+      &:hover {
+        color: $color-white;
+      }
+
+      &:hover:after {
+        transform: translateX(0);
+      }
     }
 
     &__checkbox{
@@ -86,21 +127,20 @@ export default defineComponent({
     height: 7rem;
     width: 7rem;
     border-radius: 50%;
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .1);
     text-align: center;
     cursor: pointer;
     margin-left: auto;
     display: none;
-    @include respond(phone){
-      display: block;
-    }
+      @include respond(phone){
+        display: block;
+      }
     }
 
     &__icon, &__icon::before , &__icon::after {
       position: relative;
       width: 3rem;
       height: .2rem;
-      background-color: white;
+      background-color: $color-black;
       display: inline-block;
     }
 
@@ -117,14 +157,6 @@ export default defineComponent({
       position: relative;
       margin-top: 3.4rem;
     }
-  }
-
-  .nav a {
-    color: $color-black;
-    padding: 1.4rem 1.6rem;
-    text-decoration: none;
-    font-size: 1.7rem;
-    display: inline-block;
   }
 
   .nav #myLinks {

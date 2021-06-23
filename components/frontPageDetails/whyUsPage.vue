@@ -143,10 +143,17 @@ export default defineComponent({
   }
   & img {
     width: 25%;
+
   }
 
   &--1 {
     grid-area: card--1;
+
+    & img {
+      @include respond(tab-land) {
+        width: 12.5%
+      }
+    }
   }
 
   &--2 {
