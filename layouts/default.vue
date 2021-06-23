@@ -2,17 +2,22 @@
   <div>
     <Navbar />
     <Nuxt />
+    <Loader :is-loading="isLoading" />
   </div>
 </template>
 
 <script>
 import Navbar from '@/components/Navigation/Navbar'
-import { defineComponent } from '@nuxtjs/composition-api'
+import { computed, defineComponent, useStore } from '@nuxtjs/composition-api'
+import Loader from '~/components/Loader.vue'
 
 export default defineComponent({
-  components: { Navbar },
+  components: { Navbar, Loader },
   setup () {
+    const store = useStore()
+    const isLoading = computed(() => store.getters.isLoading)
 
+    return { isLoading }
   }
 })
 </script>
@@ -129,6 +134,11 @@ body {
         transform: translate(0);
     }
 }
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
