@@ -26,7 +26,7 @@
                 class="d-block img-fluid w-100"
                 width="480"
                 height="480"
-                src="~/assets/images/BacklessDetail_Leather.png"
+                src="~/assets/images/BacklessDetail_Leather1.png"
                 alt="image slot"
               >
             </template>
@@ -37,7 +37,7 @@
                 class="d-block img-fluid w-100"
                 width="480"
                 height="480"
-                src="~/assets/images/Backless_Leather.png"
+                src="~/assets/images/Backless_Leather1.png"
                 alt="image slot"
               >
             </template>
@@ -76,7 +76,7 @@
                 class="d-block img-fluid w-100"
                 width="480"
                 height="480"
-                src="~/assets/images/BacklessPink_Detail.png"
+                src="~/assets/images/BacklessPink_Detail1.png"
                 alt="image slot"
               >
             </template>
@@ -87,7 +87,7 @@
                 class="d-block img-fluid w-100"
                 width="480"
                 height="480"
-                src="~/assets/images/Backless_pink.png"
+                src="~/assets/images/Backless_pink1.png"
                 alt="image slot"
               >
             </template>

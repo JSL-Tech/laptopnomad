@@ -120,7 +120,6 @@ export default defineComponent({
     height: 7rem;
     width: 7rem;
     border-radius: 50%;
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .1);
     text-align: center;
     cursor: pointer;
     margin-left: auto;
@@ -134,7 +133,7 @@ export default defineComponent({
       position: relative;
       width: 3rem;
       height: .2rem;
-      background-color: white;
+      background-color: black;
       display: inline-block;
     }
 
