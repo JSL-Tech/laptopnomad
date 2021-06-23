@@ -88,7 +88,7 @@ export default defineComponent({
 <style lang="scss" scoped>
   .nav{
     overflow: hidden;
-    background-color: #333;
+    background-color: white;
     position: fixed;
     width: 100%;
     z-index: 2;
@@ -154,7 +154,7 @@ export default defineComponent({
   }
 
   .nav a {
-    color: white;
+    color: black;
     padding: 1.4rem 1.6rem;
     text-decoration: none;
     font-size: 1.7rem;
