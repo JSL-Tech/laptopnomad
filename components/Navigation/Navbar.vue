@@ -1,32 +1,28 @@
 <template>
-  <div class="nav">
-    <ul>
-      <li style="float:left">
-        <nuxt-link :to="{path: '/', hash:'#header'}" @click.native="scroll('header')">
-          LAPTOPNOMADCO
-        </nuxt-link>
-      </li>
-      <li style="float:right">
-        <nuxt-link :to="'/cart'">
-          Cart
-        </nuxt-link>
-      </li>
-      <li style="float:right">
-        <nuxt-link :to="{path: '/', hash:'#about'}" @click.native="scroll('about')">
-          Whats Inside
-        </nuxt-link>
-      </li>
-      <li style="float:right">
-        <nuxt-link :to="{path: '/', hash:'#why'}" @click.native="scroll('why')">
-          Why Nomad Case
-        </nuxt-link>
-      </li>
-      <li style="float:right">
-        <nuxt-link :to="{path: '/', hash:'#feature'}" @click.native="scroll('why')">
-          Our Product
-        </nuxt-link>
-      </li>
-    </ul>
+  <div id="nav" class="nav">
+    <nuxt-link class="nav__home" :to="{path: '/', hash:'#header'}" @click.native="scroll('header')">
+      LAPTOPNOMADCO
+    </nuxt-link>
+    <!-- Nav button -->
+    <input id="nav-toggle" type="checkbox" class="nav__checkbox">
+    <label for="nav-toggle" class="nav__button">
+      <span class="nav__icon" />
+    </label>
+    <!-- Link List -->
+    <div id="myLinks">
+      <nuxt-link :to="'/cart'">
+        Cart
+      </nuxt-link>
+      <nuxt-link :to="{path: '/', hash:'#about'}" @click.native="scroll('about')">
+        Whats Inside
+      </nuxt-link>
+      <nuxt-link :to="{path: '/', hash:'#why'}" @click.native="scroll('why')">
+        Why Nomad Case
+      </nuxt-link>
+      <nuxt-link :to="{path: '/', hash:'#feature'}" @click.native="scroll('why')">
+        Our Product
+      </nuxt-link>
+    </div>
 
     <!-- <b-navbar fixed="top" toggleable="lg" type="dark" variant="dark">
       <b-navbar-brand href="#">
@@ -70,11 +66,9 @@ import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup () {
-
   },
   methods: {
     scroll (anchorId) {
-      console.log(`scrolled! ${anchorId}`)
       if (this.$route.hash) {
         const anchor = document.querySelector(`#${anchorId}`)
 
@@ -91,25 +85,87 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  .nav{
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
 
- ul {
-   position: fixed;
-   top: 0;
-   width: 100%;
-   z-index: 1;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
- }
+    &__home{
+      font-size: 1.7rem;
+      font-weight: 600;
+      @include respond(phone){
+      font-size: 2rem;
+    }
+    }
 
-  li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+    &__checkbox{
+      display: none;
+    }
+
+    &__checkbox:checked ~ #myLinks {
+      display: block;
+      margin-right: auto;
+    }
+
+    &__checkbox:checked ~ #myLinks a{
+      display: block;
+      margin-right: auto;
+      width: 60rem;
+    }
+
+    &__button{
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .1);
+    text-align: center;
+    cursor: pointer;
+    margin-left: auto;
+    display: none;
+    @include respond(phone){
+      display: block;
+    }
+    }
+
+    &__icon, &__icon::before , &__icon::after {
+      position: relative;
+      width: 3rem;
+      height: .2rem;
+      background-color: white;
+      display: inline-block;
+    }
+
+    &__icon::before, &__icon::after{
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+
+    &__icon::before{transform: translateY(1rem);}
+    &__icon::after{transform: translateY(-1rem);}
+
+    &__icon{
+      position: relative;
+      margin-top: 3.4rem;
+    }
+  }
+
+  .nav a {
+    color: white;
+    padding: 1.4rem 1.6rem;
+    text-decoration: none;
+    font-size: 1.7rem;
+    display: inline-block;
+  }
+
+  .nav #myLinks {
+    margin-left: auto;
+
+    @include respond(phone){
+      display: none;
+    }
+  }
 </style>

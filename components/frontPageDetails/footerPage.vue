@@ -65,7 +65,6 @@ export default defineComponent({
   setup () {},
   methods: {
     scroll (anchorId) {
-      console.log(`scrolled! ${anchorId}`)
       if (this.$route.hash) {
         const anchor = document.querySelector(`#${anchorId}`)
 
