@@ -57,29 +57,34 @@
       <!-- Call to action button -->
       <div class="details__cta">
         <button v-if="!isLoading" class="button button--rectangle details__cta-button" @click.prevent="handleAddToCart">
-          Add to Card
+          ADD TO CART
         </button>
         <button v-else class="button button--rectangle details__cta-button" disabled>
           <p class="loader" />
         </button>
       </div>
     </section>
+    <Snackbar :show="show">
+      Cart Updated!
+    </Snackbar>
   </div>
 </template>
 <script>
 import { defineComponent, ref, computed } from '@nuxtjs/composition-api'
-
+import Snackbar from '@/components/Snackbar.vue'
 export default defineComponent({
+  components: { Snackbar },
   props: {
     product: {
       type: Object,
-      default: () => {}
+      required: true
     }
   },
   setup (props, { emit }) {
     const previewImageIndex = ref(0)
     const count = ref(1)
     const isLoading = ref(false)
+    const show = ref(false)
 
     const previewImage = computed(() =>
       props.product.imageUrls[previewImageIndex.value]
@@ -100,11 +105,21 @@ export default defineComponent({
     }
 
     const handleAddToCart = () => {
+      handleShowSnackbar()
       isLoading.value = true
       emit('handle-add-to-cart', { ...props.product, count: count.value }, isLoading)
     }
 
-    return { previewImage, count, isLoading, handlePreviewImage, handleCountChange, handleAddToCart }
+    const handleShowSnackbar = () => {
+      if (show.value === false) {
+        show.value = true
+        setTimeout(() => {
+          show.value = false
+        }, 3000)
+      }
+    }
+
+    return { previewImage, count, isLoading, show, handlePreviewImage, handleCountChange, handleAddToCart, handleShowSnackbar }
   }
 })
 </script>
@@ -185,12 +200,8 @@ export default defineComponent({
   }
 
   &__price{
-    font-size: 1.6rem;
+    font-size: 2rem;
     margin-bottom: 4rem;
-
-    @include respond(tab-port){
-      font-size: 2rem;
-    }
 
     &--normal{
       color: $color-black;
@@ -235,6 +246,7 @@ export default defineComponent({
   }
 
   &__count-box {
+    font-size: 1.6rem;
     margin: 0 1.5rem;
     text-align: center;
   }
@@ -248,12 +260,14 @@ export default defineComponent({
 
     @include respond(phone){
       width: 40%;
+      margin-top: 3rem;
     }
   }
 
   &__cta-button{
     width: 100%;
     color: $color-white;
+    font-size: 1.3rem;
     font-weight: 700;
     letter-spacing: 0.15rem;
 

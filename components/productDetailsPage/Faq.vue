@@ -5,10 +5,10 @@
         FAQ
       </h4>
     </div>
+    <h5 class="faq__header">
+      Buyer Questions & Answers ({{ faqObjs.length }})
+    </h5>
     <section class="faq hideScrollbar">
-      <h5 class="faq__header">
-        Buyer Questions & Answers ({{ faqObjs.length }})
-      </h5>
       <div v-for="(faq, index) in faqObjs" :key="index" class="faq__box">
         <p class="faq__text faq__text--dark">
           <svg class="faq__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -101,6 +101,13 @@ export default defineComponent({
     width: 20%;
     min-width: fit-content;
     white-space: nowrap;
+
+    @include respond(tab-port) {
+      width: 30%;
+    }
+    @include respond(phone) {
+      width: 60%;
+    }
   }
 }
 .faq{
@@ -113,6 +120,8 @@ export default defineComponent({
   }
 
   &__header {
+    width: 70%;
+    margin: 1.5rem auto;
     font-size: 1.7rem;
     font-weight: 700;
   }

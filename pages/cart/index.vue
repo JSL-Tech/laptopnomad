@@ -32,7 +32,9 @@ export default defineComponent({
 <style lang="scss" scoped>
 .cart {
   display: flex;
+  padding-top: 7rem;
   @include respond(phone) {
+    padding-top: 0;
     flex-wrap: wrap;
   }
   &__item {

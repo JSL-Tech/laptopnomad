@@ -72,20 +72,25 @@
           </div>
         </div>
       </div>
+      <p v-show="!containsReview" class="review__none">
+        There are no
+        {{ filter === 0 ? ' ' : filter === 1 ? ' 1 star ' : ' ' + filter + ' stars ' }}
+        reviews!
+      </p>
     </section>
   </div>
 </template>
 
 <script>
-import { defineComponent, ref } from '@nuxtjs/composition-api'
-import StarsRating from '../StarsRating.vue'
+import { computed, defineComponent, ref } from '@nuxtjs/composition-api'
+import StarsRating from '@/components/StarsRating.vue'
 
 export default defineComponent({
   components: { StarsRating },
   props: {
     product: {
       type: Object,
-      default: () => {}
+      required: true
     }
   },
   setup () {
@@ -167,13 +172,29 @@ export default defineComponent({
     }
     // const noReviews = ref(false)
     const filter = ref(0)
+    const containsReview = computed(() => {
+      switch (filter.value) {
+        case 5:
+          return testReview.reviewCount.five > 0
+        case 4:
+          return testReview.reviewCount.four > 0
+        case 3:
+          return testReview.reviewCount.three > 0
+        case 2:
+          return testReview.reviewCount.two > 0
+        case 1:
+          return testReview.reviewCount.one > 0
+        case 0:
+          return testReview.totalReviews > 0
+      }
+    })
 
     const percentage = (current, total) => Math.round(current / total * 100) + '%'
 
     const handleFilterChange = (filterInt) => {
       filter.value = filterInt
     }
-    return { testReview, filter, percentage, handleFilterChange }
+    return { testReview, filter, containsReview, percentage, handleFilterChange }
   }
 })
 </script>
@@ -201,6 +222,13 @@ export default defineComponent({
     width: 20%;
     min-width: fit-content;
     white-space: nowrap;
+
+    @include respond(tab-port) {
+      width: 30%;
+    }
+    @include respond(phone) {
+      width: 60%;
+    }
   }
 }
 .average {
@@ -208,7 +236,7 @@ export default defineComponent({
   margin-bottom: 4rem;
 
   &__num {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
   &__stars {
@@ -237,8 +265,10 @@ export default defineComponent({
   }
   &__total {
     text-align: left;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    width: 90%;
   }
 
   &__row {
@@ -268,9 +298,9 @@ export default defineComponent({
 
   &__row-leading {
     display: inline-block;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     width: 4.2rem;
-    width: 10%;
+    width: 15%;
     min-width: fit-content;
   }
 
@@ -278,7 +308,7 @@ export default defineComponent({
     display: inline-block;
     background-color: $color-grey-light;
     height: 0.3rem;
-    width: 80%;
+    width: 60%;
     margin: 0 1rem;
     position: relative;
 
@@ -296,17 +326,19 @@ export default defineComponent({
   }
 
   &__row-percent {
-    width: 10%;
+    width: 15%;
     display: inline-block;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 
   &__row-button {
     display: inline-block;
     width: 30%;
+    margin-top: 2rem;
+    font-size: 1.4rem;
 
     @include respond(phone) {
-      font-size: 1.4rem;
+      width: 50%;
     }
   }
 }
@@ -335,6 +367,7 @@ export default defineComponent({
 .review {
   margin: 0 auto;
   width: 80%;
+  padding-bottom: 1.5rem;
   margin-bottom: 1.5rem;
   border-bottom: 1px solid $color-grey-light;
   @include respond(phone) {
@@ -371,13 +404,14 @@ export default defineComponent({
   &__review {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    // @include respond(phone) {
-    // font-size: 1.3rem;
-    // }
+  }
+
+  &__none {
+    font-size: 1.5rem;
   }
 
   &__img {
-    height: 6rem;
+    height: 7rem;
   }
 }
 .button {

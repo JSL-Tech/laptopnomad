@@ -37,13 +37,14 @@ export default defineComponent({
     // components: { Snackbar },
     // const show = ref(false)
     // const handleShowSnackbar = () => {
-    //   if(show.value == false) {
+    //   if(show.value === false) {
     //     show.value = true
     //     setTimeout(() => {
     //         show.value = false
     //     }, 3000);
     //   }
     // }
+    // return { show, handleShowSnackBar }
   }
 })
 </script>
@@ -57,7 +58,7 @@ export default defineComponent({
   font-size: 1.8rem;
   text-align: center;
   border-radius: .4rem;
-  padding: 1.6rem;
+  padding: 1.2rem 1.6rem;
   position: fixed;
   z-index: 100;
   bottom: 2rem;

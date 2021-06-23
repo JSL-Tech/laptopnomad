@@ -8,7 +8,7 @@
     <div class="u-mb-2">
       <div class="card">
         <div class="card__img" :style="'background-image: url(' + product.imageUrls[0] + ')'">
-&nbsp;
+          &nbsp;
         </div>
         <p class="card__text card__text--large">
           1 Premium
@@ -19,7 +19,7 @@
       </div>
       <div class="card">
         <div class="card__img card__img--2">
-&nbsp;
+          &nbsp;
         </div>
         <p class="card__text card__text--large">
           1 FREE
@@ -30,7 +30,7 @@
       </div>
       <div class="card">
         <div class="card__img card__img--3">
-&nbsp;
+          &nbsp;
         </div>
         <p class="card__text card__text--large">
           1 BONUS
@@ -50,11 +50,10 @@ export default defineComponent({
   props: {
     product: {
       type: Object,
-      default: () => {}
+      required: true
     }
   },
   setup () {
-
   }
 })
 </script>
@@ -81,6 +80,13 @@ export default defineComponent({
     width: 20%;
     min-width: fit-content;
     white-space: nowrap;
+
+    @include respond(tab-port) {
+      width: 30%;
+    }
+    @include respond(phone) {
+      width: 60%;
+    }
   }
 }
 
@@ -102,13 +108,16 @@ export default defineComponent({
     background-repeat: no-repeat;
     background-position: center;
     text-align: center;
+
     &--2{
       background-image: url('~assets/images/pouch.png');
-      max-width: 24rem;
+      width: 80%;
+      max-width: 20rem;
       margin: 0 auto;
     }
     &--3{
       background-image: url('~assets/images/strap.png');
+      width: 60%;
       max-width: 16rem;
       margin: 0 auto;
     }

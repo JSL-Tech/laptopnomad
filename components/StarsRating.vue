@@ -186,11 +186,12 @@ $rating-icons-paths: (
     @return 0
   }
 
-  @return math.div($target, $context);
+  @return math.div($target, $context) + 0em;
 }
 
 .rating-holder {
   display: inline-block;
+
 }
 
 .c-rating {
@@ -205,6 +206,10 @@ $rating-icons-paths: (
 
   &--large > * {
     font-size: 200%;
+  }
+
+  & > * {
+    cursor: default;
   }
 }
 </style>

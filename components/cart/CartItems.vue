@@ -50,7 +50,7 @@
       <div class="cart__cta u-mb-1">
         <nuxt-link to="/">
           <button class="button button--rectangle cart__cta-button">
-            Shop More
+            SHOP MORE
           </button>
         </nuxt-link>
       </div>
@@ -159,18 +159,18 @@ export default defineComponent({
   }
 
   &__name {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0px;
   }
 
   &__option {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     line-height: 1.4rem;
   }
   &__price {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
 
     @include respond(phone) {
       margin-top: 0.5rem;
@@ -199,10 +199,11 @@ export default defineComponent({
     align-items: center;
     text-align: center;
     justify-content: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
   }
 
   &__count-box {
+    font-size: 1.4rem;
     margin: 0 1rem;
     text-align: center;
   }
@@ -210,7 +211,7 @@ export default defineComponent({
   &__remove {
     width: 100%;
     font-size: 1.2rem;
-    font-weight: 300;
+    font-weight: 400;
     color: red;
 
     &:hover {

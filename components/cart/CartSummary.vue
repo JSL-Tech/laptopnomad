@@ -23,9 +23,7 @@
       </div>
       <PaymentButton :cart="cart" />
       <button class="summary__checkout summary__checkout--light">
-        <span>PROMO CODE
-          <svg class="summary__icon summary__icon--quesiton" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-        </span>
+        <span>PROMO CODE</span>
         <svg class="summary__icon summary__icon--chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
       </button>
     </section>
@@ -82,7 +80,7 @@ export default defineComponent({
   width: 75%;
   margin: 0 auto;
   background-color: $color-primary-light;
-  padding: 1rem 2rem;
+  padding: 3rem 2rem 1rem 2rem;
   @include respond(phone) {
     width: 100%;
   }
@@ -130,6 +128,7 @@ export default defineComponent({
   &__checkout {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     font-size: 1.4rem;
     font-weight: 300;
@@ -167,7 +166,10 @@ export default defineComponent({
   &__icon {
     width: 1.8rem;
     height: 1.8rem;
-    vertical-align: top;
+
+    &--question {
+      vertical-align: top;
+    }
   }
 }
 
