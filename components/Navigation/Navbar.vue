@@ -19,7 +19,7 @@
       <nuxt-link class="nav__link" :to="{path: '/', hash:'#why'}" @click.native="scroll('why')">
         Why Nomad Case
       </nuxt-link>
-      <nuxt-link class="nav__link" :to="{path: '/', hash:'#feature'}" @click.native="scroll('why')">
+      <nuxt-link class="nav__link" :to="{path: '/', hash:'#feature'}" @click.native="scroll('feature')">
         Our Product
       </nuxt-link>
     </div>
@@ -56,12 +56,16 @@ export default defineComponent({
     overflow: hidden;
     background-color: $color-white;
     position: fixed;
+    height: $navbar-height;
     width: 100%;
     z-index: 2;
     white-space: nowrap;
-    height: $navbar-height;
     padding: 0 2rem;
     box-shadow: 0 0.2rem 0.5rem rgba($color-black, 0.2);
+
+    @include respond(phone){
+        height: auto;
+      }
     & a {
       text-decoration: none;
       color: $color-black;
@@ -78,7 +82,6 @@ export default defineComponent({
       position: relative;
       display: inline-block;
       font-size: 1.5rem;
-      height: $navbar-height;
       padding: 0 1.5rem;
       overflow: hidden;
       transition: color .5s ease-in-out .1s;
@@ -124,13 +127,15 @@ export default defineComponent({
     }
 
     &__button{
-    height: 7rem;
+    height: $navbar-height;
     width: 7rem;
     border-radius: 50%;
     text-align: center;
     cursor: pointer;
     margin-left: auto;
     display: none;
+    line-height: $navbar-height;
+
       @include respond(phone){
         display: block;
       }
@@ -142,6 +147,7 @@ export default defineComponent({
       height: .2rem;
       background-color: $color-black;
       display: inline-block;
+      transition: all .2s;
     }
 
     &__icon::before, &__icon::after{
@@ -150,20 +156,31 @@ export default defineComponent({
       left: 0;
     }
 
-    &__icon::before{transform: translateY(1rem);}
-    &__icon::after{transform: translateY(-1rem);}
+    &__icon::before{transform: translateY(-1rem);}
+    &__icon::after{transform: translateY(1rem);}
+
+    &__checkbox:checked + &__button &__icon{
+      background-color: transparent;
+    }
+
+    &__checkbox:checked + &__button &__icon::before{
+      transform: rotate(135deg);
+    }
+
+    &__checkbox:checked + &__button &__icon::after{
+      transform: rotate(-135deg);
+    }
 
     &__icon{
       position: relative;
-      margin-top: 3.4rem;
     }
   }
 
   .nav #myLinks {
     margin-left: auto;
-
     @include respond(phone){
-      display: none;
-    }
+        display: none;
+        margin-left: none;
+      }
   }
 </style>

@@ -48,6 +48,39 @@
         </div>
       </div>
     </div>
+    <div id="FAQ" class="popup FAQ">
+      <div class="popup__content">
+        <a href="#footer" class="popup__close">&times;</a>
+        <div class="popup__text">
+          <div class="popup__text-heading">
+            FREQUENTLY ASKED QUESTIONS
+          </div>
+          <div class="popup__text-subheading">
+            When will I receive my product?
+          </div>
+          <p>
+            Within 2-3 days
+          </p>
+
+          <div class="popup__text-subheading">
+            Is there refund?
+          </div>
+          <p>Yes! You only need to pay for shipping to return the product and we will refund the item cost in full. For more information you can refer to our return policy.</p>
+          <div class="popup__text-subheading">
+            Will there be more colours released?
+          </div>
+          <p>
+            Feel free to email us at laptopnomadco@gmail.com your suggestions, no promises!
+          </p>
+          <div class="popup__text-subheading">
+            I would like to order a large quantity of your product, will there be a discount?
+          </div>
+          <p>
+            For bulk order do email us at laptopnomadco@gmail.com, we will reply you promptly with an appropriate quotation.
+          </p>
+        </div>
+      </div>
+    </div>
     <div class="footer__section">
       <div class="footer__content">
         <div class="footer__content-card">
@@ -57,31 +90,28 @@
           <a href="#shippingReturns" class="card-link">
             Shipping & Returns
           </a>
-          <nuxt-link :to="{path: '', hash:'#popup'}" class="card-link" @click.native="scroll('about')">
+          <a href="#FAQ" class="card-link">
             FAQ
-          </nuxt-link>
-          <nuxt-link :to="{path: '', hash:'#popup'}" class="card-link" @click.native="scroll('about')">
-            Contact Us
-          </nuxt-link>
+          </a>
         </div>
         <div class="footer__content-card">
           <h1 class="card-heading">
             Shop
           </h1>
-          <nuxt-link :to="{path: '/', hash:'#popup'}" class="card-link" @click.native="scroll('about')">
-            Laptop Covers
+          <nuxt-link :to="{path: '/', hash:'#feature'}" class="card-link" @click.native="scroll('feature')">
+            Featured Items
           </nuxt-link>
-          <nuxt-link :to="{path: '/', hash:'#popup'}" class="card-link" @click.native="scroll('about')">
-            Shop All
+          <nuxt-link :to="{path: '/', hash:'#why'}" class="card-link" @click.native="scroll('why')">
+            Why Choose Us
           </nuxt-link>
         </div>
         <div class="footer__content-card">
           <h1 class="card-heading">
             Contact Us
           </h1>
-          <nuxt-link :to="{path: '/', hash:'#popup'}" class="card-link" @click.native="scroll('about')">
+          <span class="card-link">
             laptopnomadco@gmail.com
-          </nuxt-link>
+          </span>
         </div>
       </div>
       <div class="footer__content-copyright">
@@ -153,7 +183,7 @@ export default defineComponent({
     }
 
     &__close:hover{
-      color: var(--mediumGreen);
+      color: $color-dark;
 
     }
 
@@ -204,10 +234,12 @@ export default defineComponent({
     }
 
     &-heading{
+      font-size: 1.7;
       font-weight: 600;
+      padding-bottom: 1rem;
     }
     &-subheading{
-      font-weight: 500;
+      font-weight: 600;
     }
 }
 }
@@ -215,7 +247,7 @@ export default defineComponent({
 .card{
 
   &-heading{
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 600;
     padding-bottom: 2rem;
 
@@ -224,11 +256,23 @@ export default defineComponent({
     }
   }
 
-  &-link {
+  &-link , &-link:visited, &-link:link{
+    font-size: 1.3rem;
   text-decoration: none;
   color: black;
   margin-left: 0;
   margin-bottom: 1rem;
+  transition: all .2s;
+  @include respond(phone) {
+        margin: 0 auto 2rem auto;
+    }
+  }
+  &-link:hover {
+    color: $color-white;
+    background-color: $color-grey-dark;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .8);
+    transform: rotate(5deg) scale(1.3);
+  }
 
   @include respond(phone) {
         margin: 0 auto 2rem auto;
@@ -237,7 +281,6 @@ export default defineComponent({
   @include respond(tab-land) {
         font-size: 1.2rem;
     }
-}
 }
 
 .footer {

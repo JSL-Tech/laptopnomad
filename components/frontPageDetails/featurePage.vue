@@ -226,10 +226,6 @@ export default defineComponent({
 
         }
 
-        &--circle {
-            width: 50%;
-            border-radius: 50%;
-        }
     }
 
     &__subheading {
@@ -295,6 +291,6 @@ export default defineComponent({
 }
 
 .carousel-indicators{
-  filter: invert(100%);
+  filter:invert(100%);
 }
 </style>

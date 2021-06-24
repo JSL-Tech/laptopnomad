@@ -177,9 +177,6 @@ export default defineComponent({
   }
 
   &__caption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
     transform: translate(-50%, 20%);
     color: black;
     font-weight: 600;
@@ -205,11 +202,6 @@ export default defineComponent({
 
     &--large {
       width: 80%;
-    }
-
-    &--circle {
-      width: 50%;
-      border-radius: 50%;
     }
   }
 

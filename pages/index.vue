@@ -4,6 +4,7 @@
     <aboutPage />
     <whyUsPage />
     <featurePage />
+    <ContactUs />
     <footerPage />
   </div>
 </template>
@@ -14,11 +15,12 @@ import aboutPage from '@/components/frontPageDetails/aboutPage'
 import whyUsPage from '@/components/frontPageDetails/whyUsPage'
 import featurePage from '@/components/frontPageDetails/featurePage'
 import footerPage from '@/components/frontPageDetails/footerPage'
+import ContactUs from '@/components/ContactUs'
 
 import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  components: { topPage, aboutPage, whyUsPage, featurePage, footerPage },
+  components: { topPage, aboutPage, whyUsPage, featurePage, footerPage, ContactUs },
   setup () {
 
   }
