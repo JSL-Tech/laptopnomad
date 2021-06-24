@@ -4,7 +4,7 @@ export default {
   target: 'static',
 
   env: {
-    STRIPE_PK: process.env.STRIPE_PK,
+    STRIPE_PK: process.env.STRIPE_PK
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -14,7 +14,7 @@ export default {
       lang: 'en'
     },
     script: [
-      { src: "https://js.stripe.com/v3/"}
+      { src: 'https://js.stripe.com/v3/' }
     ],
     meta: [
       { charset: 'utf-8' },
@@ -41,7 +41,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/persistedState.client.js' },
-    { src: '~/plugins/vue-stripe.js', ssr: false },
+    { src: '~/plugins/vue-stripe.js', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -71,18 +71,6 @@ export default {
         services: {
           storage: true,
           // Initializes Firebase Authentication and makes it available via $fire.auth and $fireModule.auth
-          auth: {
-            persistence: 'local', // default
-            initialize: {
-              onAuthStateChangedMutation: 'auth/onAuthStateChangedMutation',
-              // onAuthStateChangedAction: 'auth/onAuthStateChangedAction',
-              subscribeManually: false
-            },
-            ssr: false // default
-            // emulatorPort: 9099,
-            // emulatorPort: process.env.NODE_ENV === 'development' ? 9099 : undefined,
-            // emulatorHost: 'http://localhost',
-          },
           firestore: {
             memoryOnly: false, // default
             chunkName: process.env.NODE_ENV !== 'production' ? 'firebase-auth' : '[id]', // default
