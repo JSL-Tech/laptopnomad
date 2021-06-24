@@ -117,7 +117,6 @@ export default defineComponent({
 .feature {
   background: $color-white;
   padding: 5rem 8rem;
-  margin-bottom: 8rem;
   &__header{
     text-align: center;
   }

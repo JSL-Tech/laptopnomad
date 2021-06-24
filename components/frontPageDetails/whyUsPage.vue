@@ -90,12 +90,12 @@ export default defineComponent({
     grid-template-rows: 1fr;
     gap: 1rem;
     grid-template-areas: "card--3 card--1 card--2";
-    place-items: center;
     background-color: none;
     background-position: right;
     background-size: cover;
     background-image: none;
     position: relative;
+    align-items: start;
 
     @include respond(tab-land) {
       grid-template-columns: 1fr 1fr;
@@ -164,21 +164,21 @@ export default defineComponent({
   }
 
   &__image {
-    margin: 2rem 0;
+    margin: 2rem auto;
     width: 25%;
+
+    @include respond(phone) {
+      width: 17.5%
+    }
 
     &--design{
       @include respond(tab-land) {
         width: 12.5%
       }
+      @include respond(phone) {
+        width: 17.5%
+      }
     }
-
-      // @include respond(tab-land) {
-      //   width: 25%
-      // }
-      // @include respond(phone) {
-      //   width: 25%
-      // }
   }
 
   &__heading {
@@ -213,18 +213,12 @@ export default defineComponent({
   }
 
   &__text {
-    font-size: 1.8rem;
-    padding: 0 5% 0 5%;
-
+    font-size: 1.6rem;
+    padding: 0 1rem;
     @include respond(tab-land) {
-      font-size: 2rem;
-      padding: 0 20% 0 20%;
-    }
-
-    @include respond(phone) {
-      font-size: 2rem;
       padding: 0 30%;
     }
+
   }
 
   &__button {

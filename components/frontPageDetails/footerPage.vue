@@ -109,9 +109,9 @@
           <h1 class="card-heading">
             Contact Us
           </h1>
-          <span class="card-link">
+          <button class="card-link card-link--btn" @click.prevent="copyToClipboard('laptopnomadco@gmail.com')">
             laptopnomadco@gmail.com
-          </span>
+          </button>
         </div>
       </div>
       <div class="footer__content-copyright">
@@ -120,14 +120,39 @@
         </span>
       </div>
     </div>
+    <Snackbar :show="show">
+      Copied Email!
+    </Snackbar>
   </div>
 </template>
 
 <script>
-import { defineComponent } from '@nuxtjs/composition-api'
-
+import { defineComponent, ref } from '@nuxtjs/composition-api'
+import Snackbar from '@/components/Snackbar.vue'
 export default defineComponent({
-  setup () {},
+  components: { Snackbar },
+  setup () {
+    const show = ref(false)
+    const handleShowSnackbar = () => {
+      if (show.value === false) {
+        show.value = true
+        setTimeout(() => {
+          show.value = false
+        }, 3000)
+      }
+    }
+    const copyToClipboard = (str) => {
+      handleShowSnackbar()
+      const el = document.createElement('textarea')
+      el.value = str
+      document.body.appendChild(el)
+      el.select()
+      document.execCommand('copy')
+      document.body.removeChild(el)
+    }
+
+    return { show, handleShowSnackbar, copyToClipboard }
+  },
   methods: {
     scroll (anchorId) {
       if (this.$route.hash) {
@@ -245,42 +270,50 @@ export default defineComponent({
 }
 
 .card{
-
   &-heading{
     font-size: 1.8rem;
     font-weight: 600;
     padding-bottom: 2rem;
 
     @include respond(phone) {
-        margin: 0 auto 2rem auto;
+        padding: 1rem;
+        margin: 0 auto 0 auto;
     }
   }
 
   &-link , &-link:visited, &-link:link{
     font-size: 1.3rem;
-  text-decoration: none;
-  color: black;
-  margin-left: 0;
-  margin-bottom: 1rem;
-  transition: all .2s;
-  @include respond(phone) {
-        margin: 0 auto 2rem auto;
+    text-decoration: none;
+    color: black;
+    margin-left: -1rem;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+    transition: all .2s;
+    @include respond(phone) {
+        margin: 0 auto 1rem auto;
+    }
+
+  }
+  &-link{
+    &--btn{
+      background-color: $color-white;
+      border: none;
     }
   }
   &-link:hover {
     color: $color-white;
     background-color: $color-grey-dark;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, .8);
-    transform: rotate(5deg) scale(1.3);
+    transform:  scale(1.3);
+  }
+  @include respond(tab-land) {
+    font-size: 1.2rem;
   }
 
   @include respond(phone) {
-        margin: 0 auto 2rem auto;
-    }
+    margin: 0 auto 2rem auto;
+  }
 
-  @include respond(tab-land) {
-        font-size: 1.2rem;
-    }
 }
 
 .footer {
@@ -290,27 +323,30 @@ export default defineComponent({
         padding: 5rem 0 5rem 0;
     }
     &__content{
-        display: flex;
-        flex-direction: row;
-        place-items: center;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        align-items: flex-start;
+      display: flex;
+      flex-direction: row;
+      place-items: center;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: flex-start;
 
-        @include respond(phone) {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    &-copyright{
-      text-align: center;
-    }
-
-    &-card{
-      display: inherit;
+      @include respond(phone) {
       flex-direction: column;
-      padding: 2%;
-    }
+      align-items: center;
+      }
+
+      &-copyright{
+        text-align: center;
+      }
+
+      &-card{
+        display: inherit;
+        flex-direction: column;
+
+        &:not(:last-child) {
+          margin-bottom: 3rem;
+        }
+      }
     }
 }
 </style>

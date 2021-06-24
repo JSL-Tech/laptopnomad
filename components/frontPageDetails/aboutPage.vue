@@ -216,12 +216,7 @@ export default defineComponent({
     font-size: 1.6rem;
     margin: 1.5rem 0;
 
-    @include respond(tab-land) {
-      font-size: 1.4rem;
-    }
-
     @include respond(phone) {
-      font-size: 1.5rem;
       padding: 0 20%;
     }
   }
