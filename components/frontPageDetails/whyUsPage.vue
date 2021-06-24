@@ -1,5 +1,5 @@
 <template>
-  <div id="why" ref="why" class="why">
+  <div id="why" class="why">
     <div class="card__header">
       <h1 class="card__heading">
         Why Choose Us
