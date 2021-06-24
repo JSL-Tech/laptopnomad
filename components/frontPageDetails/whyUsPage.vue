@@ -12,12 +12,8 @@
           src="~/assets/images/design.png"
           fluid
           alt="Responsive image"
-          class="card__image card__image--medium"
+          class="card__image card__image--design"
         />
-        <figcaption class="card__caption">
-          From the sleeve to the stand to the wrist support our design aims to
-          meet all your needs
-        </figcaption>
         <h1 class="card__subheading">
           DESIGN
         </h1>
@@ -31,11 +27,8 @@
           src="~/assets/images/Speed.png"
           fluid
           alt="Responsive image"
-          class="card__image card__image--medium"
+          class="card__image"
         />
-        <figcaption class="card__caption">
-          Get your product within 2 - 4 days anywhere worldwide
-        </figcaption>
         <h1 class="card__subheading">
           SPEED
         </h1>
@@ -48,11 +41,8 @@
           src="~/assets/images/posturebackless1.png"
           fluid
           alt="Responsive image"
-          class="card__image card__image--mediumLarge"
+          class="card__image"
         />
-        <figcaption class="card__caption">
-          Better posture means less pain
-        </figcaption>
         <h1 class="card__subheading">
           HEALTH
         </h1>
@@ -100,7 +90,7 @@ export default defineComponent({
     grid-template-rows: 1fr;
     gap: 1rem;
     grid-template-areas: "card--3 card--1 card--2";
-    place-items: start;
+    place-items: center;
     background-color: none;
     background-position: right;
     background-size: cover;
@@ -133,7 +123,6 @@ export default defineComponent({
   border: none;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
   text-align: center;
   background-color: transparent;
@@ -141,19 +130,9 @@ export default defineComponent({
   @include respond(phone) {
     justify-content: flex-end;
   }
-  & img {
-    width: 25%;
-
-  }
 
   &--1 {
     grid-area: card--1;
-
-    & img {
-      @include respond(tab-land) {
-        width: 12.5%
-      }
-    }
   }
 
   &--2 {
@@ -186,23 +165,20 @@ export default defineComponent({
 
   &__image {
     margin: 2rem 0;
-    transition: transform 0.5s;
+    width: 25%;
 
-    &--small {
-      width: 30%;
+    &--design{
+      @include respond(tab-land) {
+        width: 12.5%
+      }
     }
 
-    &--medium {
-      width: 50%;
-    }
-
-    &--mediumLarge {
-      width: 60%;
-    }
-
-    &--large {
-      width: 80%;
-    }
+      // @include respond(tab-land) {
+      //   width: 25%
+      // }
+      // @include respond(phone) {
+      //   width: 25%
+      // }
   }
 
   &__heading {

@@ -133,6 +133,7 @@ export default defineComponent({
     text-align: center;
     cursor: pointer;
     margin-left: auto;
+    margin-bottom: 0;
     display: none;
     line-height: $navbar-height;
 
