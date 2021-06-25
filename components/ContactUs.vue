@@ -4,7 +4,7 @@
       <div class="book__form">
         <form class="form" @submit.prevent="handleSubmitForm">
           <h2 class="book__heading-secondary">
-            Contact Us
+            Sign Up for our newsletter!
           </h2>
 
           <div class="form__group">

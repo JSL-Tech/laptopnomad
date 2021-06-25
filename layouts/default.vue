@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Navbar />
+    <Navbar :cart-count="cartCount" />
     <Nuxt />
     <Loader :is-loading="isLoading" />
   </div>
@@ -16,8 +16,9 @@ export default defineComponent({
   setup () {
     const store = useStore()
     const isLoading = computed(() => store.getters.isLoading)
+    const cartCount = computed(() => store.getters['cart/cartCount'])
 
-    return { isLoading }
+    return { isLoading, cartCount }
   }
 })
 </script>

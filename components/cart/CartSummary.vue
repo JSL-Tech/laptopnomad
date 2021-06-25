@@ -107,7 +107,7 @@ export default defineComponent({
     letter-spacing: 0;
     border-bottom: 1px solid $color-secondary-dark;
     width: 100%;
-    padding-bottom: .5rem;
+    padding-bottom: 0.5rem;
   }
 
   &__cost {
@@ -122,7 +122,7 @@ export default defineComponent({
       border-bottom: 1px solid $color-primary;
     }
 
-    &--total{
+    &--total {
       margin: 2rem 0 1rem;
       font-size: 1.6rem;
       font-weight: 500;
@@ -146,7 +146,7 @@ export default defineComponent({
 
     &--dark {
       background-color: $color-secondary-dark;
-      color: $color-white
+      color: $color-white;
     }
     &--light {
       background-color: $color-white;
@@ -155,7 +155,7 @@ export default defineComponent({
 
     &:hover {
       box-shadow: 0 1rem 2rem rgba($color-primary-dark, 0.2);
-      transform: translateY(-.4rem);
+      transform: translateY(-0.4rem);
     }
 
     &:active {
@@ -189,7 +189,6 @@ export default defineComponent({
   &__title {
     font-size: 1.8rem;
     margin-bottom: 0.7rem;
-
   }
 
   &__links,

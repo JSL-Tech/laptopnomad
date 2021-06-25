@@ -25,18 +25,18 @@ export default defineComponent({
 <style lang="scss" scoped>
 
 .header {
-    height: 95vh;
-    background-image: url(assets/images/Header_CafeWork.jpg);
+    height: 80vh;
+    background-image: linear-gradient(to right top,rgba($color-secondary-dark, 0.6), rgba($color-primary, 0.3)), url(assets/images/Header_CafeWork.jpg);
     background-size: cover;
     background-position: bottom;
     position: relative;
 
     @include respond(tab-land) {
-        height: 90vh;
+        height: 80vh;
     }
 
     @include respond(tab-port) {
-        height: 80vh;
+        height: 60vh;
     }
 
     @include respond(phone) {
@@ -56,22 +56,22 @@ export default defineComponent({
 
     &-main {
         color: white;
-        font-size: 8rem;
+        font-size: 6rem;
         font-weight: 400;
         letter-spacing: .1rem;
         margin-bottom: 10rem;
 
         @include respond(tab-land) {
-            font-size: 7rem;
+            font-size: 4rem;
         }
 
         @include respond(tab-port) {
-            font-size: 6rem;
+            font-size: 3rem;
             margin-left: -.2rem;
         }
 
         @include respond(phone) {
-            font-size: 4rem;
+            font-size: 3rem;
         }
     }
 
@@ -79,28 +79,31 @@ export default defineComponent({
         display: inline-block;
         text-transform: uppercase;
         text-decoration: none;
-        padding: 1.5rem 4rem;
+        padding: 1rem 3rem;
         border-radius: 10rem;
         border: none;
-        font-size: 3rem;
-        font-weight:700;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        transition: all 0.1s;
 
-        @include respond(tab-land) {
-            font-size: 2.4rem;
-            padding: 1.3rem 3.6rem;
+        @include respond(phone) {
+            font-size: 1.6rem;
         }
 
-        @include respond(tab-port) {
-            font-size: 2rem;
+        &:hover,
+        &:active {
+            transform: translateY(-0.2rem);
+            filter: drop-shadow(0 0.2rem 0.4rem rgba(0, 0, 0, 0.5));
         }
 
             &--sub{
                 display: block;
                 color: white;
-                font-size: 3rem;
+                font-size: 2.5rem;
 
                 @include respond(tab-land) {
-                    font-size: 2.4rem;
+                    font-size: 2rem;
                 }
 
                 @include respond(tab-port) {
