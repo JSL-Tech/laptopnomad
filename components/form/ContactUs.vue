@@ -6,7 +6,7 @@
           <h2 class="book__heading-secondary">
             Contact Us
           </h2>
-
+          <!-- Name Input -->
           <div class="form__group">
             <input
               id="name"
@@ -18,7 +18,7 @@
             >
             <label for="name" class="form__label">Full name</label>
           </div>
-
+          <!-- Email Input -->
           <div class="form__group">
             <input
               id="email"
@@ -30,16 +30,32 @@
             >
             <label for="email" class="form__label">Email address</label>
           </div>
-
+          <!-- Select Input -->
+          <div class="form__select">
+            <Select :options="options" />
+          </div>
+          <!-- Text Area Input -->
+          <div class="form__group">
+            <textarea
+              id="text"
+              v-model="text"
+              class="form__input form__input--text-area"
+              placeholder="Review"
+              required
+            />
+            <label for="text" class="form__label form__label--text-area">Review</label>
+          </div>
+          <!-- Error message if any -->
           <p class="form__err">
             {{ err }}
           </p>
-
           <div class="form__group">
+            <!-- Submit Form Button -->
             <button v-if="!isLoading" class="form__button">
               Submit
               <svg class="form__button-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </button>
+            <!-- Loading Button -->
             <button v-else class="form__button" disabled>
               <div class="loader">
                   &nbsp;
@@ -58,18 +74,27 @@
 <script>
 import { defineComponent, ref } from '@nuxtjs/composition-api'
 import Snackbar from '@/components/Snackbar.vue'
+import Select from '@/components/form/Select.vue'
 
 export default defineComponent({
-  components: { Snackbar },
+  components: { Snackbar, Select },
   setup () {
     const name = ref('')
     const email = ref('')
+    const text = ref('')
     const err = ref('')
     const isLoading = ref(false)
     const show = ref(false)
     const snackbarMessage = ref('')
     const submitFormEndpoint = ' https://asia-east2-learning-38322.cloudfunctions.net/nomad/submit-form'
-
+    const options = [
+      { value: null, text: 'Please Select an Option' },
+      { value: 'feedback', text: 'General Feedback' },
+      { value: 'shipping', text: 'Questions about shipping' },
+      { value: 'review', text: 'Review our Product' },
+      { value: 'product', text: 'Questions about our product' },
+      { value: 'website', text: 'Ask about our website' }
+    ]
     const handleSubmitForm = async () => {
       isLoading.value = true
       if (name.value && email.value) {
@@ -124,7 +149,7 @@ export default defineComponent({
       }
       return (false)
     }
-    return { name, email, show, snackbarMessage, err, isLoading, handleSubmitForm }
+    return { name, email, text, show, snackbarMessage, options, err, isLoading, handleSubmitForm }
   }
 })
 </script>
@@ -182,8 +207,8 @@ export default defineComponent({
     }
 }
 .form {
-    &__group:not(:last-child) {
-        margin-bottom: 1rem;
+    &__group:not(:first-child) {
+        margin-top: -1rem;
     }
 
     &__input {
@@ -201,6 +226,11 @@ export default defineComponent({
 
         @include respond(tab-port) {
             width: 100%;
+        }
+
+        &--text-area {
+           resize: none;
+           height: 15rem;
         }
 
         &:focus {
@@ -225,13 +255,25 @@ export default defineComponent({
         margin-top: .7rem;
         display: block;
         transition: all .3s;
-        transform: translateY(-9rem);
+        transform: translateY(-8.5rem);
+
+        &--text-area {
+          transform: translateY(-18rem);
+        }
     }
 
     &__input:placeholder-shown + &__label {
         opacity: 0;
         visibility: hidden;
         transform: translateY(-4rem);
+    }
+    &__input:placeholder-shown + &__label--text-area {
+        transform: translateY(-13.5rem);
+    }
+
+    &__select {
+      width: 75%;
+      margin-bottom: 4rem;
     }
     &__err {
       color: red;
