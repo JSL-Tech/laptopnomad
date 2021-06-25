@@ -64,9 +64,9 @@
       >Ergonomic structure designed to improve posture and alleviate wrist
         pain. Empowering the way you work.
       </span>
-      <button class="card__button">
+      <LinkButton class="card__button" :is-dark="true">
         Shop Sleeves
-      </button>
+      </LinkButton>
     </div>
     <!-- </div> -->
   </div>
@@ -74,8 +74,9 @@
 
 <script>
 import { defineComponent } from '@nuxtjs/composition-api'
-
+import LinkButton from './LinkButton.vue'
 export default defineComponent({
+  components: { LinkButton },
   setup () {}
 })
 </script>
@@ -222,18 +223,6 @@ export default defineComponent({
   }
 
   &__button {
-    display: inline-block;
-    margin-top: 2rem;
-    background-color: $color-dark;
-    color: white;
-    text-transform: uppercase;
-    padding: 1rem 3rem;
-    border-radius: 10rem;
-    font-size: 2rem;
-    font-weight: 700;
-    border: none;
-    transition: all 0.1s;
-
     @include respond(tab-land){
       margin-top: 1rem;
     }

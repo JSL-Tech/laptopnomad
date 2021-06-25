@@ -48,8 +48,15 @@
       </div>
       <!-- Call to action button -->
       <div class="cart__cta u-mb-1">
-        <nuxt-link to="/">
-          <button class="button button--rectangle cart__cta-button">
+        <nuxt-link
+          :to="{path: '/', hash:'#feature'}"
+        >
+          <button
+            class="
+          button
+          button--rectangle
+          cart__cta-button"
+          >
             SHOP MORE
           </button>
         </nuxt-link>

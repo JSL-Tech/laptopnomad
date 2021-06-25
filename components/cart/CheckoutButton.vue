@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { computed, defineComponent, ref, useStore } from '@nuxtjs/composition-api'
+import { computed, defineComponent, ref, useStore, useRouter } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: {
@@ -29,6 +29,7 @@ export default defineComponent({
   },
   setup (props) {
     const store = useStore()
+    const router = useRouter()
     const pk = process.env.STRIPE_PK
     const checkoutRef = ref(null)
     const session = ref('')
@@ -55,9 +56,7 @@ export default defineComponent({
         store.commit('toggleIsLoading')
       }, 1000)
       if (result && result.error) {
-      // If `redirectToCheckout` fails due to a browser or network
-      // error, display the localized error message to your customer
-      // using `result.error.message`.
+        router.replace({ path: '/error' })
       }
     }
 

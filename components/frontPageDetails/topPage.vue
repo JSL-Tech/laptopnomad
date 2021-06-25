@@ -4,9 +4,9 @@
       <h1 class="header__box-main">
         LAPTOPNOMADCO
       </h1>
-      <button class="header__box-button">
+      <LinkButton :location="feature">
         Shop Now
-      </button>
+      </LinkButton>
       <span class="header__box-button--sub">The case you have been looking for </span>
     </div>
   </div>
@@ -14,8 +14,10 @@
 
 <script>
 import { defineComponent } from '@nuxtjs/composition-api'
+import LinkButton from './LinkButton.vue'
 
 export default defineComponent({
+  components: { LinkButton },
   setup () {
 
   }
@@ -54,49 +56,28 @@ export default defineComponent({
             top: 65%;
         }
 
-    &-main {
-        color: white;
-        font-size: 6rem;
-        font-weight: 400;
-        letter-spacing: .1rem;
-        margin-bottom: 10rem;
+        &-main {
+            color: white;
+            font-size: 6rem;
+            font-weight: 400;
+            letter-spacing: .1rem;
+            margin-bottom: 10rem;
 
-        @include respond(tab-land) {
-            font-size: 4rem;
+            @include respond(tab-land) {
+                font-size: 4rem;
+            }
+
+            @include respond(tab-port) {
+                font-size: 3rem;
+                margin-left: -.2rem;
+            }
+
+            @include respond(phone) {
+                font-size: 3rem;
+            }
         }
 
-        @include respond(tab-port) {
-            font-size: 3rem;
-            margin-left: -.2rem;
-        }
-
-        @include respond(phone) {
-            font-size: 3rem;
-        }
-    }
-
-    &-button{
-        display: inline-block;
-        text-transform: uppercase;
-        text-decoration: none;
-        padding: 1rem 3rem;
-        border-radius: 10rem;
-        border: none;
-        font-size: 2rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-        transition: all 0.1s;
-
-        @include respond(phone) {
-            font-size: 1.6rem;
-        }
-
-        &:hover,
-        &:active {
-            transform: translateY(-0.2rem);
-            filter: drop-shadow(0 0.2rem 0.4rem rgba(0, 0, 0, 0.5));
-        }
-
+        &-button{
             &--sub{
                 display: block;
                 color: white;

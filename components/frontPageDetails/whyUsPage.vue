@@ -53,17 +53,19 @@
     </div>
 
     <div class="card__bottom">
-      <button class="card__button">
+      <LinkButton class="card__button" :is-dark="true">
         SHOP NOW
-      </button>
+      </LinkButton>
     </div>
   </div>
 </template>
 
 <script>
 import { defineComponent } from '@nuxtjs/composition-api'
+import LinkButton from './LinkButton.vue'
 
 export default defineComponent({
+  components: { LinkButton },
   setup () {}
 })
 </script>
@@ -222,22 +224,6 @@ export default defineComponent({
   }
 
   &__button {
-    background-color: $color-dark;
-    color: white;
-    text-transform: uppercase;
-    padding: 1rem 3rem;
-    border-radius: 10rem;
-    display: inline-block;
-    font-size: 2rem;
-    font-weight: 600;
-    border: none;
-    transition: all 0.1s;
-
-    &:hover,
-    &:active {
-      transform: translateY(-0.2rem);
-      filter: drop-shadow(0 0.2rem 0.4rem rgba(0, 0, 0, 0.5));
-    }
 
     @include respond(tab-land) {
       font-size: 2rem;

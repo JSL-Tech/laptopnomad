@@ -168,7 +168,7 @@ export default defineComponent({
       color: $color-black;
       line-height: $navbar-height;
 
-      &.nuxt-link-exact-active{
+      &.nav__link.nuxt-link-exact-active{
         color: white;
         fill: white;
         &:after {
@@ -216,18 +216,15 @@ export default defineComponent({
         transform: translateX(0);
       }
 
-      // a.nuxt-link-exact-active &:hover:after {
-      //   transform: translateX(0);
-      // }
-
       &--cart {
-
+        padding: 0 2rem;
         @include respond(phone) {
            display: none !important;
         }
       }
 
       &--phone-cart {
+        padding: 0 2rem;
         display: none;
         @include respond(phone) {
           margin-left: auto;
