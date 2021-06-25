@@ -10,9 +10,6 @@
     </label>
     <!-- Link List -->
     <div id="myLinks">
-      <nuxt-link class="nav__link" :to="'/cart'">
-        Cart
-      </nuxt-link>
       <nuxt-link class="nav__link" :to="{path: '/', hash:'#about'}" @click.native="scroll('about')">
         Whats Inside
       </nuxt-link>
@@ -21,6 +18,9 @@
       </nuxt-link>
       <nuxt-link class="nav__link" :to="{path: '/', hash:'#feature'}" @click.native="scroll('feature')">
         Our Product
+      </nuxt-link>
+      <nuxt-link class="nav__link" :to="'/cart'">
+        <img src="@/assets/images/shopping-basket.svg" alt="cart" class="nav__cart">
       </nuxt-link>
     </div>
   </div>
@@ -109,6 +109,11 @@ export default defineComponent({
       &:hover:after {
         transform: translateX(0);
       }
+    }
+
+    &__cart{
+      height: ($navbar-height - 1.5rem);
+      width: auto;
     }
 
     &__checkbox{
