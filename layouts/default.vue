@@ -2,6 +2,7 @@
   <div>
     <Navbar :cart-count="cartCount" />
     <Nuxt />
+    <FooterPage />
     <Loader :is-loading="isLoading" />
   </div>
 </template>
@@ -9,10 +10,11 @@
 <script>
 import Navbar from '@/components/Navigation/Navbar'
 import { computed, defineComponent, useStore } from '@nuxtjs/composition-api'
+import FooterPage from '@/components/footerPage'
 import Loader from '~/components/Loader.vue'
 
 export default defineComponent({
-  components: { Navbar, Loader },
+  components: { Navbar, Loader, FooterPage },
   setup () {
     const store = useStore()
     const isLoading = computed(() => store.getters.isLoading)

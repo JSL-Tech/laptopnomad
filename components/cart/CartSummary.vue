@@ -30,14 +30,14 @@
     <div class="payment-type">
       <PaymentIcons />
     </div>
-    <div class="help">
+    <!-- <div class="help">
       <h4 class="help__title">
         Need Help?
       </h4>
       <a class="help__links" href="#">Shipping</a>
       <a class="help__links" href="#">Returns & Exchange</a>
       <a class="help__links" href="#">Contact Us</a>
-    </div>
+    </div> -->
   </div>
 </template>
 

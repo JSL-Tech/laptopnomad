@@ -155,7 +155,7 @@ export default defineComponent({
     position: fixed;
     height: $navbar-height;
     width: 100%;
-    z-index: 2;
+    z-index: 100;
     white-space: nowrap;
     padding: 0 2rem;
     box-shadow: 0 0.2rem 0.5rem rgba($color-black, 0.2);
