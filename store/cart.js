@@ -7,7 +7,11 @@ export const getters = {
     return state.cart
   },
   cartCount (_, getters) {
-    return getters.cart.length
+    if (getters.cart.length > 0) {
+      return getters.cart.reduce((previousVal, currentVal) => previousVal + currentVal.count, 0)
+    } else {
+      return 0
+    }
   },
   cartItem: state => (id) => {
     return state.cart.find(cartItem => cartItem.id === id)
