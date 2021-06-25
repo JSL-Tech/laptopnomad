@@ -22,10 +22,10 @@
         </p>
       </div>
       <PaymentButton :cart="cart" />
-      <button class="summary__checkout summary__checkout--light">
+      <!-- <button class="summary__checkout summary__checkout--light">
         <span>PROMO CODE</span>
         <svg class="summary__icon summary__icon--chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-      </button>
+      </button> -->
     </section>
     <div class="payment-type">
       <PaymentIcons />
@@ -80,7 +80,11 @@ export default defineComponent({
   width: 75%;
   margin: 0 auto;
   background-color: $color-primary-light;
-  padding: 3rem 2rem 1rem 2rem;
+  padding: 3rem 2rem 2rem 2rem;
+  @include respond(tab-port) {
+    width: 90%;
+  }
+
   @include respond(phone) {
     width: 100%;
   }
