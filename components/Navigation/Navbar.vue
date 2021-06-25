@@ -167,6 +167,14 @@ export default defineComponent({
       text-decoration: none;
       color: $color-black;
       line-height: $navbar-height;
+
+      &.nuxt-link-exact-active{
+        color: white;
+        fill: white;
+        &:after {
+          transform: translateX(0);
+        }
+      }
     }
     &__home {
       font-size: 2rem;
@@ -207,6 +215,10 @@ export default defineComponent({
       &:hover:after {
         transform: translateX(0);
       }
+
+      // a.nuxt-link-exact-active &:hover:after {
+      //   transform: translateX(0);
+      // }
 
       &--cart {
 
@@ -313,4 +325,5 @@ export default defineComponent({
         margin-left: none;
       }
   }
+
 </style>
