@@ -33,21 +33,22 @@ export default defineComponent({
 .cart {
   display: flex;
   padding-top: 7rem;
-  @include respond(phone) {
-    padding-top: 0;
+  @include respond(tab-port) {
+    // padding-top: $navbar-height;
+    padding-top: 4.5rem;
     flex-wrap: wrap;
   }
   &__item {
     width: 60%;
 
-    @include respond(phone) {
+    @include respond(tab-port) {
       width: 100%;
     }
   }
   &__summary {
     width: 40%;
 
-     @include respond(phone) {
+     @include respond(tab-port) {
       width: 100%;
       margin-top: 5rem;
     }
