@@ -54,12 +54,12 @@ export const actions = {
   // Must be the whole product including the count
   addToCart ({ commit, getters }, payload) {
     if (!Object.prototype.hasOwnProperty.call(payload, 'count')) {
-      return "addToCart payload does not contain 'count' property "
+      throw new Error("addToCart payload does not contain 'count' property")
     }
     const item = getters.cartItem(payload.id)
     // If item is already in cart
     if (item) {
-      commit('updateItemCount', payload)
+      commit('varyItemCount', payload)
     } else {
       // Item not in cart
       commit('addItem', payload)
