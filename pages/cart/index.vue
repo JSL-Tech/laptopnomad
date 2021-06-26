@@ -31,6 +31,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .cart {
+  min-height: 75vh;
   display: flex;
   padding-top: 7rem;
   margin-bottom: 2.5rem;

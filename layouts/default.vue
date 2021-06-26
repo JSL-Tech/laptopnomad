@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Navbar from '@/components/Navigation/Navbar'
+import Navbar from '@/components/navigation/Navbar'
 import { computed, defineComponent, useStore } from '@nuxtjs/composition-api'
 import FooterPage from '@/components/footerPage'
 import Loader from '~/components/Loader.vue'
