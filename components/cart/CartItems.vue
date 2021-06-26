@@ -14,7 +14,7 @@
             Color: {{ item.colorName }}
           </p>
           <p class="item__option">
-            Size: Macbook Pro 13'
+            Size: 13 inch
           </p>
           <!-- Product Price -->
           <!-- <p v-if="item.salePrice" class="details__price"> -->

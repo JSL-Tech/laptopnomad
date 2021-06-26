@@ -68,7 +68,7 @@ export default defineComponent({
     const isLoading = ref(false)
     const show = ref(false)
     const snackbarMessage = ref('')
-    const submitFormEndpoint = ' https://asia-east2-learning-38322.cloudfunctions.net/nomad/submit-form'
+    const submitFormEndpoint = 'https://asia-east2-laptopnomad.cloudfunctions.net/nomad/submit-form'
 
     const handleSubmitForm = async () => {
       isLoading.value = true

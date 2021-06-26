@@ -95,11 +95,11 @@ export default defineComponent({
   },
   setup () {
     const testReview = {
-      totalReviews: 100,
-      avgReview: 4.75,
+      totalReviews: 3,
+      avgReview: 4.67,
       reviewCount: {
-        five: 75,
-        four: 25,
+        five: 2,
+        four: 1,
         three: 0,
         two: 0,
         one: 0
@@ -108,65 +108,23 @@ export default defineComponent({
         {
           name: 'L****L',
           review: 'I love this sleeve! Does the job well',
-          media: ['~/assets/images/review_pic.jpg'],
+          media: [],
           stars: 5,
-          dateCreated: new Date().toLocaleDateString('en-SG')
+          dateCreated: '25/03/2021'
         },
         {
-          name: 'L****e',
-          review: 'I love this sleeve! Does the job well',
+          name: 's******e',
+          review: 'Fast shipping and great packaging',
           media: [],
           stars: 4,
-          dateCreated: new Date().toLocaleDateString('en-SG')
+          dateCreated: '12/04/2021'
         },
         {
-          name: 'L****e',
-          review: 'I love this sleeve! Does the job well',
+          name: 'E***w',
+          review: 'Good',
           media: [],
-          stars: 4,
-          dateCreated: new Date().toLocaleDateString('en-SG')
-        },
-        {
-          name: 'L****e',
-          review: 'I love this sleeve! Does the job well',
-          media: [],
-          stars: 4,
-          dateCreated: new Date().toLocaleDateString('en-SG')
-        },
-        {
-          name: 'L****e',
-          review: 'I love this sleeve! Does the job well',
-          media: [],
-          stars: 4,
-          dateCreated: new Date().toLocaleDateString('en-SG')
-        },
-        {
-          name: 'L****e',
-          review: 'I love this sleeve! Does the job well',
-          media: [],
-          stars: 4,
-          dateCreated: new Date().toLocaleDateString('en-SG')
-        },
-        {
-          name: 'L****e',
-          review: 'I love this sleeve! Does the job well',
-          media: [],
-          stars: 4,
-          dateCreated: new Date().toLocaleDateString('en-SG')
-        },
-        {
-          name: 'L****e',
-          review: 'I love this sleeve! Does the job well',
-          media: [],
-          stars: 4,
-          dateCreated: new Date().toLocaleDateString('en-SG')
-        },
-        {
-          name: 'L****e',
-          review: 'I love this sleeve! Does the job well',
-          media: [],
-          stars: 4,
-          dateCreated: new Date().toLocaleDateString('en-SG')
+          stars: 5,
+          dateCreated: '27/03/2021'
         }
       ]
     }

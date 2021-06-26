@@ -48,30 +48,6 @@ export default defineComponent({
       {
         question: 'Does it come with free gifts',
         reply: 'It comes with a pouch and a cable management. Both are free!'
-      },
-      {
-        question: 'Does it come with free gifts',
-        reply: 'It comes with a pouch and a cable management. Both are free!'
-      },
-      {
-        question: 'Does it come with free gifts',
-        reply: 'It comes with a pouch and a cable management. Both are free!'
-      },
-      {
-        question: 'Does it come with free gifts',
-        reply: 'It comes with a pouch and a cable management. Both are free!'
-      },
-      {
-        question: 'Does it come with free gifts',
-        reply: 'It comes with a pouch and a cable management. Both are free!'
-      },
-      {
-        question: 'Does it come with free gifts',
-        reply: 'It comes with a pouch and a cable management. Both are free!'
-      },
-      {
-        question: 'Does it come with free gifts',
-        reply: 'It comes with a pouch and a cable management. Both are free!'
       }
     ]
     return { faqObjs }

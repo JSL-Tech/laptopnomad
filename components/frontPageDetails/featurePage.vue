@@ -41,14 +41,14 @@
               </template>
             </b-carousel-slide>
           </b-carousel>
-          <nuxt-link class="card__subheading" :to="'/products/rXvql9MfAnrW8OPu1fEn'">
+          <nuxt-link class="card__subheading" :to="'/products/FgnteTY6KnvbgbRkH2oY'">
             Classic Leather
           </nuxt-link>
           <div class="details__price">
             <span class="details__price--normal">S$35.00</span>
             <span class="details__price--strike">S$45.00</span>
           </div>
-          <nuxt-link class="card__button" :to="'/products/1rBHJM0XvnEFeYDxso9t'">
+          <nuxt-link class="card__button" :to="'/products/FgnteTY6KnvbgbRkH2oY'">
             Shop Now
           </nuxt-link>
         </div>
@@ -87,14 +87,14 @@
               </template>
             </b-carousel-slide>
           </b-carousel>
-          <nuxt-link class="card__subheading" :to="'/products/rXvql9MfAnrW8OPu1fEn'">
+          <nuxt-link class="card__subheading" :to="'/products/xwVXCqDywPkx6hi0wkIT'">
             Novel Pink
           </nuxt-link>
           <div class="details__price">
             <span class="details__price--normal">S$35.00</span>
             <span class="details__price--strike">S$45.00</span>
           </div>
-          <nuxt-link class="card__button" :to="'/products/rXvql9MfAnrW8OPu1fEn'">
+          <nuxt-link class="card__button" :to="'/products/xwVXCqDywPkx6hi0wkIT'">
             Shop Now
           </nuxt-link>
         </div>

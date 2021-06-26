@@ -34,7 +34,7 @@ export default defineComponent({
     const checkoutRef = ref(null)
     const session = ref('')
     const isCartEmpty = computed(() => !(props.cart.length > 0))
-    const createCheckoutSessionEndpoint = 'https://asia-east2-learning-38322.cloudfunctions.net/stripe/create-checkout-session'
+    const createCheckoutSessionEndpoint = 'https://asia-east2-laptopnomad.cloudfunctions.net/stripe/create-checkout-session'
 
     const handleCheckout = async () => {
       if (isCartEmpty.value) {

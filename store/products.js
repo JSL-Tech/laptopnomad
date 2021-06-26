@@ -1,16 +1,14 @@
 export const state = () => ({
-  products: [],
+  products: []
 })
 export const getters = {
   // Get all products
-  products(state) {
+  products (state) {
     return state.products
   },
   // Get a product with a specific id
-  product: (state) => (id) => {
-    console.log('Get product called id: ',id)
-    console.log(state.products)
-    return state.products.find(product => product.id === id);
+  product: state => (id) => {
+    return state.products.find(product => product.id === id)
   },
   productsCount: (_, getters) => {
     return getters.products.length
@@ -21,40 +19,34 @@ export const mutations = {
   setProducts: (state, payload) => {
     state.products = payload
   },
-  // Add a product to products in state 
+  // Add a product to products in state
   addProduct: (state, payload) => {
-    state.products.push(payload);
+    state.products.push(payload)
   }
 }
 export const actions = {
   // Get whole collection of proudcts
-  async loadAllProducts({commit}){
-    console.log('loadAllProducts action called')
+  async loadAllProducts ({ commit }) {
     const ref = this.$fire.firestore.collection('products')
-    try{
-      await ref.get().then(querySnapshot => {
-        querySnapshot.forEach(doc => {
-          commit('addProduct', {id: doc.id, ...doc.data()})
+    try {
+      await ref.get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          commit('addProduct', { id: doc.id, ...doc.data() })
         })
       })
-    }catch(err){
-      console.error(err)
+    } catch (err) {
     }
   },
-  async loadProduct({commit}, id){
-    console.log('loadProduct action called', id)
+  async loadProduct ({ commit }, id) {
     const ref = this.$fire.firestore.collection('products').doc(id)
-    try{
-      await ref.get().then(doc => {
-        if(doc.exists){
-          commit('addProduct', {id: doc.id, ...doc.data()})
-          return {id: doc.id, ...doc.data()}
-        }else{
-          console.log(`Document ID: ${id} does not exist`)
+    try {
+      await ref.get().then((doc) => {
+        if (doc.exists) {
+          commit('addProduct', { id: doc.id, ...doc.data() })
+          return { id: doc.id, ...doc.data() }
         }
       })
-    }catch(err){
-      console.error(err)
+    } catch (err) {
     }
   }
 }
