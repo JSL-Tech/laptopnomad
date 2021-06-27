@@ -9,13 +9,10 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'base',
+    title: 'LaptopNomad',
     htmlAttrs: {
       lang: 'en'
     },
-    script: [
-      { src: 'https://js.stripe.com/v3/' }
-    ],
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -40,8 +37,7 @@ export default {
   },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/persistedState.client.js' },
-    { src: '~/plugins/vue-stripe.js', ssr: false }
+    { src: '~/plugins/persistedState.client.js' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
