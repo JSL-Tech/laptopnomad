@@ -1,24 +1,24 @@
 <template>
   <div>
-    <topPage />
-    <aboutPage />
-    <whyUsPage />
-    <featurePage />
+    <topSection />
+    <aboutSection />
+    <whyUsSection />
+    <featureSection />
     <ContactUs />
   </div>
 </template>
 
 <script>
-import topPage from '@/components/frontPageDetails/topPage'
-import aboutPage from '@/components/frontPageDetails/aboutPage'
-import whyUsPage from '@/components/frontPageDetails/whyUsPage'
-import featurePage from '@/components/frontPageDetails/featurePage'
+import topSection from '@/components/frontPageDetails/topSection'
+import aboutSection from '@/components/frontPageDetails/aboutSection'
+import whyUsSection from '@/components/frontPageDetails/whyUsSection'
+import featureSection from '@/components/frontPageDetails/featureSection'
 import ContactUs from '@/components/ContactUs'
 
 import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  components: { topPage, aboutPage, whyUsPage, featurePage, ContactUs },
+  components: { topSection, aboutSection, whyUsSection, featureSection, ContactUs },
   setup () {
 
   }
