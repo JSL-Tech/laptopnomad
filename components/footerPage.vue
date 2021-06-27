@@ -237,25 +237,13 @@ export default defineComponent({
 }
 
     &__text{
+    height: 80vh;
+    width: 80vw;
     font-size: 1.4rem;
     padding: 3rem;
-
-    column-count: 2;
-    column-gap: 4rem;
-    column-rule: 1px solid #333;
-
-    -moz-column-count: 2;
-    -moz-column-gap: 4rem;
-    -moz-column-rule: 1px solid #333;
-
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    -webkit-hyphens: auto;
-    hyphens: auto;
+    overflow-x: scroll;
 
     @include respond(phone) {
-        column-count: 1;
-        font-size: .8rem;
     }
 
     &-heading{
