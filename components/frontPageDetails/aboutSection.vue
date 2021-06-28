@@ -1,7 +1,7 @@
 <template>
   <div id="about" ref="about" class="about">
     <div class="card card--1">
-      <b-img
+      <b-img-lazy
         src="~/assets/images/main.png"
         fluid
         alt="Responsive image"
@@ -9,7 +9,7 @@
       />
     </div>
     <div class="card card--2">
-      <b-img
+      <b-img-lazy
         src="~/assets/images/Main_edited.jpg"
         fluid
         alt="Responsive image"
@@ -17,7 +17,7 @@
       />
     </div>
     <div class="card card--3">
-      <b-img
+      <b-img-lazy
         src="~/assets/images/5.jpg"
         fluid
         alt="Responsive image"
@@ -25,7 +25,7 @@
       />
     </div>
     <div class="card card--4">
-      <b-img
+      <b-img-lazy
         src="~/assets/images/pouch.png"
         fluid
         alt="Responsive image"
@@ -39,7 +39,7 @@
       </h2>
     </div>
     <div class="card card--5">
-      <b-img
+      <b-img-lazy
         src="~/assets/images/addon_cable.png"
         fluid
         alt="Responsive image"
@@ -168,6 +168,7 @@ export default defineComponent({
   }
 
   &__image {
+    width: cover;
     margin: 2rem 0;
 
     &--small {
