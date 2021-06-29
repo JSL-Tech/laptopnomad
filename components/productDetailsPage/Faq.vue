@@ -43,7 +43,7 @@ export default defineComponent({
       },
       {
         question: 'What laptop can fit this sleeve',
-        reply: 'Any 14 inch laptops should be able to fit'
+        reply: 'Most 13 inch laptops will be able to fit'
       },
       {
         question: 'Does it come with free gifts',
