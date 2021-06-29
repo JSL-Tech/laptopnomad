@@ -19,8 +19,12 @@
 
 <script>
 import { computed, defineComponent, ref, useStore, useRouter } from '@nuxtjs/composition-api'
+import { StripeCheckout } from '@vue-stripe/vue-stripe'
 
 export default defineComponent({
+  components: {
+    StripeCheckout
+  },
   props: {
     cart: {
       type: Array,

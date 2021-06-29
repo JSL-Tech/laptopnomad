@@ -4,7 +4,7 @@
       <h1 class="header__box-main">
         LAPTOPNOMADCO
       </h1>
-      <LinkButton :location="feature">
+      <LinkButton :location="'feature'">
         Shop Now
       </LinkButton>
       <span class="header__box-button--sub">The case you have been looking for </span>

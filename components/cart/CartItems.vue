@@ -14,7 +14,7 @@
             Color: {{ item.colorName }}
           </p>
           <p class="item__option">
-            Size: 13 inch
+            Size: For 13 inch laptops
           </p>
           <!-- Product Price -->
           <!-- <p v-if="item.salePrice" class="details__price"> -->

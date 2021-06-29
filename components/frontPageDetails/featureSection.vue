@@ -10,15 +10,12 @@
         <div>
           <b-carousel
             id="carousel-1"
-            v-model="slide"
             :interval="10000"
             controls
             indicators
             img-width="300"
             img-height="300"
             class="carousel"
-            @sliding-start="onSlideStart"
-            @sliding-end="onSlideEnd"
           >
             <!-- Slides with img slot -->
             <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
@@ -57,14 +54,11 @@
         <div>
           <b-carousel
             id="carousel-1"
-            v-model="slide"
             :interval="10000"
             controls
             indicators
             img-width="300"
             img-height="300"
-            @sliding-start="onSlideStart"
-            @sliding-end="onSlideEnd"
           >
             <!-- Slides with img slot -->
             <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->

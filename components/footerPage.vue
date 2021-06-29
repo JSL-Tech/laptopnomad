@@ -237,14 +237,11 @@ export default defineComponent({
 }
 
     &__text{
-    height: 80vh;
-    width: 80vw;
+      height: 80vh;
+      width: 80vw;
     font-size: 1.4rem;
     padding: 3rem;
-    overflow-x: scroll;
-
-    @include respond(phone) {
-    }
+    overflow: scroll;
 
     &-heading{
       font-size: 1.7;
