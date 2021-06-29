@@ -8,7 +8,7 @@
 
     <div class="card__area">
       <div class="card card--1">
-        <b-img
+        <b-img-lazy
           src="~/assets/images/design.png"
           fluid
           alt="Responsive image"
@@ -23,7 +23,7 @@
         </h2>
       </div>
       <div class="card card--2">
-        <b-img
+        <b-img-lazy
           src="~/assets/images/Speed.png"
           fluid
           alt="Responsive image"
@@ -37,7 +37,7 @@
         </h2>
       </div>
       <div class="card card--3">
-        <b-img
+        <b-img-lazy
           src="~/assets/images/posturebackless1.png"
           fluid
           alt="Responsive image"
