@@ -27,6 +27,7 @@ export default defineComponent({
 
 <style lang="scss" >
 html {
+    scroll-behavior: smooth;
     @include respond(tab-land) {
         font-size: 56.25%;
     }

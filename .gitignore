@@ -91,3 +91,5 @@ sw.*
 
 # Firebase config
 firebase.config.js
+.firebase/hosting.ZGlzdA.cache
+*.cache
