@@ -51,7 +51,6 @@ Eccommerce website developed on Nuxt.js Framework
 - Full Cart Functionality
 - Integrated with Stripe Checkout
 <br>
-<br>
 
 # Getting started
 
